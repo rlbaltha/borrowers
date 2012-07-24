@@ -1,0 +1,13 @@
+parameters:
+    database_driver: pdo_pgsql
+    database_host: localhost
+    database_port: '5432'
+    database_name: borrowers_db
+    database_user: rlbaltha
+    database_password: hdt71217
+    mailer_transport: smtp
+    mailer_host: localhost
+    mailer_user: null
+    mailer_password: null
+    locale: en
+    secret: b752dfb1057668f79887c9607251b2cb8
