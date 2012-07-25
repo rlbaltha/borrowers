@@ -14,12 +14,6 @@
         {
             "package": "doctrine/doctrine-bundle",
             "version": "dev-master",
-            "alias-pretty-version": "1.0.x-dev",
-            "alias-version": "1.0.9999999.9999999-dev"
-        },
-        {
-            "package": "doctrine/doctrine-bundle",
-            "version": "dev-master",
             "source-reference": "62134e6a8dd3f330131ee6a970f0cee1d7760c1d",
             "commit-date": "1343203511"
         },
@@ -98,8 +92,8 @@
         {
             "package": "sensio/framework-extra-bundle",
             "version": "dev-master",
-            "source-reference": "b2cdb24737aa0c7381faf53d2e2f31a667113adc",
-            "commit-date": "1343195639"
+            "source-reference": "998f5edbffcc422ebd74dab093d9a35d96e3edf6",
+            "commit-date": "1343247216"
         },
         {
             "package": "sensio/generator-bundle",
@@ -128,12 +122,6 @@
         {
             "package": "symfony/assetic-bundle",
             "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
-        },
-        {
-            "package": "symfony/assetic-bundle",
-            "version": "dev-master",
             "source-reference": "a5daf7ca4588f88105c808de9a28ba1e66bfa082",
             "commit-date": "1343161458"
         },
@@ -158,8 +146,8 @@
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "f4570d5e731f66198c3d69fe2baddc5785ff8318",
-            "commit-date": "1343209062"
+            "source-reference": "af47e762c30feccb24b0d7f9fe2475a274eea745",
+            "commit-date": "1343247538"
         },
         {
             "package": "twig/extensions",
