@@ -1,0 +1,21 @@
+
+{% extends 'BorrowersHomeBundle::layout.html.twig' %}
+
+{% block content %}
+
+<div class="span2">
+<a class="btn btn-info" href="{{ path('section') }}">List</a>
+ 
+</div>       
+  
+
+
+<div class="span6 well"> 
+<form action="{{ path('section_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <div>
+        <button class="btn" type="submit">Create</button>
+    </div>
+</form>
+</div>
+{% endblock %}

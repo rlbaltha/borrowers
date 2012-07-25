@@ -1,0 +1,17 @@
+{% set bundlename= "BorrowersHomeBundle::layout.html.twig" %}
+
+{{ "{% extends '"~ bundlename ~"' %}" }}
+
+{{ "{% block content %}" }}
+{% set hide_edit, hide_delete = true, true %}
+{% include 'views/others/record_actions.html.twig' %}
+
+<div class="span6 well"> 
+<form action="{{ "{{ path('"~ route_name_prefix ~"_create') }}" }}" method="post" {{ "{{ form_enctype(form) }}" }}>
+    {{ "{{ form_widget(form) }}" }}
+    <div>
+        <button class="btn" type="submit">Create</button>
+    </div>
+</form>
+</div>
+{{ "{% endblock %}" }}

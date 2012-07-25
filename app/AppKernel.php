@@ -22,6 +22,9 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new Borrowers\UserBundle\BorrowersUserBundle(),
             new Borrowers\HomeBundle\BorrowersHomeBundle(),
+            new Borrowers\GeneratorBundle\BorrowersGeneratorBundle(),
+            new Borrowers\IssueBundle\BorrowersIssueBundle(),
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

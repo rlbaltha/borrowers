@@ -1,0 +1,25 @@
+
+{% extends 'BorrowersHomeBundle::layout.html.twig' %}
+
+{% block content %}
+   <div class="span6">
+      <a class="btn btn-primary" href="{{ path('issue_new') }}">New</a>
+   </div>
+
+
+<div class="span6">
+<table class="table table-bordered table-condensed table-striped">  
+<tbody>
+    {% for issue in issues %}
+    <tr>              
+        <td>{{ issue.issue }}</td>        
+        <td>{{ issue.title |raw }}</td>           
+        <td><a class="btn" href="{{ path('issue_show', { 'id': issue.id }) }}">show</a><a class="btn" href="{{ path('issue_edit', { 'id': issue.id }) }}">edit</a>
+</td>       
+    </tr>
+    
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock %}

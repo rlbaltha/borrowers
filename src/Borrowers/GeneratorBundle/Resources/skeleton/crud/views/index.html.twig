@@ -1,0 +1,57 @@
+{% set bundlename= "BorrowersHomeBundle::layout.html.twig" %}
+
+{{ "{% extends '"~ bundlename ~"' %}" }}
+
+{{ "{% block content %}" }}
+{% if 'new' in actions %}
+   <div class="span6">
+      <a class="btn btn-primary" href="{{ "{{ path('"~ route_name_prefix ~"_new') }}" }}">New</a>
+   </div>
+{% endif %}
+
+
+<div class="span6">
+<table class="table table-bordered table-condensed table-striped">
+<thead>
+    <tr>
+        
+    {%- for field, metadata in fields %}
+        
+        <th>{{ field|capitalize }}</th>
+        
+    {%- endfor %}
+        
+        <th>Actions</th>
+    </tr>
+</thead>    
+<tbody>
+    {{ '{% for entity in entities %}' }}
+    <tr>
+        
+    {%- for field, metadata in fields %}
+    {%- if loop.first and ('show' in actions) %}
+        
+        <td><a href="{{ "{{ path('"~ route_name_prefix ~"_show', { 'id': entity.id }) }}" }}">{{ '{{ entity.'~ field|replace({'_': ''}) ~' }}' }}</a></td>
+        
+    {%- elseif metadata.type in ['date', 'datetime'] %}
+        
+        <td>{{ '{% if entity.'~ field|replace({'_': ''}) ~' %}{{ entity.'~ field|replace({'_': ''}) ~'|date(\'Y-m-d H:i:s\') }}{% endif%}' }}</td>
+        
+    {%- else %}
+        
+        <td>{{ '{{ entity.'~ field|replace({'_': ''}) ~' }}' }}</td>
+        
+    {%- endif %}
+    {%- if loop.last %}
+        
+        <td>{%- include "views/others/actions.html.twig" %}</td>
+        
+    {%- endif %}
+    {%- endfor %}       
+    </tr>
+    
+    {{ '{% endfor %}' }}
+    </tbody>
+</table>
+</div>
+{{ "{% endblock %}" }}

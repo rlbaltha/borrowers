@@ -1,0 +1,51 @@
+
+{% extends 'BorrowersHomeBundle::layout.html.twig' %}
+
+{% block content %}
+<div class="row"> 
+<div class="span2">
+<a class="btn btn-info" href="{{ path('section') }}">List</a>
+<a class="btn btn-primary" href="{{ path('section_edit', { 'id': entity.id }) }}">Edit</a>
+ 
+</div>       
+  
+<div class="span1">        
+<form action="{{ path('section_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button class="btn btn-danger" type="submit">Delete</button>
+</form>
+</div>
+</div>  
+
+        
+<div class="row"> 
+<div class="span6">    
+<table class="table table-bordered table-condensed table-striped">
+<tbody>        
+    <tr>
+        <th>Id</th>         
+        <td>{{ entity.id }}</td>         
+    </tr>        
+    <tr>
+        <th>Title</th>         
+        <td>{{ entity.title }}</td>         
+    </tr>        
+    <tr>
+        <th>Description</th>         
+        <td>{{ entity.description }}</td>         
+    </tr>        
+    <tr>
+        <th>Sortorder</th>         
+        <td>{{ entity.sortorder }}</td>         
+    </tr>        
+    <tr>
+        <th>Created</th>        <td>{{ entity.created|date('Y-m-d H:i:s') }}</td>         
+    </tr>        
+    <tr>
+        <th>Updated</th>        <td>{{ entity.updated|date('Y-m-d H:i:s') }}</td>         
+    </tr>  
+</tbody>
+</table>
+</div>
+</div>        
+{% endblock %}

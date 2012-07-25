@@ -1,3 +1,13 @@
+BorrowersIssueBundle:
+    resource: "@BorrowersIssueBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+BorrowersGeneratorBundle:
+    resource: "@BorrowersGeneratorBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 BorrowersHomeBundle:
     resource: "@BorrowersHomeBundle/Controller/"
     type:     annotation

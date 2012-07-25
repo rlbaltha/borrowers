@@ -24,6 +24,13 @@ class User extends BaseUser
         parent::__construct();
         // your own logic
     }
+
+    /**
+     * @var string $userid
+     *
+     * @ORM\Column(name="userid", type="integer", nullable=true)
+     */
+    private $userid;
     
     /**
      * @var string $lastname
@@ -78,4 +85,36 @@ class User extends BaseUser
     {
         return $this->firstname;
     }    
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set userid
+     *
+     * @param integer $userid
+     * @return User
+     */
+    public function setUserid($userid)
+    {
+        $this->userid = $userid;
+        return $this;
+    }
+
+    /**
+     * Get userid
+     *
+     * @return integer 
+     */
+    public function getUserid()
+    {
+        return $this->userid;
+    }
 }

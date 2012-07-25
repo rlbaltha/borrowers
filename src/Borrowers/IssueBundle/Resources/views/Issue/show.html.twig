@@ -1,0 +1,83 @@
+
+{% extends 'BorrowersHomeBundle::layout.html.twig' %}
+
+{% block content %}
+<div class="row">
+
+<div class="span2">
+<a class="btn btn-info" href="{{ path('issue') }}">List</a>
+<a class="btn btn-primary" href="{{ path('issue_edit', { 'id': issue.id }) }}">Edit</a>
+ 
+</div>       
+  
+<div class="span1">        
+<form action="{{ path('issue_delete', { 'id': issue.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button class="btn btn-danger" type="submit">Delete</button>
+</form>
+</div>
+    
+</div>  
+
+        
+
+<div class="span12">    
+<table class="table table-bordered table-condensed table-striped">
+<tbody>               
+    <tr>
+        <th>Issue</th>         
+        <td>{{ issue.issue }}</td>         
+    </tr>        
+    <tr>
+        <th>Title</th>         
+        <td>{{ issue.title | raw}}</td>         
+    </tr>        
+    <tr>
+        <th>Description</th>         
+        <td>{{ issue.description }}</td>         
+    </tr>        
+    <tr>
+        <th>Display</th>         
+        <td>{{ issue.display }}</td>         
+    </tr>        
+    <tr>
+        <th>Subtitle</th>         
+        <td>{{ issue.subtitle }}</td>         
+    </tr>        
+    <tr>
+        <th>Editors</th>         
+        <td>{{ issue.editors }}</td>         
+    </tr>         
+</tbody>
+</table>
+  
+<h2>Sections</h2>        
+
+    {% for section in issue.sections %} 
+     <div class="row">
+         <div class="span10">
+             <h3>{{ section.title }} </h3>   
+             <h4>{{ section.description }}</h4>           
+             <a class="btn btn-primary" href="{{ path('section_edit', { 'id': section.id }) }}">edit</a>
+         
+         
+         <table class="table table-bordered table-condensed table-striped">    
+         <tbody>
+         {% for file in section.files %} 
+         <tr>             
+         <td>{{ file.title |raw }}</td>        
+         <td>{{ file.path }}</td>                   
+         <td><a class="btn" href="{{ path('file_edit', { 'id': file.id }) }}">edit</a>
+         </td>       
+         </tr>
+         {% endfor %}
+         </tbody>
+         </table>
+         
+         </div>
+     </div>     
+    {% endfor %}
+
+
+</div>          
+{% endblock %}
