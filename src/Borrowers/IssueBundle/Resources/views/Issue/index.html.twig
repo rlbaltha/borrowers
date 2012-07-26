@@ -14,7 +14,7 @@
     <tr>              
         <td>{{ issue.issue }}</td>        
         <td>{{ issue.title |raw }}</td>           
-        <td><a class="btn" href="{{ path('issue_show', { 'id': issue.id }) }}">show</a><a class="btn" href="{{ path('issue_edit', { 'id': issue.id }) }}">edit</a>
+        <td><a class="btn btn-info" href="{{ path('issue_show', { 'id': issue.id }) }}">show</a><a class="btn btn-primary" href="{{ path('issue_edit', { 'id': issue.id }) }}">edit</a>
 </td>       
     </tr>
     

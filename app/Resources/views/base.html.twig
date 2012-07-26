@@ -4,16 +4,37 @@
         <meta charset="UTF-8" />
         <title>{% block title %}Borrowers & Lenders{% endblock %}</title>
         <link type="text/css" rel="stylesheet" href="{{ asset('bundles/borrowershome/css/bootstrap.css') }}">
+        <link type="text/css" rel="stylesheet" href="{{ asset('bundles/borrowershome/css/bootstrap-responsive.css') }}">
+        <link type="text/css" rel="stylesheet" href="{{ asset('bundles/borrowershome/css/local.css') }}">
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+     <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Borrowers & Lenders</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a title="Issues" href="{{ path('issue') }}" >Issues</a></li>
+              {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+              <li class=""><a class='last' title="Logout" href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+              {% else %}
+              <li class=""><a class='last' title="Login" href="{{ path('fos_user_security_login') }}">Login</a></li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+            
         <div class="container">
             <div class="span12">
-               <div class="page-header well">
-               <h1>Borrowers & Lenders</h1>
-               <h3>The Journal of Shakespeare and Appropriation</h3>
-               </div>
             {% block body %}{% endblock %}
             </div>
         </div>

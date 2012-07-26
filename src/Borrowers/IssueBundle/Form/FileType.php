@@ -11,8 +11,8 @@ class FileType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('path')
-            ->add('title')
+            ->add('path','text', array('attr' => array('class' => 'formtext'),))
+            ->add('title','text', array('attr' => array('class' => 'formtext'),))
             ->add('sortorder')    
         ;
     }

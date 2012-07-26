@@ -1,0 +1,19 @@
+/* 
+    Document   : local
+    Created on : Jul 26, 2012, 9:16:30 AM
+    Author     : rlbaltha
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+body { 
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+
+.formtext {
+    width:400px;
+}
+
+.margintop {margin-top: 10px;}
+

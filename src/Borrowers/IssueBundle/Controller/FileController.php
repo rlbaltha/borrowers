@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Response;
 use Borrowers\IssueBundle\Entity\File;
 use Borrowers\IssueBundle\Form\FileType;
 
@@ -138,6 +139,7 @@ class FileController extends Controller
         $em = $this->getDoctrine()->getEntityManager();
 
         $entity = $em->getRepository('BorrowersIssueBundle:File')->find($id);
+        $issue = $entity->getIssue()->getId();
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find File entity.');
@@ -154,7 +156,7 @@ class FileController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('file_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('issue_show', array('id' => $issue)));
         }
 
         return array(
@@ -199,4 +201,46 @@ class FileController extends Controller
             ->getForm()
         ;
     }
+    
+    
+    /**
+     * Finds and displays a File entity.
+     *
+     * @Route("/{id}/display", name="file_display")
+     * @Template()
+     */
+    public function displayAction($id)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $file = $em->getRepository('BorrowersIssueBundle:File')->find($id);
+        $path = '/var/lib/borrowers_docs/'.$file->getPath();
+
+        if (!$file) {
+            throw $this->createNotFoundException('Unable to find File entity.');
+        }
+
+                $xp = new \XsltProcessor();
+                
+                $xsl = new \DomDocument;
+                $xsl->load('bundles/borrowershome/xsl/main.xsl');             
+                $xp->importStylesheet($xsl);
+                
+                $xml_doc = new \DomDocument;
+                $xml_doc->load($path);
+                
+                if ($html = $xp->transformToXML($xml_doc)) {
+                } else {
+                 trigger_error('XSL transformation failed.', E_USER_ERROR);
+                }
+          
+		$response = new Response();		
+		$response->setStatusCode(200);
+                $response->headers->set('Content-Type', 'text/html');
+		$response->setContent( $html );
+                return $response;
+
+    }
+    
+    
 }

@@ -3,13 +3,6 @@
 
 {% block content %}
 
-<div class="span2">
-<a class="btn btn-info" href="{{ path('issue') }}">List</a>
- 
-</div>       
-  
-
-
 <div class="span6 well"> 
     <form action="{{ path('issue_create') }}" method="post" {{ form_enctype(form) }}  novalidate="novalidate">
     {{ form_widget(form) }}

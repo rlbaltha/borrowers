@@ -11,8 +11,8 @@ class SectionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('description')
+            ->add('title','text', array('attr' => array('class' => 'formtext'),))
+            ->add('description','text', array('attr' => array('class' => 'formtext'),))
             ->add('sortorder')
         ;
     }

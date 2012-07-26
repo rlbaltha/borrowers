@@ -12,11 +12,10 @@ class IssueType extends AbstractType
     {
         $builder
             ->add('issue')
-            ->add('title')
-            ->add('description')
-            ->add('display')
-            ->add('subtitle')
-            ->add('editors')
+            ->add('title','text', array('attr' => array('class' => 'formtext'),))
+            ->add('description','text', array('attr' => array('class' => 'formtext'),))
+            ->add('subtitle','text', array('attr' => array('class' => 'formtext'),))
+            ->add('editors','text', array('attr' => array('class' => 'formtext'),))
         ;
     }
 
