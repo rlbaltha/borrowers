@@ -20,7 +20,7 @@ security:
                 default_target_path: /issue
             logout:
                 path:   /logout
-                target: /home
+                target: /issue
             anonymous:    true
 
     access_control:

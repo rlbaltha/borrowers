@@ -34,8 +34,8 @@
          <tbody>
          {% for file in section.files %} 
          <tr>             
-         <td>{{ file.title |raw }}</td>        
-         <td><a class="" href="{{ path('file_display', { 'id': file.id }) }}">{{ file.path }}</a></td>                   
+         <td><a class="" href="{{ path('file_display', { 'id': file.id }) }}">{{ file.title |raw }}</a></td>        
+         <td>{{ file.path }}</td>                   
          <td><a class="btn btn-primary" href="{{ path('file_edit', { 'id': file.id }) }}">Edit</a>
          </td>       
          </tr>
