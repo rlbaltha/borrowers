@@ -29,6 +29,7 @@
              <h4>{{ section.title }}</h4> 
              <h5>{{ section.description }} </h5>        
              <a class="btn btn-primary pull-right" href="{{ path('section_edit', { 'id': section.id }) }}">Edit</a>
+             <a class="btn btn-primary pull-right" href="{{ path('file_upload', { 'issueid':issue.id,'sectionid': section.id }) }}">Upload</a>
 
          <table class="table">    
          <tbody>

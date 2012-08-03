@@ -13,7 +13,7 @@
     {% for entity in entities %}
     <tr>            
                
-        <td>{{ entity.title | raw }}</td> 
+        <td><a class="" href="{{ path('file_display', { 'id': entity.id }) }}">{{ entity.title |raw }}</a></td> 
         <td>{{ entity.path }}</td> 
         <td><a class="btn" href="{{ path('file_show', { 'id': entity.id }) }}">show</a><a class="btn" href="{{ path('file_edit', { 'id': entity.id }) }}">edit</a>
 </td>       

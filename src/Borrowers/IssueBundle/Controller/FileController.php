@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Response;
 use Borrowers\IssueBundle\Entity\File;
 use Borrowers\IssueBundle\Form\FileType;
+use Borrowers\IssueBundle\Form\UploadType;
 
 /**
  * File controller.
@@ -27,7 +28,7 @@ class FileController extends Controller
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        $entities = $em->getRepository('BorrowersIssueBundle:File')->findAll();
+        $entities = $em->getRepository('BorrowersIssueBundle:File')->findRecentFiles();
 
         return array('entities' => $entities);
     }
@@ -242,5 +243,41 @@ class FileController extends Controller
 
     }
     
+    /**
+     * Uploads a file with a Document entity.
+     *
+     * @Route("/{issueid}/{sectionid}/upload", name="file_upload")
+     * @Template()
+     */  
+    public function uploadAction($issueid, $sectionid)
+    {
+        $securityContext = $this->get('security.context');
+        $user = $securityContext->getToken()->getUser();
+        
+        $em = $this->getDoctrine()->getEntityManager();
+        $issue = $em->getRepository('BorrowersIssueBundle:Issue')->find($issueid);
+        $section = $em->getRepository('BorrowersIssueBundle:Section')->find($sectionid);
+        $options = array('issueid' => $issueid);
+        $file = new File();
+        $file->setIssue($issue);
+        $file->setUser($user);
+                
+        $form = $this->createForm(new UploadType($options), $file);
+        $section->addFile($file);
+
+        if ($this->getRequest()->getMethod() === 'POST') {
+            $form->bindRequest($this->getRequest());
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getEntityManager();
+                $file->upload();
+                $em->persist($file);
+                $em->flush();
     
+                return $this->redirect($this->generateUrl('issue_show', array('id' => $issueid)));
+            }
+        }
+
+    return array('form' => $form->createView());
+}
+
 }

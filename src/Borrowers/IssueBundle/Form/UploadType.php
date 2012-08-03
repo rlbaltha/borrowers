@@ -6,14 +6,13 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class FileType extends AbstractType
+class UploadType extends AbstractType
 {
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('path','text', array('attr' => array('class' => 'formtext'),))
-            ->add('title','text', array('attr' => array('class' => 'formtext'),))
-            ->add('sortorder') 
+            ->add('title')
             ->add('file')    
         ;
     }

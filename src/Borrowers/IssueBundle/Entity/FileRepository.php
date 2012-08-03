@@ -12,4 +12,10 @@ use Doctrine\ORM\EntityRepository;
  */
 class FileRepository extends EntityRepository
 {
+    public function findRecentFiles()
+    {  
+       return $this->getEntityManager()
+               ->createQuery('SELECT f from BorrowersIssueBundle:File f ORDER BY f.created DESC')
+               ->setMaxResults(25)->getResult();
+    } 
 }
