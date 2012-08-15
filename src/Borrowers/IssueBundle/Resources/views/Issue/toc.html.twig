@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>Borrowers and Lenders:  The Journal of Shakespeare and Appropriation</title>
+<link href="/borrowers/web/bundles/borrowershome/css/bandl5.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+
+
+<!-- header table -->
+<table cellpadding='0' cellspacing='0'>
+
+<!-- header row -->
+<tr>
+<td class='header' height='150px'/>
+</tr>
+
+<!-- body row -->
+<tr>
+<td>
+
+<!-- body table -->
+<table cellpadding='0' cellspacing='0'>
+<tr>
+<td class='leftside' width='150px' valign='top'>
+
+</td>
+
+<!-- body cell -->
+<td valign='top' class='textarea'>
+<img src='/borrowers/bodyspacer.gif'/><br/>
+
+
+<!-- ===================================TOC================================ -->
+<!-- main toc -->
+<p align='right'>ISSN 1554-6985</p>
+<p class='toc1'>{{ issue.title | raw}}</p>
+<p class='toc2'>{{ issue.description }}</p>
+<p class='toc1'>{{ issue.subtitle }}</p>
+
+
+<p class='toc2'>EDITED  BY</p>
+<p class='toc4'>{{ issue.editors }}</p>
+<p class='toc2'>CONTENTS</p>
+
+
+
+<table border='0' width='100%' cellpadding='7'>
+{% for section in issue.sections %} 
+
+<!-- section -->
+<td colspan='2'>
+<p class='toc3'>{{ section.title }}</p>
+<p class='toc3'>{{ section.description }}</p>
+</td>
+</tr>
+
+
+{% for file in section.files %} 
+
+<tr>
+<td>
+<a class="" href="{{ path('file_display', { 'id': file.id }) }}">{{ file.title |raw }}</a>
+<a class="" href="">(pdf)</a>
+</td>
+<td style='text-align:left'>
+</td>
+</tr>
+{% endfor %}
+{% endfor %}
+</table>           
+    
+<!-- ===================================end of TOC================================ -->
+</td>
+
+<td class='rightside' width='330px'/>
+</tr>
+</table>
+
+</td>
+</tr>
+
+<!--footer row-->
+<tr>
+<td class='footer' height='180px'/>
+</tr>
+</table>
+
+
+</body>
+</html>

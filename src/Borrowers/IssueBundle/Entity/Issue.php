@@ -49,7 +49,7 @@ class Issue
      *
      * @ORM\Column(name="display", type="integer", nullable=true)
      */
-    private $display;
+    private $display=0;
 
     /**
      * @var string $subtitle

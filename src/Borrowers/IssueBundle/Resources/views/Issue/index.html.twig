@@ -13,7 +13,8 @@
     {% for issue in issues %}
     <tr>              
         <td>{{ issue.issue }}</td>        
-        <td>{{ issue.title |raw }}</td>           
+        <td>{{ issue.title |raw }}</td>    
+        <td>{% if issue.display == 0 %}Development{% elseif issue.display == 1 %}Archive{% elseif issue.display == 2 %}Previous{% else %}Current{% endif %}</td> 
         <td><a class="btn btn-info" href="{{ path('issue_show', { 'id': issue.id }) }}">show</a><a class="btn btn-primary" href="{{ path('issue_edit', { 'id': issue.id }) }}">edit</a>
 </td>       
     </tr>

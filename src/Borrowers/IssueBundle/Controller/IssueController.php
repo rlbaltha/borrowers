@@ -26,7 +26,7 @@ class IssueController extends Controller
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        $issues = $em->getRepository('BorrowersIssueBundle:Issue')->findAll();
+        $issues = $em->getRepository('BorrowersIssueBundle:Issue')->listIssues();
 
         return array('issues' => $issues);
     }
@@ -53,6 +53,26 @@ class IssueController extends Controller
             'issue'      => $issue,
             'delete_form' => $deleteForm->createView(),        );
     }
+    
+    /**
+     * Finds and displays a Issue entity.
+     *
+     * @Route("/{id}/toc", name="issue_toc")
+     * @Template()
+     */
+    public function tocAction($id)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $issue = $em->getRepository('BorrowersIssueBundle:Issue')->find($id);
+
+        if (!$issue) {
+            throw $this->createNotFoundException('Unable to find Issue entity.');
+        }
+
+        return array('issue' => $issue,);
+    }
+    
 
     /**
      * Displays a form to create a new Issue entity.

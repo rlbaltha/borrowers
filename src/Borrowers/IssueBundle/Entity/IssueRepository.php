@@ -12,4 +12,14 @@ use Doctrine\ORM\EntityRepository;
  */
 class IssueRepository extends EntityRepository
 {
+    public function listIssues()
+    {
+        $repostitory = $this->getEntityManager()->getRepository('BorrowersIssueBundle:Issue');
+        $query = $repostitory->createQueryBuilder('i')
+                ->orderBy('i.created','DESC')
+                ->getQuery();
+        return  $query->getResult();
+    }
+    
+
 }

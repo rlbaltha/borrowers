@@ -16,7 +16,7 @@ class IssueType extends AbstractType
             ->add('description','text', array('attr' => array('class' => 'formtext'),))
             ->add('subtitle','text', array('attr' => array('class' => 'formtext'),))
             ->add('editors','text', array('attr' => array('class' => 'formtext'),))
-        ;
+            ->add('display', 'choice', array('choices'   => array('0' => 'Development', '1' => 'Archive', '2' => 'Previous', '3' => 'Current'), 'required'  => false,));    
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
