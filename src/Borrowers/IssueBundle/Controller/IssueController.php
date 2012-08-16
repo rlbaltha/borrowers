@@ -72,7 +72,44 @@ class IssueController extends Controller
 
         return array('issue' => $issue,);
     }
+  
+    /**
+     * Finds and displays a Issue entity.
+     *
+     * @Route("/current", name="issue_current")
+     * @Template("BorrowersIssueBundle:Issue:toc.html.twig")
+     */
+    public function currentAction()
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $issue = $em->getRepository('BorrowersIssueBundle:Issue')->findCurrentIssue();
+
+        if (!$issue) {
+            throw $this->createNotFoundException('Unable to find Issue entity.');
+        }
+
+        return array('issue' => $issue,);
+    }
     
+    /**
+     * Finds and displays a Issue entity.
+     *
+     * @Route("/previous", name="issue_previous")
+     * @Template("BorrowersIssueBundle:Issue:toc.html.twig")
+     */
+    public function previousAction()
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $issue = $em->getRepository('BorrowersIssueBundle:Issue')->findPreviousIssue();
+
+        if (!$issue) {
+            throw $this->createNotFoundException('Unable to find Issue entity.');
+        }
+
+        return array('issue' => $issue,);
+    }    
 
     /**
      * Displays a form to create a new Issue entity.

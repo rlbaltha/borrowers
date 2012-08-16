@@ -6,28 +6,27 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class UploadType extends AbstractType
+class AuthorType extends AbstractType
 {
-
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('file')  
-            ->add('title')
-            ->add('sortorder') 
-            ->add('display', 'choice', array('choices'   => array('0' => 'Development', '1' => 'Production'), 'required'  => true,))  
+            ->add('firstname')
+            ->add('lastname')
+            ->add('institution')
+            ->add('bio')
         ;
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Borrowers\IssueBundle\Entity\File'
+            'data_class' => 'Borrowers\IssueBundle\Entity\Author'
         ));
     }
 
     public function getName()
     {
-        return 'borrowers_issuebundle_filetype';
+        return 'borrowers_issuebundle_authortype';
     }
 }

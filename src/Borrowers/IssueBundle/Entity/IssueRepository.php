@@ -20,6 +20,25 @@ class IssueRepository extends EntityRepository
                 ->getQuery();
         return  $query->getResult();
     }
+ 
+    public function findCurrentIssue()
+    {
+        $repostitory = $this->getEntityManager()->getRepository('BorrowersIssueBundle:Issue');
+        $query = $repostitory->createQueryBuilder('i')
+                ->where("i.display = :display")
+                ->setParameter('display', 3)
+                ->getQuery();
+        return  $query->getOneOrNullResult();
+    }
     
+    public function findPreviousIssue()
+    {
+        $repostitory = $this->getEntityManager()->getRepository('BorrowersIssueBundle:Issue');
+        $query = $repostitory->createQueryBuilder('i')
+                ->where("i.display = :display")
+                ->setParameter('display', 2)
+                ->getQuery();
+        return  $query->getOneOrNullResult();
+    } 
 
 }

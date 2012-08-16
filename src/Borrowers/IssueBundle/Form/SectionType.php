@@ -5,6 +5,7 @@ namespace Borrowers\IssueBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Borrowers\IssueBundle\Entity\Issue;
 
 class SectionType extends AbstractType
 {

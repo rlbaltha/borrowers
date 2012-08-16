@@ -11,8 +11,10 @@
 <h4>{{ issue.editors }}</h4>
 <h4>({% if issue.display == 0 %}Development{% elseif issue.display == 1 %}Archive{% elseif issue.display == 2 %}Previous{% else %}Current{% endif %})</h4>
 <div class="row margintop">
-<div class="span2">   
-<a class="btn btn-primary" href="{{ path('issue_toc', { 'id': issue.id }) }}">TOC</a><a class="btn btn-primary" href="{{ path('issue_edit', { 'id': issue.id }) }}">Edit</a>
+<div class="span3">   
+<a class="btn btn-info" href="{{ path('issue_toc', { 'id': issue.id }) }}">TOC</a>
+<a class="btn btn-primary" href="{{ path('issue_edit', { 'id': issue.id }) }}">Edit</a>
+<a class="btn btn-primary" href="{{ path('section_new', { 'issue_id': issue.id }) }}">Add Section</a>
 </div>       
 <div class="span1">        
 <form action="{{ path('issue_delete', { 'id': issue.id }) }}" method="post">
@@ -36,7 +38,7 @@
          <tbody>
          {% for file in section.files %} 
          <tr>             
-         <td><a class="" href="{{ path('file_display', { 'id': file.id }) }}">{{ file.title |raw }}</a></td>        
+         <td><a class="" href="{{ path('file_display', { 'id': file.id }) }}">{{ file.title |raw }}</a> ({% if file.display == 0 %}Development{% elseif file.display == 1 %}Production{% endif %})</td>        
          <td>{{ file.path }}</td>                   
          <td><a class="btn btn-primary" href="{{ path('file_edit', { 'id': file.id }) }}">Edit</a>
          </td>       

@@ -43,6 +43,13 @@ class File
     private $title;
     
     /**
+     * @var integer $display
+     *
+     * @ORM\Column(name="display", type="integer", nullable=true)
+     */
+    private $display=0;    
+    
+    /**
      * @ORM\ManyToOne(targetEntity="Issue", inversedBy="file")
      * @ORM\JoinColumn(name="issue_id", referencedColumnName="id", onDelete="CASCADE")
      */
@@ -57,42 +64,47 @@ class File
     /**
      * @var integer $courseid
      *
-     * @ORM\Column(name="courseid", type="integer")
+     * @ORM\Column(name="courseid", type="integer", nullable=true)
      */
     private $courseid;
 
     /**
      * @var integer $projectid
      *
-     * @ORM\Column(name="projectid", type="integer")
+     * @ORM\Column(name="projectid", type="integer", nullable=true)
      */
     private $projectid;
 
     /**
      * @var integer $stageid
      *
-     * @ORM\Column(name="stageid", type="integer")
+     * @ORM\Column(name="stageid", type="integer", nullable=true)
      */
     private $stageid;
 
     /**
      * @var integer $userid
      *
-     * @ORM\Column(name="userid", type="integer")
+     * @ORM\Column(name="userid", type="integer", nullable=true)
      */
     private $userid;
 
     /**
      * @var integer $essayid
      *
-     * @ORM\Column(name="essayid", type="integer")
+     * @ORM\Column(name="essayid", type="integer", nullable=true)
      */
     private $essayid;
     
     /**
     * @ORM\ManyToOne(targetEntity="Borrowers\UserBundle\Entity\User", inversedBy="file")
     */
-    protected $user;      
+    protected $user;    
+    
+    /**
+    * @ORM\ManyToMany(targetEntity="Borrowers\IssueBundle\Entity\Author", inversedBy="file")
+    */
+    protected $authors;      
 
     /**
     * @ORM\Column(type="datetime", nullable=true)
@@ -161,6 +173,28 @@ class File
     {
         return $this->title;
     }
+    
+    /**
+     * Set display
+     *
+     * @param integer $display
+     * @return File
+     */
+    public function setDisplay($display)
+    {
+        $this->display = $display;
+        return $this;
+    }
+
+    /**
+     * Get display
+     *
+     * @return integer 
+     */
+    public function getDisplay()
+    {
+        return $this->display;
+    }    
 
     /**
      * Set courseid

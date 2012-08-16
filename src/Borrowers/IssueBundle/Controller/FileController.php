@@ -183,6 +183,7 @@ class FileController extends Controller
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getEntityManager();
             $entity = $em->getRepository('BorrowersIssueBundle:File')->find($id);
+            $issue = $entity->getIssue()->getId();
 
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find File entity.');
@@ -192,7 +193,7 @@ class FileController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('file'));
+        return $this->redirect($this->generateUrl('issue_show', array('id' => $issue)));
     }
 
     private function createDeleteForm($id)

@@ -3,8 +3,15 @@
 
 {% block content %}
 
+<div class="span2">
+<a class="btn btn-info" href="{{ path('author') }}">List</a>
+ 
+</div>       
+  
+
+
 <div class="span6 well"> 
-    <form action="{{ path('section_create', { 'issue_id': issue_id }) }}" method="post" {{ form_enctype(form) }} novalidate="novalidate">
+<form action="{{ path('author_create') }}" method="post" {{ form_enctype(form) }} novalidate="novalidate">
     {{ form_widget(form) }}
     <div>
         <button class="btn" type="submit">Create</button>

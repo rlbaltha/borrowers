@@ -6,46 +6,46 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Borrowers\IssueBundle\Entity\Issue;
-use Borrowers\IssueBundle\Entity\Section;
-use Borrowers\IssueBundle\Form\SectionType;
+use Borrowers\IssueBundle\Entity\Author;
+use Borrowers\IssueBundle\Form\AuthorType;
 
 /**
- * Section controller.
+ * Author controller.
  *
- * @Route("/section")
+ * @Route("/author")
  */
-class SectionController extends Controller
+class AuthorController extends Controller
 {
     /**
-     * Lists all Section entities.
+     * Lists all Author entities.
      *
-     * @Route("/", name="section")
+     * @Route("/", name="author")
      * @Template()
      */
     public function indexAction()
-    {
+    {       
+        
         $em = $this->getDoctrine()->getEntityManager();
 
-        $entities = $em->getRepository('BorrowersIssueBundle:Section')->findAll();
+        $entities = $em->getRepository('BorrowersIssueBundle:Author')->listAuthors();
 
         return array('entities' => $entities);
     }
 
     /**
-     * Finds and displays a Section entity.
+     * Finds and displays a Author entity.
      *
-     * @Route("/{id}/show", name="section_show")
+     * @Route("/{id}/show", name="author_show")
      * @Template()
      */
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        $entity = $em->getRepository('BorrowersIssueBundle:Section')->find($id);
+        $entity = $em->getRepository('BorrowersIssueBundle:Author')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Section entity.');
+            throw $this->createNotFoundException('Unable to find Author entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -56,40 +56,34 @@ class SectionController extends Controller
     }
 
     /**
-     * Displays a form to create a new Section entity.
+     * Displays a form to create a new Author entity.
      *
-     * @Route("/{issue_id}/new", name="section_new")
+     * @Route("/new", name="author_new")
      * @Template()
      */
-    public function newAction($issue_id)
+    public function newAction()
     {
-
-        
-        $entity = new Section();
-        $form   = $this->createForm(new SectionType(), $entity);
+        $entity = new Author();
+        $form   = $this->createForm(new AuthorType(), $entity);
 
         return array(
-            'issue_id' => $issue_id,
             'entity' => $entity,
             'form'   => $form->createView()
         );
     }
 
     /**
-     * Creates a new Section entity.
+     * Creates a new Author entity.
      *
-     * @Route("/{issue_id}/create", name="section_create")
+     * @Route("/create", name="author_create")
      * @Method("post")
-     * @Template("BorrowersIssueBundle:Section:new.html.twig")
+     * @Template("BorrowersIssueBundle:Author:new.html.twig")
      */
-    public function createAction($issue_id)
+    public function createAction()
     {
-        $em = $this->getDoctrine()->getEntityManager();
-        $issue = $em->getRepository('BorrowersIssueBundle:Issue')->find($issue_id);
-        $entity  = new Section();
-        $entity->setIssue($issue);
+        $entity  = new Author();
         $request = $this->getRequest();
-        $form    = $this->createForm(new SectionType(), $entity);
+        $form    = $this->createForm(new AuthorType(), $entity);
         $form->bindRequest($request);
 
         if ($form->isValid()) {
@@ -97,7 +91,7 @@ class SectionController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('issue_show', array('id' => $issue_id)));
+            return $this->redirect($this->generateUrl('author_show', array('id' => $entity->getId())));
             
         }
 
@@ -108,22 +102,22 @@ class SectionController extends Controller
     }
 
     /**
-     * Displays a form to edit an existing Section entity.
+     * Displays a form to edit an existing Author entity.
      *
-     * @Route("/{id}/edit", name="section_edit")
+     * @Route("/{id}/edit", name="author_edit")
      * @Template()
      */
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        $entity = $em->getRepository('BorrowersIssueBundle:Section')->find($id);
+        $entity = $em->getRepository('BorrowersIssueBundle:Author')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Section entity.');
+            throw $this->createNotFoundException('Unable to find Author entity.');
         }
 
-        $editForm = $this->createForm(new SectionType(), $entity);
+        $editForm = $this->createForm(new AuthorType(), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
         return array(
@@ -134,24 +128,23 @@ class SectionController extends Controller
     }
 
     /**
-     * Edits an existing Section entity.
+     * Edits an existing Author entity.
      *
-     * @Route("/{id}/update", name="section_update")
+     * @Route("/{id}/update", name="author_update")
      * @Method("post")
-     * @Template("BorrowersIssueBundle:Section:edit.html.twig")
+     * @Template("BorrowersIssueBundle:Author:edit.html.twig")
      */
     public function updateAction($id)
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        $entity = $em->getRepository('BorrowersIssueBundle:Section')->find($id);
-        $issue = $entity->getIssue()->getId();
+        $entity = $em->getRepository('BorrowersIssueBundle:Author')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Section entity.');
+            throw $this->createNotFoundException('Unable to find Author entity.');
         }
 
-        $editForm   = $this->createForm(new SectionType(), $entity);
+        $editForm   = $this->createForm(new AuthorType(), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
         $request = $this->getRequest();
@@ -162,7 +155,7 @@ class SectionController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('issue_show', array('id' => $issue)));
+            return $this->redirect($this->generateUrl('author_show', array('id' => $id)));
         }
 
         return array(
@@ -173,9 +166,9 @@ class SectionController extends Controller
     }
 
     /**
-     * Deletes a Section entity.
+     * Deletes a Author entity.
      *
-     * @Route("/{id}/delete", name="section_delete")
+     * @Route("/{id}/delete", name="author_delete")
      * @Method("post")
      */
     public function deleteAction($id)
@@ -187,18 +180,17 @@ class SectionController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getEntityManager();
-            $entity = $em->getRepository('BorrowersIssueBundle:Section')->find($id);
-            $issue = $entity->getIssue()->getId();
+            $entity = $em->getRepository('BorrowersIssueBundle:Author')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Section entity.');
+                throw $this->createNotFoundException('Unable to find Author entity.');
             }
 
             $em->remove($entity);
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('issue_show', array('id' => $issue)));
+        return $this->redirect($this->generateUrl('author'));
     }
 
     private function createDeleteForm($id)

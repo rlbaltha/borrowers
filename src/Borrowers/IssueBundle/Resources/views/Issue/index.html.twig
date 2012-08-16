@@ -2,13 +2,13 @@
 {% extends 'BorrowersHomeBundle::layout.html.twig' %}
 
 {% block content %}
-   <div class="span6">
+   <div class="span9 well">
       <a class="btn btn-primary" href="{{ path('issue_new') }}">New</a>
    </div>
 
 
-<div class="span6">
-<table class="table table-bordered table-condensed table-striped">  
+<div class="span10">
+<table class="table">  
 <tbody>
     {% for issue in issues %}
     <tr>              

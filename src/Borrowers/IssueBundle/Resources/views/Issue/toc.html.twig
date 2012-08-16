@@ -22,12 +22,13 @@
 <table cellpadding='0' cellspacing='0'>
 <tr>
 <td class='leftside' width='150px' valign='top'>
-
+{% include 'BorrowersIssueBundle:Issue:nav.html.twig' %}
 </td>
 
 <!-- body cell -->
 <td valign='top' class='textarea'>
-<img src='/borrowers/bodyspacer.gif'/><br/>
+<img src='/borrowers/web/bundles/borrowershome/img/bodyspacer.gif'/>
+<br/>
 
 
 <!-- ===================================TOC================================ -->
@@ -45,15 +46,17 @@
 
 
 <table border='0' width='100%' cellpadding='7'>
+   
 {% for section in issue.sections %} 
-
+{% if section.title != 'Default'%}    
+<tr>     
 <!-- section -->
 <td colspan='2'>
 <p class='toc3'>{{ section.title }}</p>
 <p class='toc3'>{{ section.description }}</p>
 </td>
 </tr>
-
+{% endif %}
 
 {% for file in section.files %} 
 
