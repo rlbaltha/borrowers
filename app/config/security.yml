@@ -31,6 +31,7 @@ security:
         - { path: ^/issue/, role: ROLE_USER }
         - { path: ^/section/, role: ROLE_USER }
         - { path: ^/file/, role: ROLE_USER }
+        - { path: ^/author/, role: ROLE_USER }
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER

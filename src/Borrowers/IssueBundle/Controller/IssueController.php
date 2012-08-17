@@ -72,6 +72,35 @@ class IssueController extends Controller
 
         return array('issue' => $issue,);
     }
+    
+    
+    /**
+     * Lists all archived Issue entities.
+     *
+     * @Route("/archive", name="issue_archive")
+     * @Template()
+     */
+    public function archiveAction()
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $issues = $em->getRepository('BorrowersIssueBundle:Issue')->listArchive();
+
+        return array('issues' => $issues);
+    }
+    
+    /**
+     * Show About page.
+     *
+     * @Route("/about", name="issue_about")
+     * @Template()
+     */
+    public function aboutAction()
+    {
+        $about = '';
+        return array('about' => $about);
+    }    
+    
   
     /**
      * Finds and displays a Issue entity.

@@ -460,4 +460,41 @@ class File
     $this->file = null;
     }     
     
+    public function __construct()
+    {
+        $this->authors = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add authors
+     *
+     * @param Borrowers\IssueBundle\Entity\Author $authors
+     * @return File
+     */
+    public function addAuthor(\Borrowers\IssueBundle\Entity\Author $authors)
+    {
+        $this->authors[] = $authors;
+        return $this;
+    }
+
+    /**
+     * Remove authors
+     *
+     * @param <variableType$authors
+     */
+    public function removeAuthor(\Borrowers\IssueBundle\Entity\Author $authors)
+    {
+        $this->authors->removeElement($authors);
+    }
+
+    /**
+     * Get authors
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getAuthors()
+    {
+        return $this->authors;
+    }
+       
 }

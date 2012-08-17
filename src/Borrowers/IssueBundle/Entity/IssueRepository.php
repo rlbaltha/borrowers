@@ -20,6 +20,17 @@ class IssueRepository extends EntityRepository
                 ->getQuery();
         return  $query->getResult();
     }
+    
+    public function listArchive()
+    {
+        $repostitory = $this->getEntityManager()->getRepository('BorrowersIssueBundle:Issue');
+        $query = $repostitory->createQueryBuilder('i')
+                ->orderBy('i.created','ASC')
+                ->where("i.display = :display")
+                ->setParameter('display', 1)
+                ->getQuery();
+        return  $query->getResult();
+    }    
  
     public function findCurrentIssue()
     {

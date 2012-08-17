@@ -206,4 +206,10 @@ class Author
     {
         return $this->updated;
     }
+    
+    public function getName()
+    {
+        $name = $this->lastname.', '.$this->firstname;
+        return $name;
+    }    
 }

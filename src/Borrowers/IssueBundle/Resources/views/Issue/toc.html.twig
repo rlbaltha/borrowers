@@ -66,6 +66,7 @@
 <a class="" href="">(pdf)</a>
 </td>
 <td style='text-align:left'>
+    {% for author in file.authors %}{{ author.firstname | raw }} {{ author.lastname | raw }} {% endfor %}
 </td>
 </tr>
 {% endfor %}
