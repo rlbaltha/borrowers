@@ -2,9 +2,9 @@ parameters:
     database_driver: pdo_pgsql
     database_host: localhost
     database_port: '5432'
-    database_name: borrowers_db
-    database_user: rlbaltha
-    database_password: hdt71217
+    database_name: xxxx
+    database_user: xxxx
+    database_password: xxxx
     mailer_transport: smtp
     mailer_host: localhost
     mailer_user: null
