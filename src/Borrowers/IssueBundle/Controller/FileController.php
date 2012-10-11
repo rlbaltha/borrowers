@@ -14,14 +14,13 @@ use Borrowers\IssueBundle\Form\UploadType;
 /**
  * File controller.
  *
- * @Route("/file")
  */
 class FileController extends Controller
 {
     /**
      * Lists all File entities.
      *
-     * @Route("/", name="file")
+     * @Route("/file/", name="file")
      * @Template()
      */
     public function indexAction()
@@ -36,7 +35,7 @@ class FileController extends Controller
     /**
      * Finds and displays a File entity.
      *
-     * @Route("/{id}/show", name="file_show")
+     * @Route("/file/{id}/show", name="file_show")
      * @Template()
      */
     public function showAction($id)
@@ -59,7 +58,7 @@ class FileController extends Controller
     /**
      * Displays a form to create a new File entity.
      *
-     * @Route("/new", name="file_new")
+     * @Route("/file/new", name="file_new")
      * @Template()
      */
     public function newAction()
@@ -76,7 +75,7 @@ class FileController extends Controller
     /**
      * Creates a new File entity.
      *
-     * @Route("/create", name="file_create")
+     * @Route("/file/create", name="file_create")
      * @Method("post")
      * @Template("BorrowersIssueBundle:File:new.html.twig")
      */
@@ -105,7 +104,7 @@ class FileController extends Controller
     /**
      * Displays a form to edit an existing File entity.
      *
-     * @Route("/{id}/edit", name="file_edit")
+     * @Route("/file/{id}/edit", name="file_edit")
      * @Template()
      */
     public function editAction($id)
@@ -131,7 +130,7 @@ class FileController extends Controller
     /**
      * Edits an existing File entity.
      *
-     * @Route("/{id}/update", name="file_update")
+     * @Route("/file/{id}/update", name="file_update")
      * @Method("post")
      * @Template("BorrowersIssueBundle:File:edit.html.twig")
      */
@@ -170,7 +169,7 @@ class FileController extends Controller
     /**
      * Deletes a File entity.
      *
-     * @Route("/{id}/delete", name="file_delete")
+     * @Route("/file/{id}/delete", name="file_delete")
      * @Method("post")
      */
     public function deleteAction($id)
@@ -206,7 +205,7 @@ class FileController extends Controller
     
     
     /**
-     * Finds and displays a File entity.
+     * Finds and displays an XSL transformation of a File entity.
      *
      * @Route("/{id}/display", name="file_display")
      * @Template()
@@ -244,10 +243,42 @@ class FileController extends Controller
 
     }
     
+
+     /**
+     * Finds and displays an XSL transformation of a File entity.
+     *fop -r -xml /var/lib/borrowers_docs/3009/13424621370831_kk.xml -xsl docs2fo2.xsl  -pdf /home/rlbaltha/pdf1.pdf
+     * @Route("/{id}/pdf", name="file_pdf")
+     * @Template()
+     */
+    public function pdfAction($id)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $file = $em->getRepository('BorrowersIssueBundle:File')->find($id);
+        $xmlpath = '/var/lib/borrowers_docs/'.$file->getPath();
+        $xslpath = 'bundles/borrowershome/xsl/pdf.xsl';
+        $pdfpath = 'bundles/borrowerspdf/pdftemp.pdf';
+        
+        $result = $this->get("goetas.fop")->convertToPdf($xmlpath, $pdfpath, $xslpath);
+        
+        return new Response(
+        file_get_contents( $pdfpath ),
+        200,
+        array(
+        'Content-Type'          => 'application/pdf',
+        'Content-Disposition'   => 'attachment; filename="borrowers.pdf"'
+         )
+         );
+    }
+
+    
+    
+    
+    
     /**
      * Uploads a file with a Document entity.
      *
-     * @Route("/{issueid}/{sectionid}/upload", name="file_upload")
+     * @Route("/file/{issueid}/{sectionid}/upload", name="file_upload")
      * @Template()
      */  
     public function uploadAction($issueid, $sectionid)

@@ -1,10 +1,9 @@
+default:
+    pattern:  /
+    defaults: { _controller: BorrowersIssueBundle:Issue:current }
+
 BorrowersIssueBundle:
     resource: "@BorrowersIssueBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
-BorrowersGeneratorBundle:
-    resource: "@BorrowersGeneratorBundle/Controller/"
     type:     annotation
     prefix:   /
 
@@ -25,3 +24,4 @@ BorrowersUserBundle:
 
 _user_bundle:
     resource: "@BorrowersUserBundle/Resources/config/routing.yml"
+    

@@ -18,7 +18,7 @@
 
 namespace JMS\DiExtraBundle\Tests\Functional;
 
-use Symfony\Component\HttpKernel\Util\Filesystem;
+use Symfony\Component\Filesystem\Filesystem;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
@@ -27,7 +27,8 @@ class BaseTestCase extends WebTestCase
     static protected function createKernel(array $options = array())
     {
         return new AppKernel(
-            isset($options['config']) ? $options['config'] : 'default.yml'
+            isset($options['config']) ? $options['config'] : 'default.yml',
+            isset($options['debug']) ? (boolean) $options['debug'] : true
         );
     }
 

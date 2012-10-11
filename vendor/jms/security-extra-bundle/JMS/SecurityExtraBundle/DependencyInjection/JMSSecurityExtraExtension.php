@@ -23,8 +23,6 @@ use Symfony\Component\DependencyInjection\Reference;
 use JMS\SecurityExtraBundle\Exception\RuntimeException;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\Config\FileLocator;
-use Symfony\Component\Config\Definition\Processor;
-use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
@@ -42,7 +40,7 @@ class JMSSecurityExtraExtension extends Extension
             throw new RuntimeException('The JMSSecurityExtraBundle requires the JMSAopBundle, please make sure to enable it in your AppKernel.');
         }
 
-        $config = $this->processConfiguration(new Configuration(), $configs);
+        $config = $this->processConfiguration($this->getConfiguration($configs, $container), $configs);
 
         $loader = new XmlFileLoader($container, new FileLocator(array(__DIR__.'/../Resources/config/')));
         $loader->load('services.xml');
@@ -96,5 +94,41 @@ class JMSSecurityExtraExtension extends Extension
             $container->setParameter('security.access.method_access_control',
                 $config['method_access_control']);
         }
+
+        if (isset($config['util']['secure_random'])) {
+            $loader->load('security_secure_random.xml');
+            $this->configureSecureRandom($config['util']['secure_random'], $container);
+        }
+    }
+
+    private function configureSecureRandom(array $config, ContainerBuilder $container)
+    {
+        if (isset($config['seed_provider'])) {
+            $container
+                ->getDefinition('security.util.secure_random')
+                ->addMethodCall('setSeedProvider', array(new Reference($config['seed_provider'])))
+            ;
+            $container->setAlias('security.util.secure_random_seed_provider', $config['seed_provider']);
+        } elseif (isset($config['connection'])) {
+            $container
+                ->getDefinition('security.util.secure_random')
+                ->addMethodCall('setConnection', array(new Reference($this->getDoctrineConnectionId($config['connection'])), $config['table_name']))
+            ;
+            $container->setAlias('security.util.secure_random_connection', $this->getDoctrineConnectionId($config['connection']));
+            $container->setParameter('security.util.secure_random_table', $config['table_name']);
+            $container
+                ->getDefinition('security.util.secure_random_schema_listener')
+                ->addTag('doctrine.event_listener', array('connection' => $config['connection'], 'event' => 'postGenerateSchema', 'lazy' => true))
+            ;
+            $container
+                ->getDefinition('security.util.secure_random_schema')
+                ->replaceArgument(0, $config['table_name'])
+            ;
+        }
+    }
+
+    private function getDoctrineConnectionId($guess)
+    {
+        return "doctrine.dbal.{$guess}_connection";
     }
 }

@@ -50,8 +50,8 @@ class SocketHandlerTest extends TestCase
     public function testSetConnectionTimeout()
     {
         $this->createHandler('localhost:1234');
-        $this->handler->setConnectionTimeout(10);
-        $this->assertEquals(10, $this->handler->getConnectionTimeout());
+        $this->handler->setConnectionTimeout(10.1);
+        $this->assertEquals(10.1, $this->handler->getConnectionTimeout());
     }
 
     /**
@@ -66,8 +66,8 @@ class SocketHandlerTest extends TestCase
     public function testSetTimeout()
     {
         $this->createHandler('localhost:1234');
-        $this->handler->setTimeout(10);
-        $this->assertEquals(10, $this->handler->getTimeout());
+        $this->handler->setTimeout(10.25);
+        $this->assertEquals(10.25, $this->handler->getTimeout());
     }
 
     public function testSetConnectionString()
@@ -120,12 +120,12 @@ class SocketHandlerTest extends TestCase
     {
         $this->setMockHandler(array('fwrite'));
 
-        $callback = function($arg)
-        {
+        $callback = function($arg) {
             $map = array(
                 'Hello world' => 6,
                 'world' => false,
             );
+
             return $map[$arg];
         };
 
@@ -143,12 +143,12 @@ class SocketHandlerTest extends TestCase
     {
         $this->setMockHandler(array('fwrite', 'streamGetMetadata'));
 
-        $callback = function($arg)
-        {
+        $callback = function($arg) {
             $map = array(
                 'Hello world' => 6,
                 'world' => 5,
             );
+
             return $map[$arg];
         };
 
@@ -158,7 +158,6 @@ class SocketHandlerTest extends TestCase
         $this->handler->expects($this->exactly(1))
             ->method('streamGetMetadata')
             ->will($this->returnValue(array('timed_out' => true)));
-
 
         $this->writeRecord('Hello world');
     }
@@ -171,9 +170,9 @@ class SocketHandlerTest extends TestCase
         $this->setMockHandler(array('fwrite', 'streamGetMetadata'));
 
         $res = $this->res;
-        $callback = function($string) use ($res)
-        {
+        $callback = function($string) use ($res) {
             fclose($res);
+
             return strlen('Hello');
         };
 
@@ -201,12 +200,12 @@ class SocketHandlerTest extends TestCase
     {
         $this->setMockHandler(array('fwrite'));
 
-        $callback = function($arg)
-        {
+        $callback = function($arg) {
             $map = array(
                 'Hello world' => 6,
                 'world' => 5,
             );
+
             return $map[$arg];
         };
 

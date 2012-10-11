@@ -8,7 +8,7 @@ framework:
     secret:          %secret%
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
-        strict_parameters: %kernel.debug%
+        strict_requirements: %kernel.debug%
     form:            true
     csrf_protection: true
     validation:      { enable_annotations: true }
@@ -70,4 +70,7 @@ stof_doctrine_extensions:
 fos_user:
     db_driver: orm
     firewall_name: main
-    user_class: Borrowers\UserBundle\Entity\User    
+    user_class: Borrowers\UserBundle\Entity\User  
+    
+goetas_apache_fop:
+    executable: /usr/bin/fop

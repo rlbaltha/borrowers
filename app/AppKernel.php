@@ -21,16 +21,17 @@ class AppKernel extends Kernel
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Borrowers\UserBundle\BorrowersUserBundle(),
-            new Borrowers\HomeBundle\BorrowersHomeBundle(),
-            new Borrowers\GeneratorBundle\BorrowersGeneratorBundle(),
+            new Borrowers\HomeBundle\BorrowersHomeBundle(),          
             new Borrowers\IssueBundle\BorrowersIssueBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new Goetas\ApacheFopBundle\GoetasApacheFopBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
+            $bundles[] = new Borrowers\GeneratorBundle\BorrowersGeneratorBundle();
         }
 
         return $bundles;

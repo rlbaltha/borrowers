@@ -1,264 +1,8 @@
 [
     {
-        "name": "doctrine/common",
-        "version": "2.2.2",
-        "version_normalized": "2.2.2.0",
-        "time": "2012-04-13 23:46:44",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/doctrine/common",
-            "reference": "2.2.2"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://github.com/doctrine/common/zipball/2.2.2",
-            "reference": "2.2.2",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.2"
-        },
-        "type": "library",
-        "installation-source": "dist",
-        "license": [
-            "LGPL"
-        ],
-        "authors": [
-            {
-                "name": "Jonathan Wage",
-                "email": "jonwage@gmail.com",
-                "homepage": "http://www.jwage.com/",
-                "role": null
-            },
-            {
-                "name": "Guilherme Blanco",
-                "email": "guilhermeblanco@gmail.com",
-                "homepage": null,
-                "role": null
-            },
-            {
-                "name": "Roman Borschel",
-                "email": "roman@code-factory.org",
-                "homepage": null,
-                "role": null
-            },
-            {
-                "name": "Benjamin Eberlei",
-                "email": "kontakt@beberlei.de",
-                "homepage": null,
-                "role": null
-            },
-            {
-                "name": "Johannes Schmitt",
-                "email": "schmittjoh@gmail.com",
-                "homepage": "http://jmsyst.com",
-                "role": null
-            }
-        ],
-        "description": "Common Library for Doctrine projects",
-        "homepage": "http://www.doctrine-project.org",
-        "keywords": [
-            "collections",
-            "spl",
-            "eventmanager",
-            "annotations",
-            "persistence"
-        ],
-        "autoload": {
-            "psr-0": {
-                "Doctrine\\Common": "lib/"
-            }
-        }
-    },
-    {
-        "name": "twig/twig",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "time": "2012-07-23 02:32:58",
-        "source": {
-            "type": "git",
-            "url": "git://github.com/fabpot/Twig.git",
-            "reference": "657de7bdeb680815e0df95f63da9f81e1533d2ea"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://github.com/fabpot/Twig/zipball/657de7bdeb680815e0df95f63da9f81e1533d2ea",
-            "reference": "657de7bdeb680815e0df95f63da9f81e1533d2ea",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.2.4"
-        },
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.9-dev"
-            }
-        },
-        "installation-source": "source",
-        "license": [
-            "BSD-3"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com",
-                "homepage": null,
-                "role": null
-            },
-            {
-                "name": "Armin Ronacher",
-                "email": "armin.ronacher@active-4.com",
-                "homepage": null,
-                "role": null
-            }
-        ],
-        "description": "Twig, the flexible, fast, and secure template language for PHP",
-        "homepage": "http://twig.sensiolabs.org",
-        "keywords": [
-            "templating"
-        ],
-        "autoload": {
-            "psr-0": {
-                "Twig_": "lib/"
-            }
-        }
-    },
-    {
-        "name": "doctrine/dbal",
-        "version": "2.2.x-dev",
-        "version_normalized": "2.2.9999999.9999999-dev",
-        "time": "2012-07-09 12:30:35",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/doctrine/dbal",
-            "reference": "b961a3fce6bf220f1dca47d7d747b9074bea4730"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://github.com/doctrine/dbal/zipball/b961a3fce6bf220f1dca47d7d747b9074bea4730",
-            "reference": "b961a3fce6bf220f1dca47d7d747b9074bea4730",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.2",
-            "doctrine/common": ">=2.2.0,<=2.2.99"
-        },
-        "type": "library",
-        "installation-source": "source",
-        "license": [
-            "LGPL"
-        ],
-        "authors": [
-            {
-                "name": "Jonathan Wage",
-                "email": "jonwage@gmail.com",
-                "homepage": "http://www.jwage.com/",
-                "role": null
-            },
-            {
-                "name": "Guilherme Blanco",
-                "email": "guilhermeblanco@gmail.com",
-                "homepage": null,
-                "role": null
-            },
-            {
-                "name": "Roman Borschel",
-                "email": "roman@code-factory.org",
-                "homepage": null,
-                "role": null
-            },
-            {
-                "name": "Benjamin Eberlei",
-                "email": "kontakt@beberlei.de",
-                "homepage": null,
-                "role": null
-            }
-        ],
-        "description": "Database Abstraction Layer",
-        "homepage": "http://www.doctrine-project.org",
-        "keywords": [
-            "database",
-            "persistence",
-            "dbal",
-            "queryobject"
-        ],
-        "autoload": {
-            "psr-0": {
-                "Doctrine\\DBAL": "lib/"
-            }
-        }
-    },
-    {
-        "name": "doctrine/orm",
-        "version": "2.2.x-dev",
-        "version_normalized": "2.2.9999999.9999999-dev",
-        "time": "2012-07-08 07:48:00",
-        "source": {
-            "type": "git",
-            "url": "git://github.com/doctrine/doctrine2.git",
-            "reference": "5d2a3bcb3b467f41ee58575764f3ba84937f76e4"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://github.com/doctrine/doctrine2/zipball/5d2a3bcb3b467f41ee58575764f3ba84937f76e4",
-            "reference": "5d2a3bcb3b467f41ee58575764f3ba84937f76e4",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.2",
-            "ext-pdo": "*",
-            "doctrine/common": "2.2.*",
-            "doctrine/dbal": "2.2.*"
-        },
-        "type": "library",
-        "installation-source": "source",
-        "license": [
-            "LGPL"
-        ],
-        "authors": [
-            {
-                "name": "Jonathan Wage",
-                "email": "jonwage@gmail.com",
-                "homepage": "http://www.jwage.com/",
-                "role": null
-            },
-            {
-                "name": "Guilherme Blanco",
-                "email": "guilhermeblanco@gmail.com",
-                "homepage": null,
-                "role": null
-            },
-            {
-                "name": "Roman Borschel",
-                "email": "roman@code-factory.org",
-                "homepage": null,
-                "role": null
-            },
-            {
-                "name": "Benjamin Eberlei",
-                "email": "kontakt@beberlei.de",
-                "homepage": null,
-                "role": null
-            }
-        ],
-        "description": "Object-Relational-Mapper for PHP",
-        "homepage": "http://www.doctrine-project.org",
-        "keywords": [
-            "database",
-            "orm"
-        ],
-        "autoload": {
-            "psr-0": {
-                "Doctrine\\ORM": "lib/"
-            }
-        }
-    },
-    {
         "name": "jms/cg",
         "version": "1.0.0",
         "version_normalized": "1.0.0.0",
-        "time": "2012-01-03 16:40:52",
         "source": {
             "type": "git",
             "url": "git://github.com/schmittjoh/cg-library.git",
@@ -273,8 +17,14 @@
         "require": {
             "php": ">=5.3.0"
         },
+        "time": "2012-01-10 13:40:52",
         "type": "library",
         "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "CG\\": "src/"
+            }
+        },
         "license": [
             "Apache"
         ],
@@ -289,18 +39,12 @@
         "description": "Toolset for generating PHP code",
         "keywords": [
             "code generation"
-        ],
-        "autoload": {
-            "psr-0": {
-                "CG\\": "src/"
-            }
-        }
+        ]
     },
     {
         "name": "jms/metadata",
         "version": "1.1.1",
         "version_normalized": "1.1.1.0",
-        "time": "2012-01-03 17:32:49",
         "source": {
             "type": "git",
             "url": "https://github.com/schmittjoh/metadata",
@@ -315,8 +59,14 @@
         "require": {
             "php": ">=5.3.0"
         },
+        "time": "2012-01-10 14:32:49",
         "type": "library",
         "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Metadata\\": "src/"
+            }
+        },
         "license": [
             "Apache"
         ],
@@ -334,82 +84,182 @@
             "yaml",
             "xml",
             "metadata"
-        ],
-        "autoload": {
-            "psr-0": {
-                "Metadata\\": "src/"
-            }
-        }
+        ]
     },
     {
-        "name": "swiftmailer/swiftmailer",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "time": "2012-07-14 08:47:17",
+        "name": "jms/aop-bundle",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "target-dir": "JMS/AopBundle",
         "source": {
             "type": "git",
-            "url": "git://github.com/swiftmailer/swiftmailer.git",
-            "reference": "8b2aa953f87da228ba413e8fb1372e49c1374050"
+            "url": "https://github.com/schmittjoh/JMSAopBundle",
+            "reference": "1.0.0"
         },
         "dist": {
             "type": "zip",
-            "url": "https://github.com/swiftmailer/swiftmailer/zipball/8b2aa953f87da228ba413e8fb1372e49c1374050",
-            "reference": "8b2aa953f87da228ba413e8fb1372e49c1374050",
+            "url": "https://github.com/schmittjoh/JMSAopBundle/zipball/1.0.0",
+            "reference": "1.0.0",
+            "shasum": ""
+        },
+        "require": {
+            "symfony/framework-bundle": "2.*",
+            "jms/cg": "1.0.0"
+        },
+        "time": "2012-01-10 13:50:26",
+        "type": "symfony-bundle",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "JMS\\AopBundle": ""
+            }
+        },
+        "license": [
+            "Apache"
+        ],
+        "authors": [
+            {
+                "name": "Johannes M. Schmitt",
+                "email": "schmittjoh@gmail.com",
+                "homepage": "http://jmsyst.com",
+                "role": null
+            }
+        ],
+        "description": "Adds AOP capabilities to Symfony2",
+        "keywords": [
+            "annotations",
+            "aop"
+        ]
+    },
+    {
+        "name": "jms/security-extra-bundle",
+        "version": "1.2.x-dev",
+        "version_normalized": "1.2.9999999.9999999-dev",
+        "target-dir": "JMS/SecurityExtraBundle",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/schmittjoh/JMSSecurityExtraBundle",
+            "reference": "9ab6aceda50fc7a2b07d741ba4b3f0695508afcb"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/schmittjoh/JMSSecurityExtraBundle/zipball/9ab6aceda50fc7a2b07d741ba4b3f0695508afcb",
+            "reference": "9ab6aceda50fc7a2b07d741ba4b3f0695508afcb",
+            "shasum": ""
+        },
+        "require": {
+            "symfony/framework-bundle": "2.1.*",
+            "symfony/security-bundle": "*",
+            "jms/metadata": "1.1.*",
+            "jms/aop-bundle": "1.0.*",
+            "jms/di-extra-bundle": "1.1.*"
+        },
+        "require-dev": {
+            "sensio/framework-extra-bundle": "*",
+            "symfony/class-loader": "*",
+            "symfony/yaml": "*",
+            "symfony/browser-kit": "*",
+            "symfony/finder": "*",
+            "symfony/css-selector": "*",
+            "symfony/process": "*",
+            "doctrine/doctrine-bundle": "*",
+            "symfony/twig-bundle": "*",
+            "doctrine/orm": "*",
+            "symfony/form": "*",
+            "symfony/validator": "*"
+        },
+        "time": "2012-09-10 04:12:23",
+        "type": "symfony-bundle",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "JMS\\SecurityExtraBundle": ""
+            }
+        },
+        "license": [
+            "Apache2"
+        ],
+        "authors": [
+            {
+                "name": "Johannes M. Schmitt",
+                "email": "schmittjoh@gmail.com",
+                "homepage": "https://github.com/schmittjoh",
+                "role": "Developer of wrapped JMSSerializerBundle"
+            }
+        ],
+        "description": "Enhances the Symfony2 Security Component by adding several new features",
+        "homepage": "http://jmsyst.com/bundles/JMSSecurityExtraBundle",
+        "keywords": [
+            "annotations",
+            "authorization",
+            "security",
+            "secure",
+            "expression"
+        ]
+    },
+    {
+        "name": "twig/twig",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "git://github.com/fabpot/Twig.git",
+            "reference": "347bc81d6ed8e2bb793236aa9917c7e83f81c2b3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/fabpot/Twig/zipball/347bc81d6ed8e2bb793236aa9917c7e83f81c2b3",
+            "reference": "347bc81d6ed8e2bb793236aa9917c7e83f81c2b3",
             "shasum": ""
         },
         "require": {
             "php": ">=5.2.4"
         },
+        "time": "2012-10-10 22:20:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "4.2-dev"
+                "dev-master": "1.10-dev"
             }
         },
         "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Twig_": "lib/"
+            }
+        },
         "license": [
-            "LGPL"
+            "BSD-3"
         ],
         "authors": [
             {
                 "name": "Fabien Potencier",
-                "email": "fabien@symfony.com",
-                "homepage": null,
-                "role": null
+                "email": "fabien@symfony.com"
             },
             {
-                "name": "Chris Corbyn",
-                "email": "",
-                "homepage": null,
-                "role": null
+                "name": "Armin Ronacher",
+                "email": "armin.ronacher@active-4.com"
             }
         ],
-        "description": "Swiftmailer, free feature-rich PHP mailer",
-        "homepage": "http://swiftmailer.org",
+        "description": "Twig, the flexible, fast, and secure template language for PHP",
+        "homepage": "http://twig.sensiolabs.org",
         "keywords": [
-            "mail",
-            "mailer"
-        ],
-        "autoload": {
-            "files": [
-                "lib/swift_required.php"
-            ]
-        }
+            "templating"
+        ]
     },
     {
         "name": "monolog/monolog",
-        "version": "1.1.0",
-        "version_normalized": "1.1.0.0",
-        "time": "2012-04-24 08:27:40",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
-            "url": "https://github.com/Seldaek/monolog.git",
-            "reference": "1.1.0"
+            "url": "https://github.com/Seldaek/monolog",
+            "reference": "09b3a80cfaf3e323e348a5e817afeee98d5e6b48"
         },
         "dist": {
             "type": "zip",
-            "url": "https://github.com/Seldaek/monolog/zipball/1.1.0",
-            "reference": "1.1.0",
+            "url": "https://github.com/Seldaek/monolog/zipball/09b3a80cfaf3e323e348a5e817afeee98d5e6b48",
+            "reference": "09b3a80cfaf3e323e348a5e817afeee98d5e6b48",
             "shasum": ""
         },
         "require": {
@@ -419,10 +269,23 @@
             "mlehner/gelf-php": "1.0.*"
         },
         "suggest": {
-            "mlehner/gelf-php": "Allow sending log messages to a GrayLog2 server"
+            "mlehner/gelf-php": "Allow sending log messages to a GrayLog2 server",
+            "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
+            "ext-mongo": "Allow sending log messages to a MongoDB server"
         },
+        "time": "2012-09-21 00:50:48",
         "type": "library",
-        "installation-source": "dist",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.3.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Monolog": "src/"
+            }
+        },
         "license": [
             "MIT"
         ],
@@ -439,436 +302,32 @@
         "keywords": [
             "log",
             "logging"
-        ],
-        "autoload": {
-            "psr-0": {
-                "Monolog": "src/"
-            }
-        }
-    },
-    {
-        "name": "jms/di-extra-bundle",
-        "version": "1.0.1",
-        "version_normalized": "1.0.1.0",
-        "target-dir": "JMS/DiExtraBundle",
-        "time": "2012-02-29 01:01:54",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/schmittjoh/JMSDiExtraBundle",
-            "reference": "1.0.1"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://github.com/schmittjoh/JMSDiExtraBundle/zipball/1.0.1",
-            "reference": "1.0.1",
-            "shasum": ""
-        },
-        "require": {
-            "symfony/framework-bundle": "2.*",
-            "jms/metadata": "1.1.*"
-        },
-        "type": "symfony-bundle",
-        "installation-source": "dist",
-        "license": [
-            "Apache"
-        ],
-        "authors": [
-            {
-                "name": "Johannes M. Schmitt",
-                "email": "schmittjoh@gmail.com",
-                "homepage": "http://jmsyst.com",
-                "role": null
-            }
-        ],
-        "description": "Allows to configure dependency injection using annotations",
-        "keywords": [
-            "dependency injection",
-            "annotations"
-        ],
-        "autoload": {
-            "psr-0": {
-                "JMS\\DiExtraBundle": ""
-            }
-        }
-    },
-    {
-        "name": "jms/aop-bundle",
-        "version": "1.0.0",
-        "version_normalized": "1.0.0.0",
-        "target-dir": "JMS/AopBundle",
-        "time": "2012-01-03 16:50:26",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/schmittjoh/JMSAopBundle",
-            "reference": "1.0.0"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://github.com/schmittjoh/JMSAopBundle/zipball/1.0.0",
-            "reference": "1.0.0",
-            "shasum": ""
-        },
-        "require": {
-            "symfony/framework-bundle": "2.*",
-            "jms/cg": "1.0.0"
-        },
-        "type": "symfony-bundle",
-        "installation-source": "dist",
-        "license": [
-            "Apache"
-        ],
-        "authors": [
-            {
-                "name": "Johannes M. Schmitt",
-                "email": "schmittjoh@gmail.com",
-                "homepage": "http://jmsyst.com",
-                "role": null
-            }
-        ],
-        "description": "Adds AOP capabilities to Symfony2",
-        "keywords": [
-            "annotations",
-            "aop"
-        ],
-        "autoload": {
-            "psr-0": {
-                "JMS\\AopBundle": ""
-            }
-        }
-    },
-    {
-        "name": "jms/security-extra-bundle",
-        "version": "1.1.0",
-        "version_normalized": "1.1.0.0",
-        "target-dir": "JMS/SecurityExtraBundle",
-        "time": "2012-01-03 17:38:12",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/schmittjoh/JMSSecurityExtraBundle",
-            "reference": "1.1.0"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://github.com/schmittjoh/JMSSecurityExtraBundle/zipball/1.1.0",
-            "reference": "1.1.0",
-            "shasum": ""
-        },
-        "require": {
-            "symfony/framework-bundle": "2.*",
-            "jms/metadata": "1.1.*",
-            "jms/aop-bundle": "1.0.*"
-        },
-        "type": "symfony-bundle",
-        "installation-source": "dist",
-        "license": [
-            "Apache"
-        ],
-        "authors": [
-            {
-                "name": "Johannes M. Schmitt",
-                "email": "schmittjoh@gmail.com",
-                "homepage": "http://jmsyst.com",
-                "role": null
-            }
-        ],
-        "description": "Enhances the Symfony2 Security Component by adding several new features",
-        "keywords": [
-            "annotations",
-            "authorization"
-        ],
-        "autoload": {
-            "psr-0": {
-                "JMS\\SecurityExtraBundle": ""
-            }
-        }
-    },
-    {
-        "name": "sensio/distribution-bundle",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "target-dir": "Sensio/Bundle/DistributionBundle",
-        "time": "2012-07-16 02:24:10",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/sensio/SensioDistributionBundle",
-            "reference": "5886adae1613c0a72fbb95259a83ae798e86c0d3"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://github.com/sensio/SensioDistributionBundle/zipball/5886adae1613c0a72fbb95259a83ae798e86c0d3",
-            "reference": "5886adae1613c0a72fbb95259a83ae798e86c0d3",
-            "shasum": ""
-        },
-        "require": {
-            "symfony/framework-bundle": "2.1.*"
-        },
-        "type": "symfony-bundle",
-        "installation-source": "source",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com",
-                "homepage": null,
-                "role": null
-            }
-        ],
-        "description": "The base bundle for the Symfony Distributions",
-        "keywords": [
-            "distribution",
-            "configuration"
-        ],
-        "autoload": {
-            "psr-0": {
-                "Sensio\\Bundle\\DistributionBundle": ""
-            }
-        }
-    },
-    {
-        "name": "sensio/generator-bundle",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "target-dir": "Sensio/Bundle/GeneratorBundle",
-        "time": "2012-07-14 08:04:48",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/sensio/SensioGeneratorBundle",
-            "reference": "c17dbddefe517e3adfcbeaa1ab7cef3e572d29c6"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://github.com/sensio/SensioGeneratorBundle/zipball/c17dbddefe517e3adfcbeaa1ab7cef3e572d29c6",
-            "reference": "c17dbddefe517e3adfcbeaa1ab7cef3e572d29c6",
-            "shasum": ""
-        },
-        "require": {
-            "symfony/framework-bundle": "2.1.*"
-        },
-        "require-dev": {
-            "symfony/doctrine-bridge": "2.1.*",
-            "doctrine/orm": ">=2.1,<2.4-dev",
-            "twig/twig": ">=1.8,<2.0-dev"
-        },
-        "suggest": {
-            "doctrine/doctrine-bundle": "to generate entities and their crud controller"
-        },
-        "type": "symfony-bundle",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.1.x-dev"
-            }
-        },
-        "installation-source": "source",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com",
-                "homepage": null,
-                "role": null
-            }
-        ],
-        "description": "This bundle generates code for you",
-        "autoload": {
-            "psr-0": {
-                "Sensio\\Bundle\\GeneratorBundle": ""
-            }
-        }
-    },
-    {
-        "name": "symfony/monolog-bundle",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "target-dir": "Symfony/Bundle/MonologBundle",
-        "time": "2012-07-01 09:48:07",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/MonologBundle",
-            "reference": "v2.1.0-BETA4"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://github.com/symfony/MonologBundle/zipball/v2.1.0-BETA4",
-            "reference": "v2.1.0-BETA4",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.2",
-            "monolog/monolog": "1.*",
-            "symfony/monolog-bridge": "2.1.*",
-            "symfony/dependency-injection": "2.1.*",
-            "symfony/config": "2.1.*"
-        },
-        "require-dev": {
-            "symfony/yaml": "2.1.*",
-            "symfony/config": "2.1.*"
-        },
-        "type": "symfony-bundle",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.1.x-dev"
-            }
-        },
-        "installation-source": "source",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com",
-                "homepage": null,
-                "role": null
-            },
-            {
-                "name": "Symfony Community",
-                "email": null,
-                "homepage": "http://symfony.com/contributors",
-                "role": null
-            }
-        ],
-        "description": "Symfony MonologBundle",
-        "homepage": "http://symfony.com",
-        "autoload": {
-            "psr-0": {
-                "Symfony\\Bundle\\MonologBundle": ""
-            }
-        }
-    },
-    {
-        "name": "symfony/swiftmailer-bundle",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "target-dir": "Symfony/Bundle/SwiftmailerBundle",
-        "time": "2012-07-19 23:55:12",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/SwiftmailerBundle",
-            "reference": "v2.1.0-BETA4"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://github.com/symfony/SwiftmailerBundle/zipball/v2.1.0-BETA4",
-            "reference": "v2.1.0-BETA4",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.2",
-            "symfony/swiftmailer-bridge": "2.1.*",
-            "swiftmailer/swiftmailer": ">=4.2.0,<4.3-dev"
-        },
-        "require-dev": {
-            "symfony/dependency-injection": "2.1.*",
-            "symfony/http-kernel": "2.1.*",
-            "symfony/config": "2.1.*"
-        },
-        "type": "symfony-bundle",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.1-dev"
-            }
-        },
-        "installation-source": "source",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com",
-                "homepage": null,
-                "role": null
-            },
-            {
-                "name": "Symfony Community",
-                "email": null,
-                "homepage": "http://symfony.com/contributors",
-                "role": null
-            }
-        ],
-        "description": "Symfony SwiftmailerBundle",
-        "homepage": "http://symfony.com",
-        "autoload": {
-            "psr-0": {
-                "Symfony\\Bundle\\SwiftmailerBundle": ""
-            }
-        }
-    },
-    {
-        "name": "twig/extensions",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "time": "2012-05-22 03:28:19",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/fabpot/Twig-extensions",
-            "reference": "feb6d3f10c411e2631997c0a905aa581c80305c1"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://github.com/fabpot/Twig-extensions/zipball/feb6d3f10c411e2631997c0a905aa581c80305c1",
-            "reference": "feb6d3f10c411e2631997c0a905aa581c80305c1",
-            "shasum": ""
-        },
-        "require": {
-            "twig/twig": "1.*"
-        },
-        "type": "library",
-        "installation-source": "source",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com",
-                "homepage": null,
-                "role": null
-            }
-        ],
-        "description": "Common additional features for Twig that do not directly belong in core",
-        "homepage": "https://github.com/fabpot/Twig-extensions",
-        "keywords": [
-            "debug",
-            "i18n",
-            "text"
-        ],
-        "autoload": {
-            "psr-0": {
-                "Twig_Extensions_": "lib/"
-            }
-        }
+        ]
     },
     {
         "name": "friendsofsymfony/user-bundle",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "target-dir": "FOS/UserBundle",
-        "time": "2012-07-22 01:19:19",
         "source": {
             "type": "git",
             "url": "https://github.com/FriendsOfSymfony/FOSUserBundle",
-            "reference": "93b174df2ca884a70ecd99cd12adc29c378ca053"
+            "reference": "51b0fa8fbb637940ebc9060386d95a75fd5ac51a"
         },
         "dist": {
             "type": "zip",
-            "url": "https://github.com/FriendsOfSymfony/FOSUserBundle/zipball/93b174df2ca884a70ecd99cd12adc29c378ca053",
-            "reference": "93b174df2ca884a70ecd99cd12adc29c378ca053",
+            "url": "https://github.com/FriendsOfSymfony/FOSUserBundle/zipball/51b0fa8fbb637940ebc9060386d95a75fd5ac51a",
+            "reference": "51b0fa8fbb637940ebc9060386d95a75fd5ac51a",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.2",
-            "symfony/framework-bundle": "2.1.*",
-            "symfony/security-bundle": "2.1.*"
+            "symfony/framework-bundle": ">=2.1,<2.3-dev",
+            "symfony/security-bundle": ">=2.1,<2.3-dev"
         },
         "require-dev": {
             "twig/twig": "*",
             "doctrine/doctrine-bundle": "*",
-            "doctrine/mongodb-odm-bundle": "*",
             "swiftmailer/swiftmailer": "*",
             "willdurand/propel-typehintable-behavior": "dev-master",
             "symfony/validator": "2.1.*",
@@ -879,145 +338,77 @@
             "doctrine/doctrine-bundle": "*",
             "doctrine/mongodb-odm-bundle": "*"
         },
+        "time": "2012-10-08 07:34:32",
         "type": "symfony-bundle",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0.x-dev"
+            }
+        },
         "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "FOS\\UserBundle": ""
+            }
+        },
         "license": [
             "MIT"
         ],
         "authors": [
             {
                 "name": "Christophe Coevoet",
-                "email": "stof@notk.org",
-                "homepage": null,
-                "role": null
+                "email": "stof@notk.org"
             },
             {
                 "name": "Thibault Duplessis",
                 "email": "thibault.duplessis@gmail.com",
-                "homepage": "http://ornicar.github.com",
-                "role": null
+                "homepage": "http://ornicar.github.com"
             },
             {
                 "name": "FriendsOfSymfony Community",
-                "email": null,
-                "homepage": "https://github.com/friendsofsymfony/FOSUserBundle/contributors",
-                "role": null
+                "homepage": "https://github.com/friendsofsymfony/FOSUserBundle/contributors"
             }
         ],
         "description": "Symfony FOSUserBundle",
         "homepage": "http://friendsofsymfony.github.com",
         "keywords": [
             "User management"
-        ],
-        "autoload": {
-            "psr-0": {
-                "FOS\\UserBundle": ""
-            }
-        }
-    },
-    {
-        "name": "doctrine/doctrine-bundle",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "target-dir": "Doctrine/Bundle/DoctrineBundle",
-        "time": "2012-07-25 16:05:11",
-        "source": {
-            "type": "git",
-            "url": "git://github.com/doctrine/DoctrineBundle.git",
-            "reference": "62134e6a8dd3f330131ee6a970f0cee1d7760c1d"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://github.com/doctrine/DoctrineBundle/zipball/62134e6a8dd3f330131ee6a970f0cee1d7760c1d",
-            "reference": "62134e6a8dd3f330131ee6a970f0cee1d7760c1d",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.2",
-            "doctrine/dbal": ">=2.2,<2.4-dev",
-            "symfony/framework-bundle": "2.1.*",
-            "symfony/doctrine-bridge": "2.1.*"
-        },
-        "require-dev": {
-            "doctrine/orm": ">=2.2,<2.4-dev",
-            "symfony/validator": "2.1.*",
-            "symfony/yaml": "2.1.*"
-        },
-        "suggest": {
-            "doctrine/orm": "The Doctrine ORM integration is optional in the bundle."
-        },
-        "type": "symfony-bundle",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0.x-dev"
-            }
-        },
-        "installation-source": "source",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com",
-                "homepage": null,
-                "role": null
-            },
-            {
-                "name": "Symfony Community",
-                "email": null,
-                "homepage": "http://symfony.com/contributors",
-                "role": null
-            },
-            {
-                "name": "Benjamin Eberlei",
-                "email": "kontakt@beberlei.de",
-                "homepage": null,
-                "role": null
-            }
-        ],
-        "description": "Symfony DoctrineBundle",
-        "homepage": "http://www.doctrine-project.org",
-        "keywords": [
-            "database",
-            "orm",
-            "persistence",
-            "dbal"
-        ],
-        "autoload": {
-            "psr-0": {
-                "Doctrine\\Bundle\\DoctrineBundle": ""
-            }
-        }
+        ]
     },
     {
         "name": "kriswallsmith/assetic",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
-        "time": "2012-07-24 06:57:28",
         "source": {
             "type": "git",
             "url": "http://github.com/kriswallsmith/assetic.git",
-            "reference": "c518a48ddc26af898191410cc35f7f30aaed448e"
+            "reference": "e22c5e07e672bb0cf43127e97e9368b53abf4aa8"
         },
         "dist": {
             "type": "zip",
-            "url": "https://github.com/kriswallsmith/assetic/zipball/c518a48ddc26af898191410cc35f7f30aaed448e",
-            "reference": "c518a48ddc26af898191410cc35f7f30aaed448e",
+            "url": "https://github.com/kriswallsmith/assetic/zipball/e22c5e07e672bb0cf43127e97e9368b53abf4aa8",
+            "reference": "e22c5e07e672bb0cf43127e97e9368b53abf4aa8",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.3.0",
-            "symfony/process": "2.1.*"
+            "symfony/process": ">=2.1.0,<2.3-dev",
+            "php": ">=5.3.1"
         },
         "require-dev": {
             "twig/twig": ">=1.6.0,<2.0",
-            "leafo/lessphp": "*"
+            "leafo/lessphp": "*",
+            "leafo/scssphp": "*",
+            "ptachoire/cssembed": "*",
+            "leafo/scssphp-compass": "*"
         },
         "suggest": {
             "twig/twig": "Assetic provides the integration with the Twig templating engine",
-            "leafo/lessphp": "Assetic provides the integration with the lessphp LESS compiler"
+            "leafo/lessphp": "Assetic provides the integration with the lessphp LESS compiler",
+            "leafo/scssphp": "Assetic provides the integration with the scssphp SCSS compiler",
+            "ptachoire/cssembed": "Assetic provides the integration with phpcssembed to embed data uris",
+            "leafo/scssphp-compass": "Assetic provides the integration with the SCSS compass plugin"
         },
+        "time": "2012-10-02 20:32:39",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1025,6 +416,14 @@
             }
         },
         "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Assetic": "src/"
+            },
+            "files": [
+                "src/functions.php"
+            ]
+        },
         "license": [
             "MIT"
         ],
@@ -1032,8 +431,7 @@
             {
                 "name": "Kris Wallsmith",
                 "email": "kris.wallsmith@gmail.com",
-                "homepage": "http://kriswallsmith.net/",
-                "role": null
+                "homepage": "http://kriswallsmith.net/"
             }
         ],
         "description": "Asset Management for PHP",
@@ -1042,147 +440,22 @@
             "assets",
             "compression",
             "minification"
-        ],
-        "autoload": {
-            "psr-0": {
-                "Assetic": "src/"
-            }
-        }
-    },
-    {
-        "name": "symfony/assetic-bundle",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "target-dir": "Symfony/Bundle/AsseticBundle",
-        "time": "2012-07-25 04:24:18",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/AsseticBundle",
-            "reference": "a5daf7ca4588f88105c808de9a28ba1e66bfa082"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://github.com/symfony/AsseticBundle/zipball/a5daf7ca4588f88105c808de9a28ba1e66bfa082",
-            "reference": "a5daf7ca4588f88105c808de9a28ba1e66bfa082",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.0",
-            "symfony/framework-bundle": "2.1.*",
-            "kriswallsmith/assetic": "1.1.*"
-        },
-        "suggest": {
-            "symfony/twig-bundle": "2.1.*"
-        },
-        "type": "symfony-bundle",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.1.x-dev"
-            }
-        },
-        "installation-source": "source",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Kris Wallsmith",
-                "email": "kris.wallsmith@gmail.com",
-                "homepage": "http://kriswallsmith.net/",
-                "role": null
-            }
-        ],
-        "description": "Integrates Assetic into Symfony2",
-        "homepage": "https://github.com/symfony/AsseticBundle",
-        "keywords": [
-            "assets",
-            "compression",
-            "minification"
-        ],
-        "autoload": {
-            "psr-0": {
-                "Symfony\\Bundle\\AsseticBundle": ""
-            }
-        }
-    },
-    {
-        "name": "gedmo/doctrine-extensions",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "time": "2012-07-21 16:03:42",
-        "source": {
-            "type": "git",
-            "url": "git://github.com/l3pp4rd/DoctrineExtensions.git",
-            "reference": "9898253452a37733d278af6fc595b059327c4218"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://github.com/l3pp4rd/DoctrineExtensions/zipball/9898253452a37733d278af6fc595b059327c4218",
-            "reference": "9898253452a37733d278af6fc595b059327c4218",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.2",
-            "doctrine/common": ">=2.2,<2.5-dev"
-        },
-        "suggest": {
-            "doctrine/orm": ">=2.1",
-            "doctrine/mongodb-odm": "*"
-        },
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.3.x-dev"
-            }
-        },
-        "installation-source": "source",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Gediminas Morkevicius",
-                "email": "gediminas.morkevicius@gmail",
-                "homepage": null,
-                "role": null
-            }
-        ],
-        "description": "Doctrine2 behavioral extensions",
-        "homepage": "http://gediminasm.org/",
-        "keywords": [
-            "tree",
-            "behaviors",
-            "doctrine2",
-            "extensions",
-            "gedmo",
-            "sluggable",
-            "loggable",
-            "translatable",
-            "nestedset",
-            "sortable",
-            "timestampable"
-        ],
-        "autoload": {
-            "psr-0": {
-                "Gedmo": "lib/"
-            }
-        }
+        ]
     },
     {
         "name": "stof/doctrine-extensions-bundle",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "target-dir": "Stof/DoctrineExtensionsBundle",
-        "time": "2012-07-23 11:52:03",
         "source": {
             "type": "git",
             "url": "https://github.com/stof/StofDoctrineExtensionsBundle",
-            "reference": "f31a0861de08b6594f09430a4cbaf0618e5e11ad"
+            "reference": "773b37310ca244570032541be3c8ab27b814a83f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://github.com/stof/StofDoctrineExtensionsBundle/zipball/f31a0861de08b6594f09430a4cbaf0618e5e11ad",
-            "reference": "f31a0861de08b6594f09430a4cbaf0618e5e11ad",
+            "url": "https://github.com/stof/StofDoctrineExtensionsBundle/zipball/773b37310ca244570032541be3c8ab27b814a83f",
+            "reference": "773b37310ca244570032541be3c8ab27b814a83f",
             "shasum": ""
         },
         "require": {
@@ -1194,17 +467,26 @@
             "doctrine/doctrine-bundle": "*",
             "doctrine/mongodb-odm-bundle": "2.1.*"
         },
+        "time": "2012-10-04 02:03:55",
         "type": "symfony-bundle",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.1.x-dev"
+            }
+        },
         "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Stof\\DoctrineExtensionsBundle": ""
+            }
+        },
         "license": [
             "MIT"
         ],
         "authors": [
             {
                 "name": "Christophe Coevoet",
-                "email": "stof@notk.org",
-                "homepage": null,
-                "role": null
+                "email": "stof@notk.org"
             }
         ],
         "description": "Integration of the gedmo/doctrine-extensions with Symfony2",
@@ -1221,37 +503,848 @@
             "nestedset",
             "sortable",
             "timestampable"
-        ],
-        "autoload": {
-            "psr-0": {
-                "Stof\\DoctrineExtensionsBundle": ""
-            }
-        }
+        ]
     },
     {
-        "name": "symfony/symfony",
+        "name": "swiftmailer/swiftmailer",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
-        "time": "2012-07-26 00:18:58",
         "source": {
             "type": "git",
-            "url": "git://github.com/symfony/symfony.git",
-            "reference": "af47e762c30feccb24b0d7f9fe2475a274eea745"
+            "url": "git://github.com/swiftmailer/swiftmailer.git",
+            "reference": "22731e907f5ca288c9bfde6b54f3611ace0a6c39"
         },
         "dist": {
             "type": "zip",
-            "url": "https://github.com/symfony/symfony/zipball/af47e762c30feccb24b0d7f9fe2475a274eea745",
-            "reference": "af47e762c30feccb24b0d7f9fe2475a274eea745",
+            "url": "https://github.com/swiftmailer/swiftmailer/zipball/22731e907f5ca288c9bfde6b54f3611ace0a6c39",
+            "reference": "22731e907f5ca288c9bfde6b54f3611ace0a6c39",
             "shasum": ""
         },
         "require": {
-            "doctrine/common": ">2.2,<2.4-dev",
+            "php": ">=5.2.4"
+        },
+        "time": "2012-10-05 01:53:49",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "4.2-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "files": [
+                "lib/swift_required.php"
+            ]
+        },
+        "license": [
+            "LGPL"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Chris Corbyn"
+            }
+        ],
+        "description": "Swiftmailer, free feature-rich PHP mailer",
+        "homepage": "http://swiftmailer.org",
+        "keywords": [
+            "mail",
+            "mailer"
+        ]
+    },
+    {
+        "name": "symfony/monolog-bundle",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "target-dir": "Symfony/Bundle/MonologBundle",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/MonologBundle",
+            "reference": "51517152a608926ee6b40ed8cfbba1a708f0a14f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/symfony/MonologBundle/zipball/51517152a608926ee6b40ed8cfbba1a708f0a14f",
+            "reference": "51517152a608926ee6b40ed8cfbba1a708f0a14f",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.2",
+            "monolog/monolog": "1.*",
+            "symfony/monolog-bridge": ">=2.1.0,<2.3-dev",
+            "symfony/dependency-injection": ">=2.1.0,<2.3-dev",
+            "symfony/config": ">=2.1.0,<2.3-dev"
+        },
+        "require-dev": {
+            "symfony/yaml": ">=2.1.0,<2.3-dev",
+            "symfony/config": ">=2.1.0,<2.3-dev"
+        },
+        "time": "2012-09-22 19:40:24",
+        "type": "symfony-bundle",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.1.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Symfony\\Bundle\\MonologBundle": ""
+            }
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "http://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony MonologBundle",
+        "homepage": "http://symfony.com"
+    },
+    {
+        "name": "symfony/swiftmailer-bundle",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "target-dir": "Symfony/Bundle/SwiftmailerBundle",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/SwiftmailerBundle",
+            "reference": "e055faf5d7279f3c01ffd58f1548e0fc524b71d1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/symfony/SwiftmailerBundle/zipball/e055faf5d7279f3c01ffd58f1548e0fc524b71d1",
+            "reference": "e055faf5d7279f3c01ffd58f1548e0fc524b71d1",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.2",
+            "swiftmailer/swiftmailer": ">=4.2.0,<4.3-dev",
+            "symfony/swiftmailer-bridge": ">=2.1.0,<2.3-dev"
+        },
+        "require-dev": {
+            "symfony/dependency-injection": ">=2.1.0,<2.3-dev",
+            "symfony/http-kernel": ">=2.1.0,<2.3-dev",
+            "symfony/config": ">=2.1.0,<2.3-dev",
+            "symfony/yaml": ">=2.1.0,<2.3-dev"
+        },
+        "time": "2012-09-22 19:42:56",
+        "type": "symfony-bundle",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.1-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Symfony\\Bundle\\SwiftmailerBundle": ""
+            }
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "http://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony SwiftmailerBundle",
+        "homepage": "http://symfony.com"
+    },
+    {
+        "name": "doctrine/common",
+        "version": "2.3.x-dev",
+        "version_normalized": "2.3.9999999.9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/doctrine/common",
+            "reference": "bb0aebbf234db52df476a2b473d434745b34221c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/doctrine/common/zipball/bb0aebbf234db52df476a2b473d434745b34221c",
+            "reference": "bb0aebbf234db52df476a2b473d434745b34221c",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.2"
+        },
+        "time": "2012-09-22 14:55:18",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.3.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Doctrine\\Common": "lib/"
+            }
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jonathan Wage",
+                "email": "jonwage@gmail.com",
+                "homepage": "http://www.jwage.com/"
+            },
+            {
+                "name": "Guilherme Blanco",
+                "email": "guilhermeblanco@gmail.com",
+                "homepage": "http://www.instaclick.com"
+            },
+            {
+                "name": "Roman Borschel",
+                "email": "roman@code-factory.org"
+            },
+            {
+                "name": "Benjamin Eberlei",
+                "email": "kontakt@beberlei.de"
+            },
+            {
+                "name": "Johannes Schmitt",
+                "email": "schmittjoh@gmail.com",
+                "homepage": "https://github.com/schmittjoh",
+                "role": "Developer of wrapped JMSSerializerBundle"
+            }
+        ],
+        "description": "Common Library for Doctrine projects",
+        "homepage": "http://www.doctrine-project.org",
+        "keywords": [
+            "collections",
+            "spl",
+            "eventmanager",
+            "annotations",
+            "persistence"
+        ]
+    },
+    {
+        "name": "doctrine/dbal",
+        "version": "2.3.x-dev",
+        "version_normalized": "2.3.9999999.9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/doctrine/dbal",
+            "reference": "219d96a1592e9e23087eb6861b4f8233d06c6463"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/doctrine/dbal/zipball/219d96a1592e9e23087eb6861b4f8233d06c6463",
+            "reference": "219d96a1592e9e23087eb6861b4f8233d06c6463",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.2",
+            "doctrine/common": "2.3.*"
+        },
+        "time": "2012-10-08 19:21:52",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.3.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Doctrine\\DBAL": "lib/"
+            }
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jonathan Wage",
+                "email": "jonwage@gmail.com",
+                "homepage": "http://www.jwage.com/"
+            },
+            {
+                "name": "Guilherme Blanco",
+                "email": "guilhermeblanco@gmail.com",
+                "homepage": "http://www.instaclick.com"
+            },
+            {
+                "name": "Roman Borschel",
+                "email": "roman@code-factory.org"
+            },
+            {
+                "name": "Benjamin Eberlei",
+                "email": "kontakt@beberlei.de"
+            }
+        ],
+        "description": "Database Abstraction Layer",
+        "homepage": "http://www.doctrine-project.org",
+        "keywords": [
+            "database",
+            "persistence",
+            "dbal",
+            "queryobject"
+        ]
+    },
+    {
+        "name": "doctrine/orm",
+        "version": "2.3.x-dev",
+        "version_normalized": "2.3.9999999.9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "git://github.com/doctrine/doctrine2.git",
+            "reference": "564ec1ee2a6a439312ee9105a2a076af7c992e5b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/doctrine/doctrine2/zipball/564ec1ee2a6a439312ee9105a2a076af7c992e5b",
+            "reference": "564ec1ee2a6a439312ee9105a2a076af7c992e5b",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.2",
+            "ext-pdo": "*",
+            "symfony/console": "2.*",
+            "doctrine/dbal": "2.3.*"
+        },
+        "suggest": {
+            "symfony/yaml": "If you want to use YAML Metadata Mapping Driver"
+        },
+        "time": "2012-10-08 06:20:05",
+        "bin": [
+            "bin/doctrine",
+            "bin/doctrine.php"
+        ],
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.3.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Doctrine\\ORM": "lib/"
+            }
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jonathan Wage",
+                "email": "jonwage@gmail.com",
+                "homepage": "http://www.jwage.com/"
+            },
+            {
+                "name": "Guilherme Blanco",
+                "email": "guilhermeblanco@gmail.com",
+                "homepage": "http://www.instaclick.com"
+            },
+            {
+                "name": "Roman Borschel",
+                "email": "roman@code-factory.org"
+            },
+            {
+                "name": "Benjamin Eberlei",
+                "email": "kontakt@beberlei.de"
+            }
+        ],
+        "description": "Object-Relational-Mapper for PHP",
+        "homepage": "http://www.doctrine-project.org",
+        "keywords": [
+            "database",
+            "orm"
+        ]
+    },
+    {
+        "name": "sensio/distribution-bundle",
+        "version": "2.1.x-dev",
+        "version_normalized": "2.1.9999999.9999999-dev",
+        "target-dir": "Sensio/Bundle/DistributionBundle",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/sensio/SensioDistributionBundle",
+            "reference": "v2.1.1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/sensio/SensioDistributionBundle/zipball/v2.1.1",
+            "reference": "v2.1.1",
+            "shasum": ""
+        },
+        "require": {
+            "symfony/framework-bundle": "2.1.*"
+        },
+        "time": "2012-09-13 14:10:08",
+        "type": "symfony-bundle",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.1.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Sensio\\Bundle\\DistributionBundle": ""
+            }
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            }
+        ],
+        "description": "The base bundle for the Symfony Distributions",
+        "keywords": [
+            "distribution",
+            "configuration"
+        ]
+    },
+    {
+        "name": "sensio/framework-extra-bundle",
+        "version": "2.1.x-dev",
+        "version_normalized": "2.1.9999999.9999999-dev",
+        "target-dir": "Sensio/Bundle/FrameworkExtraBundle",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/sensio/SensioFrameworkExtraBundle",
+            "reference": "53a2a5e5ba052b2ae281f3b8bd9b530947a328b4"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/sensio/SensioFrameworkExtraBundle/zipball/53a2a5e5ba052b2ae281f3b8bd9b530947a328b4",
+            "reference": "53a2a5e5ba052b2ae281f3b8bd9b530947a328b4",
+            "shasum": ""
+        },
+        "require": {
+            "symfony/framework-bundle": "2.1.*",
+            "doctrine/common": ">=2.1,<2.4-dev"
+        },
+        "time": "2012-10-11 21:34:31",
+        "type": "symfony-bundle",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.1.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Sensio\\Bundle\\FrameworkExtraBundle": ""
+            }
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            }
+        ],
+        "description": "This bundle provides a way to configure your controllers with annotations",
+        "keywords": [
+            "annotations",
+            "controllers"
+        ]
+    },
+    {
+        "name": "jms/di-extra-bundle",
+        "version": "1.1.x-dev",
+        "version_normalized": "1.1.9999999.9999999-dev",
+        "target-dir": "JMS/DiExtraBundle",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/schmittjoh/JMSDiExtraBundle",
+            "reference": "1.1.1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/schmittjoh/JMSDiExtraBundle/zipball/1.1.1",
+            "reference": "1.1.1",
+            "shasum": ""
+        },
+        "require": {
+            "symfony/framework-bundle": "2.1.*",
+            "jms/aop-bundle": "1.0.*",
+            "jms/metadata": "1.1.*",
+            "symfony/process": "2.1.*",
+            "symfony/finder": "2.1.*"
+        },
+        "require-dev": {
+            "jms/security-extra-bundle": "1.*",
+            "symfony/validator": "*",
+            "symfony/form": "*",
+            "symfony/class-loader": "*",
+            "symfony/yaml": "*",
+            "symfony/browser-kit": "*",
+            "symfony/security-bundle": "*",
+            "symfony/twig-bundle": "*",
+            "sensio/framework-extra-bundle": "*",
+            "doctrine/doctrine-bundle": "*",
+            "doctrine/orm": "*"
+        },
+        "time": "2012-09-23 17:56:32",
+        "type": "symfony-bundle",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "JMS\\DiExtraBundle": ""
+            }
+        },
+        "license": [
+            "Apache"
+        ],
+        "authors": [
+            {
+                "name": "Johannes M. Schmitt",
+                "email": "schmittjoh@gmail.com",
+                "homepage": "https://github.com/schmittjoh",
+                "role": "Developer of wrapped JMSSerializerBundle"
+            }
+        ],
+        "description": "Allows to configure dependency injection using annotations",
+        "homepage": "http://jmsyst.com/bundles/JMSDiExtraBundle",
+        "keywords": [
+            "dependency injection",
+            "annotations"
+        ]
+    },
+    {
+        "name": "sensio/generator-bundle",
+        "version": "2.1.x-dev",
+        "version_normalized": "2.1.9999999.9999999-dev",
+        "target-dir": "Sensio/Bundle/GeneratorBundle",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/sensio/SensioGeneratorBundle",
+            "reference": "3a65c9bf7d31aecacffc15a48f5eb2ece3615ef0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/sensio/SensioGeneratorBundle/zipball/3a65c9bf7d31aecacffc15a48f5eb2ece3615ef0",
+            "reference": "3a65c9bf7d31aecacffc15a48f5eb2ece3615ef0",
+            "shasum": ""
+        },
+        "require": {
+            "symfony/framework-bundle": "2.1.*",
+            "symfony/console": "2.1.*"
+        },
+        "require-dev": {
+            "symfony/doctrine-bridge": "2.1.*",
+            "doctrine/orm": ">=2.1,<2.4-dev",
+            "twig/twig": ">=1.8,<2.0-dev"
+        },
+        "time": "2012-09-21 10:03:01",
+        "type": "symfony-bundle",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.1.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Sensio\\Bundle\\GeneratorBundle": ""
+            }
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            }
+        ],
+        "description": "This bundle generates code for you"
+    },
+    {
+        "name": "twig/extensions",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/fabpot/Twig-extensions",
+            "reference": "dcdff02fbac1282e6b8f4d0558cc7e9580105688"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/fabpot/Twig-extensions/zipball/dcdff02fbac1282e6b8f4d0558cc7e9580105688",
+            "reference": "dcdff02fbac1282e6b8f4d0558cc7e9580105688",
+            "shasum": ""
+        },
+        "require": {
+            "twig/twig": "1.*"
+        },
+        "time": "2012-10-12 06:13:26",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Twig_Extensions_": "lib/"
+            }
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            }
+        ],
+        "description": "Common additional features for Twig that do not directly belong in core",
+        "homepage": "https://github.com/fabpot/Twig-extensions",
+        "keywords": [
+            "debug",
+            "i18n",
+            "text"
+        ]
+    },
+    {
+        "name": "doctrine/doctrine-bundle",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "target-dir": "Doctrine/Bundle/DoctrineBundle",
+        "source": {
+            "type": "git",
+            "url": "git://github.com/doctrine/DoctrineBundle.git",
+            "reference": "75e0ac4a4be04bfa39b282f8ebccd3ef4c8ebe32"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/doctrine/DoctrineBundle/zipball/75e0ac4a4be04bfa39b282f8ebccd3ef4c8ebe32",
+            "reference": "75e0ac4a4be04bfa39b282f8ebccd3ef4c8ebe32",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.2",
+            "doctrine/dbal": ">=2.2,<2.4-dev",
+            "symfony/framework-bundle": ">=2.1,<2.3-dev",
+            "symfony/doctrine-bridge": ">=2.1,<2.3-dev"
+        },
+        "require-dev": {
+            "doctrine/orm": ">=2.2,<2.4-dev",
+            "symfony/yaml": ">=2.1,<2.3-dev",
+            "symfony/validator": ">=2.1,<2.3-dev"
+        },
+        "suggest": {
+            "doctrine/orm": "The Doctrine ORM integration is optional in the bundle."
+        },
+        "time": "2012-10-12 06:42:28",
+        "type": "symfony-bundle",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Doctrine\\Bundle\\DoctrineBundle": ""
+            }
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "http://symfony.com/contributors"
+            },
+            {
+                "name": "Benjamin Eberlei",
+                "email": "kontakt@beberlei.de"
+            }
+        ],
+        "description": "Symfony DoctrineBundle",
+        "homepage": "http://www.doctrine-project.org",
+        "keywords": [
+            "database",
+            "orm",
+            "persistence",
+            "dbal"
+        ]
+    },
+    {
+        "name": "gedmo/doctrine-extensions",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "git://github.com/l3pp4rd/DoctrineExtensions.git",
+            "reference": "117f14e0f8fd069d679ca0f84fa05c781cca3119"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/l3pp4rd/DoctrineExtensions/zipball/117f14e0f8fd069d679ca0f84fa05c781cca3119",
+            "reference": "117f14e0f8fd069d679ca0f84fa05c781cca3119",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.2",
+            "doctrine/common": ">=2.2,<2.5-dev"
+        },
+        "suggest": {
+            "doctrine/orm": ">=2.1",
+            "doctrine/mongodb-odm": "*"
+        },
+        "time": "2012-10-12 06:09:19",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.3.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Gedmo": "lib/"
+            }
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Gediminas Morkevicius",
+                "email": "gediminas.morkevicius@gmail"
+            }
+        ],
+        "description": "Doctrine2 behavioral extensions",
+        "homepage": "http://gediminasm.org/",
+        "keywords": [
+            "tree",
+            "behaviors",
+            "doctrine2",
+            "extensions",
+            "gedmo",
+            "sluggable",
+            "loggable",
+            "translatable",
+            "nestedset",
+            "sortable",
+            "timestampable"
+        ]
+    },
+    {
+        "name": "symfony/assetic-bundle",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "target-dir": "Symfony/Bundle/AsseticBundle",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/AsseticBundle",
+            "reference": "bc7cddba9b63ca47d3e1eba725cae1a52ec32897"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/symfony/AsseticBundle/zipball/bc7cddba9b63ca47d3e1eba725cae1a52ec32897",
+            "reference": "bc7cddba9b63ca47d3e1eba725cae1a52ec32897",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0",
+            "kriswallsmith/assetic": "1.1.*",
+            "symfony/framework-bundle": ">=2.1.0,<2.3-dev"
+        },
+        "require-dev": {
+            "symfony/twig-bundle": ">=2.1.0,<2.3-dev",
+            "symfony/console": ">=2.1.0,<2.3-dev",
+            "symfony/class-loader": ">=2.1.0,<2.3-dev",
+            "symfony/yaml": ">=2.1.0,<2.3-dev",
+            "symfony/form": ">=2.1.0,<2.3-dev",
+            "symfony/dom-crawler": ">=2.1.0,<2.3-dev",
+            "symfony/css-selector": ">=2.1.0,<2.3-dev"
+        },
+        "suggest": {
+            "symfony/twig-bundle": ">=2.1.0,<2.3-dev"
+        },
+        "time": "2012-10-11 20:39:03",
+        "type": "symfony-bundle",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.1.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Symfony\\Bundle\\AsseticBundle": ""
+            }
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Kris Wallsmith",
+                "email": "kris.wallsmith@gmail.com",
+                "homepage": "http://kriswallsmith.net/"
+            }
+        ],
+        "description": "Integrates Assetic into Symfony2",
+        "homepage": "https://github.com/symfony/AsseticBundle",
+        "keywords": [
+            "assets",
+            "compression",
+            "minification"
+        ]
+    },
+    {
+        "name": "symfony/symfony",
+        "version": "2.1.x-dev",
+        "version_normalized": "2.1.9999999.9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "git://github.com/symfony/symfony.git",
+            "reference": "854015265c24a7524d95d4ee57c59f2836d60dc1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/symfony/symfony/zipball/854015265c24a7524d95d4ee57c59f2836d60dc1",
+            "reference": "854015265c24a7524d95d4ee57c59f2836d60dc1",
+            "shasum": ""
+        },
+        "require": {
             "php": ">=5.3.3",
+            "doctrine/common": ">2.2,<2.4-dev",
             "twig/twig": ">=1.9.1,<2.0-dev"
         },
         "replace": {
             "symfony/doctrine-bridge": "self.version",
             "symfony/monolog-bridge": "self.version",
+            "symfony/propel1-bridge": "self.version",
+            "symfony/swiftmailer-bridge": "self.version",
             "symfony/twig-bridge": "self.version",
             "symfony/framework-bundle": "self.version",
             "symfony/security-bundle": "self.version",
@@ -1271,6 +1364,7 @@
             "symfony/http-foundation": "self.version",
             "symfony/http-kernel": "self.version",
             "symfony/locale": "self.version",
+            "symfony/options-resolver": "self.version",
             "symfony/process": "self.version",
             "symfony/routing": "self.version",
             "symfony/security": "self.version",
@@ -1278,21 +1372,16 @@
             "symfony/templating": "self.version",
             "symfony/translation": "self.version",
             "symfony/validator": "self.version",
-            "symfony/yaml": "self.version",
-            "symfony/propel1-bridge": "self.version",
-            "symfony/options-resolver": "self.version",
-            "symfony/swiftmailer-bridge": "self.version"
+            "symfony/yaml": "self.version"
         },
         "require-dev": {
+            "doctrine/dbal": ">=2.2,<2.4-dev",
+            "doctrine/orm": ">=2.2.3,<2.4-dev",
             "doctrine/data-fixtures": "1.0.*",
             "propel/propel1": "dev-master",
-            "monolog/monolog": "dev-master",
-            "doctrine/dbal": ">=2.2,<2.4-dev",
-            "doctrine/orm": ">=2.2,<2.4-dev"
+            "monolog/monolog": "dev-master"
         },
-        "suggest": {
-            "doctrine/data-fixtures": "1.0.*"
-        },
+        "time": "2012-10-11 22:44:22",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1300,83 +1389,74 @@
             }
         },
         "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Symfony": "src/",
+                "SessionHandlerInterface": "src/Symfony/Component/HttpFoundation/Resources/stubs"
+            }
+        },
         "license": [
             "MIT"
         ],
         "authors": [
             {
                 "name": "Fabien Potencier",
-                "email": "fabien@symfony.com",
-                "homepage": null,
-                "role": null
+                "email": "fabien@symfony.com"
             },
             {
                 "name": "Symfony Community",
-                "email": null,
-                "homepage": "http://symfony.com/contributors",
-                "role": null
+                "homepage": "http://symfony.com/contributors"
             }
         ],
         "description": "The Symfony PHP framework",
         "homepage": "http://symfony.com",
         "keywords": [
             "framework"
-        ],
-        "autoload": {
-            "psr-0": {
-                "Symfony": "src/",
-                "SessionHandlerInterface": "src/Symfony/Component/HttpFoundation/Resources/stubs"
-            }
-        }
+        ]
     },
     {
-        "name": "sensio/framework-extra-bundle",
+        "name": "goetas/apache-fop",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
-        "target-dir": "Sensio/Bundle/FrameworkExtraBundle",
-        "time": "2012-07-26 00:13:36",
+        "target-dir": "Goetas/GoetasApacheFop",
         "source": {
             "type": "git",
-            "url": "https://github.com/sensio/SensioFrameworkExtraBundle",
-            "reference": "998f5edbffcc422ebd74dab093d9a35d96e3edf6"
+            "url": "https://github.com/goetas/apache-fop",
+            "reference": "31b617cbc8fd5b5fe1797d393486f44212f4750b"
         },
         "dist": {
             "type": "zip",
-            "url": "https://github.com/sensio/SensioFrameworkExtraBundle/zipball/998f5edbffcc422ebd74dab093d9a35d96e3edf6",
-            "reference": "998f5edbffcc422ebd74dab093d9a35d96e3edf6",
+            "url": "https://github.com/goetas/apache-fop/zipball/31b617cbc8fd5b5fe1797d393486f44212f4750b",
+            "reference": "31b617cbc8fd5b5fe1797d393486f44212f4750b",
             "shasum": ""
         },
         "require": {
-            "doctrine/common": ">=2.1,<2.4-dev",
-            "symfony/framework-bundle": "2.1.*"
+            "php": ">=5.3.2",
+            "symfony/symfony": "2.*"
         },
+        "time": "2012-08-31 05:15:23",
         "type": "symfony-bundle",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.1.x-dev"
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Goetas\\GoetasApacheFop": "lib/"
             }
         },
-        "installation-source": "source",
         "license": [
             "MIT"
         ],
         "authors": [
             {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com",
-                "homepage": null,
-                "role": null
+                "name": "Asmir Mustafic",
+                "email": "goetas@lignano.it"
             }
         ],
-        "description": "This bundle provides a way to configure your controllers with annotations",
+        "description": "Symfony2 Symfony2 Apache FOP Bundle",
+        "homepage": "https://github.com/goetas/apache-fop",
         "keywords": [
-            "annotations",
-            "controllers"
-        ],
-        "autoload": {
-            "psr-0": {
-                "Sensio\\Bundle\\FrameworkExtraBundle": ""
-            }
-        }
+            "pdf",
+            "documents",
+            "rtf"
+        ]
     }
 ]

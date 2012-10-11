@@ -7,21 +7,21 @@
 <table cellpadding='0' cellspacing='0'>
 <tr>
 <td class='nav01' width='150px' height='58px'>
-<a href="../../issue/current" ><img name="a" src="/borrowers/web/bundles/borrowershome/img/current_issue_off.jpg" border="0" width='150px' height="58px"/></a>
+<a href="../current" ><img name="a" src="/borrowers/web/bundles/borrowershome/img/current_issue_off.jpg" border="0" width='150px' height="58px"/></a>
 </td>
 </tr>
 <tr>
 <td class='nav02' width='150px' height='54px'>
 
-<a href="../../issue/previous" ><img name="b" src="/borrowers/web/bundles/borrowershome/img/previous_issue_off.jpg" border="0" width='150px' height="54px"/></a>
+<a href="../previous" ><img name="b" src="/borrowers/web/bundles/borrowershome/img/previous_issue_off.jpg" border="0" width='150px' height="54px"/></a>
 
-<a href="../../issue/about" ><img name="e" src="/borrowers/web/bundles/borrowershome/img/b5-off-book-d2.jpg" border="0" width='150px' height="36px"/></a> 
+<a href="../about" ><img name="e" src="/borrowers/web/bundles/borrowershome/img/b5-off-book-d2.jpg" border="0" width='150px' height="36px"/></a> 
 </td>
 </tr>
 <tr>
 <td class='nav03' width='150px' height='36px'>
 
-<a href="../../issue/archive" ><img name="c" src="/borrowers/web/bundles/borrowershome/img/archive-off.jpg" border="0" width='150px' height="36px"/></a>
+<a href="../archive" ><img name="c" src="/borrowers/web/bundles/borrowershome/img/archive-off.jpg" border="0" width='150px' height="36px"/></a>
 
 </td>
 </tr>

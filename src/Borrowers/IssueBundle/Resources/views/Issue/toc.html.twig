@@ -58,12 +58,12 @@
 </tr>
 {% endif %}
 
-{% for file in section.files %} 
+{% for file in section.files if file.display==1%} 
 
 <tr>
 <td>
 <a class="" href="{{ path('file_display', { 'id': file.id }) }}">{{ file.title |raw }}</a>
-<a class="" href="">(pdf)</a>
+<a class="" href="{{ path('file_pdf', { 'id': file.id }) }}">(pdf)</a>
 </td>
 <td style='text-align:left'>
     {% for author in file.authors %}{{ author.firstname | raw }} {{ author.lastname | raw }} {% endfor %}

@@ -4,6 +4,9 @@ namespace JMS\SecurityExtraBundle\Tests\Functional;
 
 class MethodAccessControlTest extends BaseTestCase
 {
+    /**
+     * @runInSeparateProcess
+     */
     public function testControllerAddActionIsSecure()
     {
         $client = $this->createClient(array('config' => 'method_access_control.yml'));
@@ -15,6 +18,9 @@ class MethodAccessControlTest extends BaseTestCase
         $this->assertEquals('http://localhost/login', $response->headers->get('Location'));
     }
 
+    /**
+     * @runInSeparateProcess
+     */
     public function testControllerEditActionIsNotSecure()
     {
         $client = $this->createClient(array('config' => 'method_access_control.yml'));
@@ -26,6 +32,7 @@ class MethodAccessControlTest extends BaseTestCase
     }
 
     /**
+     * @runInSeparateProcess
      * @expectedException Symfony\Component\Security\Core\Exception\AuthenticationCredentialsNotFoundException
      */
     public function testUserManagerDeleteIsSecure()
@@ -35,12 +42,15 @@ class MethodAccessControlTest extends BaseTestCase
         $manager = self::$kernel->getContainer()->get('user_manager');
 
         $this->assertNotEquals(
-        	'JMS\SecurityExtraBundle\Tests\Functional\TestBundle\User\UserManager',
+            'JMS\SecurityExtraBundle\Tests\Functional\TestBundle\User\UserManager',
             get_class($manager)
         );
         $manager->delete();
     }
 
+    /**
+     * @runInSeparateProcess
+     */
     public function testAcl()
     {
         $client = $this->createClient(array('config' => 'acl_enabled.yml'));
@@ -61,6 +71,9 @@ class MethodAccessControlTest extends BaseTestCase
         $this->assertEquals('Foo', $response->getContent());
     }
 
+    /**
+     * @runInSeparateProcess
+     */
     public function testRoleHierarchyIsRespected()
     {
         $client = $this->createClient(array('config' => 'all_voters_disabled.yml'));

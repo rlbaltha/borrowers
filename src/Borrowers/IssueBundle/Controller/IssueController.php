@@ -11,15 +11,13 @@ use Borrowers\IssueBundle\Form\IssueType;
 
 /**
  * Issue controller.
- *
- * @Route("/issue")
  */
 class IssueController extends Controller
 {
     /**
      * Lists all Issue entities.
      *
-     * @Route("/", name="issue")
+     * @Route("/issue/", name="issue")
      * @Template()
      */
     public function indexAction()
@@ -34,7 +32,7 @@ class IssueController extends Controller
     /**
      * Finds and displays a Issue entity.
      *
-     * @Route("/{id}/show", name="issue_show")
+     * @Route("/issue/{id}/show", name="issue_show")
      * @Template()
      */
     public function showAction($id)
@@ -143,7 +141,7 @@ class IssueController extends Controller
     /**
      * Displays a form to create a new Issue entity.
      *
-     * @Route("/new", name="issue_new")
+     * @Route("/issue/new", name="issue_new")
      * @Template()
      */
     public function newAction()
@@ -160,7 +158,7 @@ class IssueController extends Controller
     /**
      * Creates a new Issue entity.
      *
-     * @Route("/create", name="issue_create")
+     * @Route("/issue/create", name="issue_create")
      * @Method("post")
      * @Template("BorrowersIssueBundle:Issue:new.html.twig")
      */
@@ -189,7 +187,7 @@ class IssueController extends Controller
     /**
      * Displays a form to edit an existing Issue entity.
      *
-     * @Route("/{id}/edit", name="issue_edit")
+     * @Route("/issue/{id}/edit", name="issue_edit")
      * @Template()
      */
     public function editAction($id)
@@ -215,7 +213,7 @@ class IssueController extends Controller
     /**
      * Edits an existing Issue entity.
      *
-     * @Route("/{id}/update", name="issue_update")
+     * @Route("/issue/{id}/update", name="issue_update")
      * @Method("post")
      * @Template("BorrowersIssueBundle:Issue:edit.html.twig")
      */
@@ -253,7 +251,7 @@ class IssueController extends Controller
     /**
      * Deletes a Issue entity.
      *
-     * @Route("/{id}/delete", name="issue_delete")
+     * @Route("/issue/{id}/delete", name="issue_delete")
      * @Method("post")
      */
     public function deleteAction($id)

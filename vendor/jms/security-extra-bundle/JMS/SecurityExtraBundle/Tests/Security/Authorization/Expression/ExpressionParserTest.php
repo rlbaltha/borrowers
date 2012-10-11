@@ -28,7 +28,7 @@ class ExpressionParserTest extends \PHPUnit_Framework_TestCase
     public function testSingleFunctionWithOneArgument()
     {
         $this->assertEquals(new FunctionExpression('hasRole', array(
-        	new ConstantExpression('ROLE_ADMIN'))),
+            new ConstantExpression('ROLE_ADMIN'))),
             $this->parser->parse('hasRole("ROLE_ADMIN")'));
     }
 
@@ -57,6 +57,15 @@ class ExpressionParserTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals($expected, $this->parser->parse('isAnonymous() && hasRole("FOO")'));
         $this->assertEquals($expected, $this->parser->parse('isAnonymous() and hasRole("FOO")'));
+    }
+
+    /**
+     * @expectedException \RuntimeException
+     * @expectedExceptionMessage Malformed expression. Expected end of expression, but got "," (T_COMMA).
+     */
+    public function testInvalidExpression()
+    {
+        $this->parser->parse('object, "FOO")');
     }
 
     /**

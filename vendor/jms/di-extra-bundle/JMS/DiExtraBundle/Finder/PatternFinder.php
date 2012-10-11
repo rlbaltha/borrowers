@@ -140,7 +140,7 @@ class PatternFinder
             $cmd .= ' --directories=skip';
         }
 
-        $cmd .= ' --devices=skip --files-with-matches --with-filename --max-count=1 --color=never --include='.$this->filePattern;
+        $cmd .= ' --devices=skip --files-with-matches --with-filename --color=never --include='.$this->filePattern;
         $cmd .= ' '.escapeshellarg($this->pattern);
 
         foreach ($dirs as $dir) {
@@ -189,10 +189,11 @@ class PatternFinder
     {
         $finder = new ExecutableFinder();
         $isWindows = 0 === stripos(PHP_OS, 'win');
+        $execAvailable = function_exists('exec');
 
-        if (!$isWindows && self::$grepPath = $finder->find('grep')) {
+        if (!$isWindows && $execAvailable && self::$grepPath = $finder->find('grep')) {
             self::$method = self::METHOD_GREP;
-        } else if ($isWindows) {
+        } else if ($isWindows && $execAvailable) {
             self::$method = self::METHOD_FINDSTR;
         } else {
             self::$method = self::METHOD_FINDER;

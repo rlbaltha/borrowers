@@ -88,7 +88,7 @@ class ExpressionCompilerTest extends \PHPUnit_Framework_TestCase
 
         // the first call ensure that state is reset correctly
         $this->compiler->compileExpression(new Expression(
-        	'hasPermission(#project.getCompany(), "OPERATOR")'));
+            'hasPermission(#project.getCompany(), "OPERATOR")'));
         $evaluator = eval($this->compiler->compileExpression(
             new Expression('hasPermission(#project.getCompany(), "OPERATOR")')));
 
@@ -109,7 +109,7 @@ class ExpressionCompilerTest extends \PHPUnit_Framework_TestCase
 
         $this->assertFalse($evaluator($context));
     }
-    
+
     /**
      * @dataProvider getUnaryNotTests
      */
@@ -117,19 +117,19 @@ class ExpressionCompilerTest extends \PHPUnit_Framework_TestCase
     {
         $evaluator = eval($this->compiler->compileExpression(new Expression(
             'not hasRole("FOO") and !hasRole("BAR") and hasRole("BAZ")')));
-        
+
         $roles = array_map(function($v) {
             return new Role($v);
         }, $roles);
-        
+
         $token = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
         $token->expects($this->once())
             ->method('getRoles')
             ->will($this->returnValue($roles));
-        
+
         $this->assertSame($expected, $evaluator(array('token' => $token)));
     }
-    
+
     public function getUnaryNotTests()
     {
         return array(
