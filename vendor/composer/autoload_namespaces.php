@@ -22,7 +22,7 @@ return array(
     'JMS\\SecurityExtraBundle' => $vendorDir . '/jms/security-extra-bundle/',
     'JMS\\DiExtraBundle' => $vendorDir . '/jms/di-extra-bundle/',
     'JMS\\AopBundle' => $vendorDir . '/jms/aop-bundle/',
-    'Goetas\\ApacheFopBundle' => $vendorDir . '/goetas/apache-fop/Goetas/GoetasApacheFop/lib/',
+    'Goetas\\ApacheFopBundle' => $vendorDir . '/goetas/apache-fop/lib/',
     'Gedmo' => $vendorDir . '/gedmo/doctrine-extensions/lib/',
     'FOS\\UserBundle' => $vendorDir . '/friendsofsymfony/user-bundle/',
     'Doctrine\\ORM' => $vendorDir . '/doctrine/orm/lib/',
