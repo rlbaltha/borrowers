@@ -1,26 +1,26 @@
 td.header {
 background-color:#FFFFFF;
-background-image:url(bundles/borrowershome/img/01-header-book-d2.jpg);background-repeat:no-repeat;
+background-image:url(/bundles/borrowershome/img/01-header-book-d2.jpg);background-repeat:no-repeat;
 }
 
 td.footer {
 background-color:#FFFFFF;
-background-image:url(bundles/borrowershome/img/06-footer-book-d2.jpg);background-repeat:no-repeat;
+background-image:url(/bundles/borrowershome/img/06-footer-book-d2.jpg);background-repeat:no-repeat;
 }
 
 td.leftside {
 background-color:#FFFFFF;
-background-image:url(bundles/borrowershome/img/02-side-book-d2.jpg);background-repeat:repeat-y;
+background-image:url(/bundles/borrowershome/img/02-side-book-d2.jpg);background-repeat:repeat-y;
 }
 
 td.rightside {
 background-color:#FFFFFF;
-background-image:url(bundles/borrowershome/img/03-rside-book-d2.jpg);background-repeat:repeat-y;
+background-image:url(/bundles/borrowershome/img/03-rside-book-d2.jpg);background-repeat:repeat-y;
 }
 
 td.textarea {
 background-color:#FFFFFF;
-background-image:url(bundles/borrowershome/img/bodyspacer.gif);background-repeat:no-repeat;max-width:800px;
+background-image:url(/bundles/borrowershome/img/bodyspacer.gif);background-repeat:no-repeat;max-width:800px;
 }
 
 td.bodycell {
