@@ -11,9 +11,9 @@
 <html>
 <head>
 <title>Borrowers and Lenders:  The Journal of Shakespeare and Appropriation</title>
-<link href="/borrowers/css/bandl5.css" type="text/css" rel="stylesheet"/>
-<script type="text/javascript" src="/borrowers/js/nav.js"/>
-<script type="text/javascript" src="/borrowers/js/overlib.js">
+<link href="/bundles/borrowershome/css/bandl5.css" type="text/css" rel="stylesheet"/>
+<script type="text/javascript" src="/bundles/borrowershome/js/nav.js"/>
+<script type="text/javascript" src="/bundles/borrowershome/js/overlib.js">
 <!-- overLIB (c) Erik Bosrup -->
 </script>
 </head>
@@ -41,7 +41,7 @@
 
 <!-- body cell -->
 <td valign='top' class='textarea'>
-<img src='/borrowers/bodyspacer.gif'/>
+<img src='/bundles/borrowershome/bodyspacer.gif'/>
 
 <xsl:call-template name="about_text"/>
 
