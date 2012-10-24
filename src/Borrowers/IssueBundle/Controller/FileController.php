@@ -255,7 +255,7 @@ class FileController extends Controller
         $em = $this->getDoctrine()->getEntityManager();
 
         $file = $em->getRepository('BorrowersIssueBundle:File')->find($id);
-        $xmlpath = '/var/lib/borrowers_docs/'.$file->getPath();
+        $xmlpath =  __DIR__.'/../../../../borrowers_docs/'.$file->getPath();
         $xslpath = 'bundles/borrowershome/xsl/pdf.xsl';
         $pdfpath = 'bundles/borrowerspdf/pdftemp.pdf';
         
