@@ -28,10 +28,10 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
         - { path: ^/admin/, role: ROLE_ADMIN }
-        - { path: ^/issue/, role: ROLE_USER }
-        - { path: ^/section/, role: ROLE_USER }
-        - { path: ^/file/, role: ROLE_USER }
-        - { path: ^/author/, role: ROLE_USER }
+        - { path: ^/issue/, role: ROLE_EDITOR }
+        - { path: ^/section/, role: ROLE_EDITOR }
+        - { path: ^/file/, role: ROLE_EDITOR }
+        - { path: ^/author/, role: ROLE_EDITOR }
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER

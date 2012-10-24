@@ -418,7 +418,7 @@ class File
     
     public function getAbsolutePath()
     {
-        return null === $this->path ? null : $this->getUploadRootDir().'/'.$this->path;
+        return null === $this->path ? null : $this->getUploadRootDir().'/../../'.$this->path;
     }
 
     public function getWebPath()
@@ -496,5 +496,16 @@ class File
     {
         return $this->authors;
     }
+    
+    /**
+     * Return the extention of the file.
+     * 
+     * @return string
+     */
+    public function getExt()
+    {
+        $filename = $this->getPath(); 
+        return pathinfo($filename, PATHINFO_EXTENSION);
+    }    
        
 }

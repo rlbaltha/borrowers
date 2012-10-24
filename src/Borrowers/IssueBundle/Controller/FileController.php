@@ -312,4 +312,73 @@ class FileController extends Controller
     return array('form' => $form->createView());
 }
 
+
+    /**
+     * Finds and download a File.
+     *
+     * @Route("/{id}/download", name="file_download")
+     * 
+     */     
+    public function downloadAction($id)
+	{
+        
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $file = $em->getRepository('BorrowersIssueBundle:File')->find($id);
+             $ext = $file->getExt();
+		
+		$response = new Response();
+		
+		$response->setStatusCode(200);
+                switch ($ext) {
+                      case "png":
+                      $response->headers->set('Content-Type', 'image/png');
+                      break;
+                      case "gif":
+                      $response->headers->set('Content-Type', 'image/gif');
+                      break;
+                      case "jpg":
+                      $response->headers->set('Content-Type', 'image/jpeg');
+                      break;
+                      case "odt":
+                      $response->headers->set('Content-Type', 'application/vnd.oasis.opendocument.text');
+                      break;
+                      case "ods":
+                      $response->headers->set('Content-Type', 'application/vnd.oasis.opendocument.spreadsheet');
+                      break;
+                      case "odp":
+                      $response->headers->set('Content-Type', 'application/vnd.oasis.opendocument.presentation');
+                      break;
+                      case "doc":
+                      $response->headers->set('Content-Type', 'application/msword');
+                      break;
+                      case "ppt":
+                      $response->headers->set('Content-Type', 'application/mspowerpoint');
+                      break;
+                      case "xls":
+                      $response->headers->set('Content-Type', 'application/x-msexcel');
+                      break;                  
+                      case "pdf":
+                      $response->headers->set('Content-Type', 'application/pdf');
+                      break;
+                      case "xml":
+                      $response->headers->set('Content-Type', 'application/force-download');
+                      break;                  
+                      default:
+                      $response->headers->set('Content-Type', 'application/force-download');    
+                      }                    
+                      
+		$response->setContent( file_get_contents( $file->getAbsolutePath() ));
+		
+		$response->send();
+                
+                
+                
+		
+		return $response;
+	} 
+        
+        
+        
+
 }

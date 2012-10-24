@@ -41,6 +41,7 @@
          <td><a class="" href="{{ path('file_display', { 'id': file.id }) }}">{{ file.title |raw }}</a> ({% if file.display == 0 %}Development{% elseif file.display == 1 %}Production{% endif %})</td>        
          <td>{% for author in file.authors %}{{ author.firstname | raw }} {{ author.lastname | raw }}  {% endfor %}</td>                   
          <td><a class="btn btn-primary" href="{{ path('file_edit', { 'id': file.id }) }}">Edit</a>
+             <a class="btn btn-primary" href="{{ path('file_download', { 'id': file.id }) }}">Download</a>
          </td>       
          </tr>
          {% endfor %}
