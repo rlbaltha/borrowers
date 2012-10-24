@@ -256,7 +256,7 @@ class FileController extends Controller
 
         $file = $em->getRepository('BorrowersIssueBundle:File')->find($id);
         $xmlpath =  __DIR__.'/../../../../borrowers_docs/'.$file->getPath();
-        $xslpath = 'bundles/borrowershome/xsl/pdf.xsl';
+        $xslpath = __DIR__.'/../../../../src/Borrowers/HomeBundle/Resources/public/xsl/pdf.xsl';
         $pdfpath = __DIR__.'/../../../../borrowers_docs/pdftemp.pdf';
         
         $result = $this->get("goetas.fop")->convertToPdf($xmlpath, $pdfpath, $xslpath);
