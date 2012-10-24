@@ -215,7 +215,7 @@ class FileController extends Controller
         $em = $this->getDoctrine()->getEntityManager();
 
         $file = $em->getRepository('BorrowersIssueBundle:File')->find($id);
-        $path = '/var/lib/borrowers_docs/'.$file->getPath();
+        $path = __DIR__.'/../../../../borrowers_docs/'.$file->getPath();
 
         if (!$file) {
             throw $this->createNotFoundException('Unable to find File entity.');

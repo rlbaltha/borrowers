@@ -429,12 +429,12 @@ class File
     protected function getUploadRootDir()
     {
         // the absolute directory path where uploaded documents should be saved
-        return '/var/lib/borrowers_docs/'.$this->getUploadDir();
+        return __DIR__.'/../../../../'.$this->getUploadDir();
     }
 
     protected function getUploadDir()
     {
-        return 'uploads/files';
+        return 'borrowers_docs/uploads/files';
     }  
     
     public function upload()

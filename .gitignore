@@ -1,3 +1,5 @@
+/composer.lock
+/borrowers_docs
 /web/bundles
 /app/bootstrap.php.cache
 /app/cache
