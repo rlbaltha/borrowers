@@ -24,7 +24,10 @@ class AppKernel extends Kernel
             new Borrowers\HomeBundle\BorrowersHomeBundle(),          
             new Borrowers\IssueBundle\BorrowersIssueBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
-            new Goetas\ApacheFopBundle\GoetasApacheFopBundle()
+            new Goetas\ApacheFopBundle\GoetasApacheFopBundle(),
+            new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
+            new Vich\UploaderBundle\VichUploaderBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

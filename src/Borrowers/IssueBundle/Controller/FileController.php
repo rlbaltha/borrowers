@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Borrowers\IssueBundle\Entity\File;
 use Borrowers\IssueBundle\Form\FileType;
 use Borrowers\IssueBundle\Form\UploadType;
+use Borrowers\IssueBundle\Form\UploadMmType;
 
 /**
  * File controller.
@@ -289,10 +290,12 @@ class FileController extends Controller
         $em = $this->getDoctrine()->getEntityManager();
         $issue = $em->getRepository('BorrowersIssueBundle:Issue')->find($issueid);
         $section = $em->getRepository('BorrowersIssueBundle:Section')->find($sectionid);
+        $subdir = $issue->getIssue();
         $options = array('issueid' => $issueid);
         $file = new File();
         $file->setIssue($issue);
         $file->setUser($user);
+        $file->setFileType(1); 
                 
         $form = $this->createForm(new UploadType($options), $file);
         $section->addFile($file);
@@ -316,7 +319,7 @@ class FileController extends Controller
      * Uploads a file with a Document entity.
      *
      * @Route("/file/{issueid}/{sectionid}/upload_mm", name="file_upload_mm")
-     * @Template()
+     * @Template("BorrowersIssueBundle:File:upload.html.twig")
      */  
     public function uploadMmAction($issueid, $sectionid)
     {
@@ -330,8 +333,8 @@ class FileController extends Controller
         $file = new File();
         $file->setIssue($issue);
         $file->setSortorder(1);
-        $file->setDisplay(1);
         $file->setUser($user);
+        $file->setFileType(1);        
                 
         $form = $this->createForm(new UploadMmType($options), $file);
         $section->addFile($file);
@@ -364,6 +367,7 @@ class FileController extends Controller
         $em = $this->getDoctrine()->getEntityManager();
 
         $file = $em->getRepository('BorrowersIssueBundle:File')->find($id);
+        $path = __DIR__.'/../../../../borrowers_docs/'.$file->getPath();
              $ext = $file->getExt();
 		
 		$response = new Response();
@@ -407,7 +411,7 @@ class FileController extends Controller
                       $response->headers->set('Content-Type', 'application/force-download');    
                       }                    
                       
-		$response->setContent( file_get_contents( $file->getAbsolutePath() ));
+		$response->setContent( file_get_contents( $path ));
 		
 		$response->send();
                 

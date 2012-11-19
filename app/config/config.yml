@@ -1,6 +1,7 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: '@BorrowersIssueBundle/Resources/config/services.yml' }    
 
 framework:
     #esi:             ~
@@ -74,3 +75,28 @@ fos_user:
     
 goetas_apache_fop:
     executable: /usr/bin/fop
+    
+knp_paginator:
+    page_range: 5                      # default page range used in pagination control
+    default_options:
+        page_name: page                # page query parameter name
+        sort_field_name: sort          # sort field query parameter name
+        sort_direction_name: direction # sort direction query parameter name
+        distinct: true                 # ensure distinct results, useful when ORM queries are using GROUP BY statements
+    template:
+        pagination: KnpPaginatorBundle:Pagination:sliding.html.twig     # sliding pagination controls template
+        sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig # sort link template 
+        
+vich_uploader:
+    db_driver: orm # or mongodb
+    twig: true
+    gaufrette: false # set to true to enable gaufrette support
+    storage: vich_uploader.storage.file_system
+    mappings:
+        property_file:
+            uri_prefix: %kernel.root_dir%/../uploads/files # uri prefix to resource
+            upload_destination: %kernel.root_dir%/../borrowers_docs/uploads/files # gaufrette storage fs id, required
+            namer: namer.upload_file # specify a file namer service id for this entity, null default
+            directory_namer: directory_namer.upload_file # specify a directory namer service id for this entity, null default
+            delete_on_remove: true # determines whether to delete file upon removal of entity
+            inject_on_load: true # determines whether to inject a File instance upon load       

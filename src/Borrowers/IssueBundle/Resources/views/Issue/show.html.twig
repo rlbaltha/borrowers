@@ -2,7 +2,6 @@
 {% extends 'BorrowersHomeBundle::layout.html.twig' %}
 
 {% block content %}
- 
 
 <div class="well">
 <h3>{{ issue.title | raw}}</h3>
@@ -29,14 +28,17 @@
      
          <div class="span10 well">
              <div class="c">
-             <h4>{{ section.title }}</h4> 
+                 <a href='javascript:void(0);' onclick="$('#section{{section.id}}').toggle();"><h4>{{ section.title }}</h4> </a>
              <h5>{{ section.description }} </h5>        
              <a class="btn btn-primary pull-right" href="{{ path('section_edit', { 'id': section.id }) }}">Edit</a>
-             <a class="btn btn-primary pull-right" href="{{ path('file_upload', { 'issueid':issue.id,'sectionid': section.id }) }}">Upload</a>
+             <a class="btn btn-primary pull-right" href="{{ path('file_upload_mm', { 'issueid':issue.id,'sectionid': section.id }) }}">Upload Media</a>
+             <a class="btn btn-primary pull-right" href="{{ path('file_upload', { 'issueid':issue.id,'sectionid': section.id }) }}">Upload XML</a>
+             
 
-         <table class="table">    
+         <table id="section{{section.id}}" class="table">    
          <tbody>
-         {% for file in section.files %} 
+         <tr><td colspan="3"><h5>XML</h5></td></tr>    
+         {% for file in section.files if file.fileType==0 %} 
          <tr>             
          <td><a class="" href="{{ path('file_display', { 'id': file.id }) }}">{{ file.title |raw }}</a> ({% if file.display == 0 %}Development{% elseif file.display == 1 %}Production{% endif %})</td>        
          <td>{% for author in file.authors %}{{ author.firstname | raw }} {{ author.lastname | raw }}  {% endfor %}</td>                   
@@ -46,6 +48,14 @@
          </td>       
          </tr>
          {% endfor %}
+         <tr><td colspan="3"><h5>Media</h5></td></tr> 
+         {% for file in section.files if file.fileType==1 %} 
+         <tr>             
+         <td><a class="" href="{{ path('file_download', { 'id': file.id }) }}">{{ file.title |raw }}</a></td>        
+         <td></td>                   
+         <td><a class="btn btn-primary" href="{{ path('file_download', { 'id': file.id }) }}">Download</a></td>       
+         </tr>
+         {% endfor %}         
          </tbody>
          </table>
          

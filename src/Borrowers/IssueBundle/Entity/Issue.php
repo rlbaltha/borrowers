@@ -28,14 +28,14 @@ class Issue
      *
      * @ORM\Column(name="issue", type="string", length=255, nullable=true)
      */
-    private $issue;
+    private $issue ="BLxx";
 
     /**
      * @var string $title
      *
      * @ORM\Column(name="title", type="string", length=255, nullable=true)
      */
-    private $title;
+    private $title = "VOLUME  &#183;&#160; NUMBER ";
 
     /**
      * @var string $description
@@ -63,7 +63,7 @@ class Issue
      *
      * @ORM\Column(name="editors", type="string", length=255, nullable=true)
      */
-    private $editors;
+    private $editors = "Christy Desmet and Sujata Iyengar";
     
     
     /**

@@ -23,8 +23,12 @@ class File
      */
     private $id;
     
-    /**
-     * @Assert\File(maxSize="6000000")
+     /**
+     * @Assert\File(
+     *     maxSize="10M"
+     * )
+     *
+     * @var File $file
      */
     public $file;    
 
@@ -34,13 +38,20 @@ class File
      * @ORM\Column(name="path", type="string", length=255)
      */
     private $path;
+    
+    /**
+     * @var integer $file_type
+     *
+     * @ORM\Column(name="file_type", type="integer", nullable=true)
+     */
+    private $file_type=0;  
 
     /**
      * @var string $title
      *
      * @ORM\Column(name="title", type="string", length=255)
      */
-    private $title;
+    private $title;    
     
     /**
      * @var integer $display
@@ -434,7 +445,7 @@ class File
 
     protected function getUploadDir()
     {
-        return 'borrowers_docs/uploads/files';
+        return 'borrowers_docs/uploads/files/'.$this->getIssue()->getIssue();
     }  
     
     public function upload()
@@ -451,7 +462,7 @@ class File
     $this->file->move($this->getUploadRootDir(), $this->file->getClientOriginalName());
 
     // set the path property to the filename where you'ved saved the file
-    $this->path = 'uploads/files/'.$this->file->getClientOriginalName();
+    $this->path = 'uploads/files/'.$this->getIssue()->getIssue().'/'.$this->file->getClientOriginalName();
     
     // set the name property to the filename where you'ved saved the file
     $this->name = $this->file->getClientOriginalName();    
@@ -508,4 +519,26 @@ class File
         return pathinfo($filename, PATHINFO_EXTENSION);
     }    
        
+    /**
+     * Set file_type
+     *
+     * @param integer $fileType
+     * @return File
+     */
+    public function setFileType($fileType)
+    {
+        $this->file_type = $fileType;
+    
+        return $this;
+    }
+
+    /**
+     * Get file_type
+     *
+     * @return integer 
+     */
+    public function getFileType()
+    {
+        return $this->file_type;
+    }
 }
