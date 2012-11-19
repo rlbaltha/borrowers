@@ -295,7 +295,7 @@ class FileController extends Controller
         $file = new File();
         $file->setIssue($issue);
         $file->setUser($user);
-        $file->setFileType(1); 
+        $file->setFileType(0); 
                 
         $form = $this->createForm(new UploadType($options), $file);
         $section->addFile($file);
