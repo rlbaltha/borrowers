@@ -16,7 +16,7 @@ class IssueRepository extends EntityRepository
     {
         $repostitory = $this->getEntityManager()->getRepository('BorrowersIssueBundle:Issue');
         $query = $repostitory->createQueryBuilder('i')
-                ->orderBy('i.created','DESC')
+                ->orderBy('i.issue','DESC')
                 ->getQuery();
         return  $query->getResult();
     }
@@ -25,8 +25,8 @@ class IssueRepository extends EntityRepository
     {
         $repostitory = $this->getEntityManager()->getRepository('BorrowersIssueBundle:Issue');
         $query = $repostitory->createQueryBuilder('i')
-                ->orderBy('i.created','ASC')
-                ->where("i.display = :display")
+                ->orderBy('i.issue','ASC')
+                ->where("i.display >= :display")
                 ->setParameter('display', 1)
                 ->getQuery();
         return  $query->getResult();

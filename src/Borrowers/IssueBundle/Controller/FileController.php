@@ -312,6 +312,45 @@ class FileController extends Controller
     return array('form' => $form->createView());
 }
 
+    /**
+     * Uploads a file with a Document entity.
+     *
+     * @Route("/file/{issueid}/{sectionid}/upload_mm", name="file_upload_mm")
+     * @Template()
+     */  
+    public function uploadMmAction($issueid, $sectionid)
+    {
+        $securityContext = $this->get('security.context');
+        $user = $securityContext->getToken()->getUser();
+        
+        $em = $this->getDoctrine()->getEntityManager();
+        $issue = $em->getRepository('BorrowersIssueBundle:Issue')->find($issueid);
+        $section = $em->getRepository('BorrowersIssueBundle:Section')->find($sectionid);
+        $options = array('issueid' => $issueid);
+        $file = new File();
+        $file->setIssue($issue);
+        $file->setSortorder(1);
+        $file->setDisplay(1);
+        $file->setUser($user);
+                
+        $form = $this->createForm(new UploadMmType($options), $file);
+        $section->addFile($file);
+
+        if ($this->getRequest()->getMethod() === 'POST') {
+            $form->bindRequest($this->getRequest());
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getEntityManager();
+                $file->upload();
+                $em->persist($file);
+                $em->flush();
+    
+                return $this->redirect($this->generateUrl('issue_show', array('id' => $issueid)));
+            }
+        }
+
+    return array('form' => $form->createView());
+}
+
 
     /**
      * Finds and download a File.
