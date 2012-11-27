@@ -53,7 +53,7 @@
          <tr>             
          <td><a class="" href="{{ path('file_view_content', { 'id': file.id }) }}">{{ file.title |raw }}</a></td>        
          <td>/{{file.id}}/view_content</td>                   
-         <td><a class="btn btn-primary" href="{{ path('file_download', { 'id': file.id }) }}">Download</a></td>       
+         <td><a class="btn btn-primary" href="{{ path('file_edit', { 'id': file.id }) }}">Edit</a><a class="btn btn-primary" href="{{ path('file_download', { 'id': file.id }) }}">Download</a></td>       
          </tr>
          {% endfor %}         
          </tbody>
