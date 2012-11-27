@@ -368,6 +368,33 @@ class FileController extends Controller
 
         $file = $em->getRepository('BorrowersIssueBundle:File')->find($id);
         $path = __DIR__.'/../../../../borrowers_docs/'.$file->getPath();
+        $ext = $file->getExt();
+        $filename = $filename = 'attachment; filename="'.$id.'.'.$ext.'"';;
+             
+        return new Response(
+        file_get_contents( $path ),
+        200,
+        array(
+        'Content-Type'          => 'application/force-download',
+        'Content-Disposition'   => $filename
+         )
+         );
+	} 
+        
+        
+    /**
+     * Finds and displays a File.
+     *
+     * @Route("/{id}/view_content", name="file_view_content")
+     * 
+     */     
+    public function viewContentAction($id)
+	{
+        
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $file = $em->getRepository('BorrowersIssueBundle:File')->find($id);
+        $path = __DIR__.'/../../../../borrowers_docs/'.$file->getPath();
              $ext = $file->getExt();
 		
 		$response = new Response();
@@ -405,7 +432,7 @@ class FileController extends Controller
                       $response->headers->set('Content-Type', 'application/pdf');
                       break;
                       case "xml":
-                      $response->headers->set('Content-Type', 'application/force-download');
+                      $response->headers->set('Content-Type', 'text/plain');
                       break;                  
                       default:
                       $response->headers->set('Content-Type', 'application/force-download');    
@@ -419,9 +446,6 @@ class FileController extends Controller
                 
 		
 		return $response;
-	} 
-        
-        
-        
+	}         
 
 }
