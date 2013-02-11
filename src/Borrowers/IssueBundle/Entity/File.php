@@ -25,12 +25,12 @@ class File
     
      /**
      * @Assert\File(
-     *     maxSize="10M"
+     *     maxSize="100M"
      * )
      *
      * @var File $file
      */
-    public $file;    
+     protected $file;   
 
     /**
      * @var string $path
@@ -61,7 +61,7 @@ class File
     private $display=0;    
     
     /**
-     * @ORM\ManyToOne(targetEntity="Issue", inversedBy="file")
+     * @ORM\ManyToOne(targetEntity="Issue", inversedBy="files")
      * @ORM\JoinColumn(name="issue_id", referencedColumnName="id", onDelete="CASCADE")
      */
     protected $issue; 
@@ -108,12 +108,12 @@ class File
     private $essayid;
     
     /**
-    * @ORM\ManyToOne(targetEntity="Borrowers\UserBundle\Entity\User", inversedBy="file")
+    * @ORM\ManyToOne(targetEntity="Borrowers\UserBundle\Entity\User")
     */
     protected $user;    
     
     /**
-    * @ORM\ManyToMany(targetEntity="Borrowers\IssueBundle\Entity\Author", inversedBy="file")
+    * @ORM\ManyToMany(targetEntity="Borrowers\IssueBundle\Entity\Author")
     */
     protected $authors;      
 
@@ -382,6 +382,27 @@ class File
     {
         return $this->user;
     }
+    
+    /**
+     * Set file
+     *
+     * @param string $file
+     */
+    public function setFile($file)
+    {
+        $this->file = $file;
+    }
+
+    /**
+     * Get file
+     *
+     * @return string 
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }    
+    
 
     /**
      * Set issue

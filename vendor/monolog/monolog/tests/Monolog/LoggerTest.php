@@ -26,23 +26,6 @@ class LoggerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Monolog\Logger::getLevelName
-     */
-    public function testGetLevelName()
-    {
-        $this->assertEquals('ERROR', Logger::getLevelName(Logger::ERROR));
-    }
-
-    /**
-     * @covers Monolog\Logger::getLevelName
-     * @expectedException InvalidArgumentException
-     */
-    public function testGetLevelNameThrows()
-    {
-        Logger::getLevelName(5);
-    }
-
-    /**
      * @covers Monolog\Logger::__construct
      */
     public function testChannel()

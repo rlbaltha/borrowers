@@ -28,14 +28,14 @@
      
          <div class="span10 well">
              <div class="c">
-                 <a href='javascript:void(0);' onclick="$('#section{{section.id}}').toggle();"><h4>{{ section.title }}</h4> </a>
+                 <a href='javascript:void(0);' onclick="$('#section{{section.id}}').toggle();"><h4>{{ section.title|raw }}</h4> </a>
              <h5>{{ section.description }} </h5>        
              <a class="btn btn-primary pull-right" href="{{ path('section_edit', { 'id': section.id }) }}">Edit</a>
              <a class="btn btn-primary pull-right" href="{{ path('file_upload_mm', { 'issueid':issue.id,'sectionid': section.id }) }}">Upload Media</a>
              <a class="btn btn-primary pull-right" href="{{ path('file_upload', { 'issueid':issue.id,'sectionid': section.id }) }}">Upload XML</a>
              
 
-         <table id="section{{section.id}}" class="table">    
+         <table id="section{{section.id}}" class="table hide">    
          <tbody>
          <tr><td colspan="3"><h5>XML</h5></td></tr>    
          {% for file in section.files if file.fileType==0 %} 

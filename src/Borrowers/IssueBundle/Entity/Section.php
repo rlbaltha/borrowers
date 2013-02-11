@@ -49,7 +49,7 @@ class Section
     protected $files;     
 
     /**
-     * @ORM\ManyToOne(targetEntity="Issue", inversedBy="section")
+     * @ORM\ManyToOne(targetEntity="Issue", inversedBy="sections")
      * @ORM\JoinColumn(name="issue_id", referencedColumnName="id", onDelete="CASCADE")
      */
     protected $issue; 
