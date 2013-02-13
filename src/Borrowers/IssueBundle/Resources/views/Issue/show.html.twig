@@ -35,7 +35,7 @@
              <a class="btn btn-primary pull-right" href="{{ path('file_upload', { 'issueid':issue.id,'sectionid': section.id }) }}">Upload XML</a>
              
 
-         <table id="section{{section.id}}" class="table hide">    
+         <table id="section{{section.id}}" class="table">    
          <tbody>
          <tr><td colspan="3"><h5>XML</h5></td></tr>    
          {% for file in section.files if file.fileType==0 %} 

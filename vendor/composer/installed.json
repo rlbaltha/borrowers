@@ -1483,79 +1483,6 @@
         ]
     },
     {
-        "name": "knplabs/gaufrette",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/KnpLabs/Gaufrette",
-            "reference": "v0.1.4"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/KnpLabs/Gaufrette/zipball/v0.1.4",
-            "reference": "v0.1.4",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.2"
-        },
-        "require-dev": {
-            "amazonwebservices/aws-sdk-for-php": "1.5.*",
-            "doctrine/dbal": ">=2.3",
-            "dropbox-php/dropbox-php": "*",
-            "herzult/php-ssh": "*",
-            "phpspec/phpspec2": "1.0.*",
-            "rackspace/php-cloudfiles": "*"
-        },
-        "suggest": {
-            "amazonwebservices/aws-sdk-for-php": "to use the Amazon S3 adapter",
-            "doctrine/dbal": "to use the Doctrine DBAL adapter",
-            "dropbox-php/dropbox-php": "to use the Dropbox adapter",
-            "ext-apc": "to use the APC adapter",
-            "ext-curl": "*",
-            "ext-mbstring": "*",
-            "ext-mongo": "*",
-            "ext-zip": "to use the Zip adapter",
-            "knplabs/knp-gaufrette-bundle": "*"
-        },
-        "time": "2013-01-25 08:51:55",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "0.2.x-dev"
-            }
-        },
-        "installation-source": "source",
-        "autoload": {
-            "psr-0": {
-                "Gaufrette": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "The contributors",
-                "homepage": "http://github.com/knplabs/Gaufrette/contributors"
-            },
-            {
-                "name": "KnpLabs Team",
-                "homepage": "http://knplabs.com"
-            }
-        ],
-        "description": "PHP5 library that provides a filesystem abstraction layer",
-        "homepage": "http://knplabs.com",
-        "keywords": [
-            "abstraction",
-            "file",
-            "filesystem",
-            "media"
-        ]
-    },
-    {
         "name": "knplabs/knp-gaufrette-bundle",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
@@ -1871,6 +1798,79 @@
             "assets",
             "compression",
             "minification"
+        ]
+    },
+    {
+        "name": "knplabs/gaufrette",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/KnpLabs/Gaufrette",
+            "reference": "dd76593609f717c5c3e505c8ab788da153586e95"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/KnpLabs/Gaufrette/zipball/dd76593609f717c5c3e505c8ab788da153586e95",
+            "reference": "dd76593609f717c5c3e505c8ab788da153586e95",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.2"
+        },
+        "require-dev": {
+            "amazonwebservices/aws-sdk-for-php": "1.5.*",
+            "doctrine/dbal": ">=2.3",
+            "dropbox-php/dropbox-php": "*",
+            "herzult/php-ssh": "*",
+            "phpspec/phpspec2": "1.0.*",
+            "rackspace/php-cloudfiles": "*"
+        },
+        "suggest": {
+            "amazonwebservices/aws-sdk-for-php": "to use the Amazon S3 adapter",
+            "doctrine/dbal": "to use the Doctrine DBAL adapter",
+            "dropbox-php/dropbox-php": "to use the Dropbox adapter",
+            "ext-apc": "to use the APC adapter",
+            "ext-curl": "*",
+            "ext-mbstring": "*",
+            "ext-mongo": "*",
+            "ext-zip": "to use the Zip adapter",
+            "knplabs/knp-gaufrette-bundle": "*"
+        },
+        "time": "2013-02-12 18:47:06",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "0.2.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Gaufrette": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "The contributors",
+                "homepage": "http://github.com/knplabs/Gaufrette/contributors"
+            },
+            {
+                "name": "KnpLabs Team",
+                "homepage": "http://knplabs.com"
+            }
+        ],
+        "description": "PHP5 library that provides a filesystem abstraction layer",
+        "homepage": "http://knplabs.com",
+        "keywords": [
+            "abstraction",
+            "file",
+            "filesystem",
+            "media"
         ]
     }
 ]
