@@ -410,6 +410,12 @@ class FileController extends Controller
                       case "jpg":
                       $response->headers->set('Content-Type', 'image/jpeg');
                       break;
+                      case "mp3":
+                      $response->headers->set('Content-Type', 'audio/mpeg');
+                      break;
+                      case "mp4":
+                      $response->headers->set('Content-Type', 'video/mp4');
+                      break;
                       case "odt":
                       $response->headers->set('Content-Type', 'application/vnd.oasis.opendocument.text');
                       break;

@@ -8,3 +8,4 @@
 /vendor
 /app/config/parameters.yml
 /nbproject
+/composer.phar
