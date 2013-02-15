@@ -397,71 +397,6 @@
         ]
     },
     {
-        "name": "symfony/assetic-bundle",
-        "version": "v2.1.0",
-        "version_normalized": "2.1.0.0",
-        "target-dir": "Symfony/Bundle/AsseticBundle",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/AsseticBundle",
-            "reference": "v2.1.0-RC2"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://github.com/symfony/AsseticBundle/zipball/v2.1.0-RC2",
-            "reference": "v2.1.0-RC2",
-            "shasum": ""
-        },
-        "require": {
-            "kriswallsmith/assetic": "1.1.*",
-            "php": ">=5.3.0",
-            "symfony/framework-bundle": "2.1.*"
-        },
-        "require-dev": {
-            "symfony/class-loader": "2.1.*",
-            "symfony/console": "2.1.*",
-            "symfony/css-selector": "2.1.*",
-            "symfony/dom-crawler": "2.1.*",
-            "symfony/form": "2.1.*",
-            "symfony/twig-bundle": "2.1.*",
-            "symfony/yaml": "2.1.*"
-        },
-        "suggest": {
-            "symfony/twig-bundle": "2.1.*"
-        },
-        "time": "2012-08-28 03:22:44",
-        "type": "symfony-bundle",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.1.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Symfony\\Bundle\\AsseticBundle": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Kris Wallsmith",
-                "email": "kris.wallsmith@gmail.com",
-                "homepage": "http://kriswallsmith.net/"
-            }
-        ],
-        "description": "Integrates Assetic into Symfony2",
-        "homepage": "https://github.com/symfony/AsseticBundle",
-        "keywords": [
-            "assets",
-            "compression",
-            "minification"
-        ]
-    },
-    {
         "name": "jms/metadata",
         "version": "1.1.1",
         "version_normalized": "1.1.1.0",
@@ -1801,18 +1736,83 @@
         ]
     },
     {
+        "name": "symfony/assetic-bundle",
+        "version": "v2.1.1",
+        "version_normalized": "2.1.1.0",
+        "target-dir": "Symfony/Bundle/AsseticBundle",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/AsseticBundle",
+            "reference": "v2.1.1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/AsseticBundle/zipball/v2.1.1",
+            "reference": "v2.1.1",
+            "shasum": ""
+        },
+        "require": {
+            "kriswallsmith/assetic": "1.1.*",
+            "php": ">=5.3.0",
+            "symfony/framework-bundle": ">=2.1.0,<2.3-dev"
+        },
+        "require-dev": {
+            "symfony/class-loader": ">=2.1.0,<2.3-dev",
+            "symfony/console": ">=2.1.0,<2.3-dev",
+            "symfony/css-selector": ">=2.1.0,<2.3-dev",
+            "symfony/dom-crawler": ">=2.1.0,<2.3-dev",
+            "symfony/form": ">=2.1.0,<2.3-dev",
+            "symfony/twig-bundle": ">=2.1.0,<2.3-dev",
+            "symfony/yaml": ">=2.1.0,<2.3-dev"
+        },
+        "suggest": {
+            "symfony/twig-bundle": ">=2.1.0,<2.3-dev"
+        },
+        "time": "2013-01-31 17:56:17",
+        "type": "symfony-bundle",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.1.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Symfony\\Bundle\\AsseticBundle": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Kris Wallsmith",
+                "email": "kris.wallsmith@gmail.com",
+                "homepage": "http://kriswallsmith.net/"
+            }
+        ],
+        "description": "Integrates Assetic into Symfony2",
+        "homepage": "https://github.com/symfony/AsseticBundle",
+        "keywords": [
+            "assets",
+            "compression",
+            "minification"
+        ]
+    },
+    {
         "name": "knplabs/gaufrette",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
-            "url": "https://github.com/KnpLabs/Gaufrette",
-            "reference": "dd76593609f717c5c3e505c8ab788da153586e95"
+            "url": "https://github.com/KnpLabs/Gaufrette.git",
+            "reference": "ad5473de05d1274dec830e3fb6b70e17adad9075"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/KnpLabs/Gaufrette/zipball/dd76593609f717c5c3e505c8ab788da153586e95",
-            "reference": "dd76593609f717c5c3e505c8ab788da153586e95",
+            "url": "https://api.github.com/repos/KnpLabs/Gaufrette/zipball/ad5473de05d1274dec830e3fb6b70e17adad9075",
+            "reference": "ad5473de05d1274dec830e3fb6b70e17adad9075",
             "shasum": ""
         },
         "require": {
@@ -1823,7 +1823,7 @@
             "doctrine/dbal": ">=2.3",
             "dropbox-php/dropbox-php": "*",
             "herzult/php-ssh": "*",
-            "phpspec/phpspec2": "1.0.*",
+            "phpspec/phpspec2": "dev-master",
             "rackspace/php-cloudfiles": "*"
         },
         "suggest": {
@@ -1837,7 +1837,7 @@
             "ext-zip": "to use the Zip adapter",
             "knplabs/knp-gaufrette-bundle": "*"
         },
-        "time": "2013-02-12 18:47:06",
+        "time": "2013-02-15 14:26:18",
         "type": "library",
         "extra": {
             "branch-alias": {
