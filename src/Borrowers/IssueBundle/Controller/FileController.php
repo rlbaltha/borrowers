@@ -204,6 +204,18 @@ class FileController extends Controller
         ;
     }
     
+    /**
+     * Displays a form to create a new File entity.
+     *
+     * @Route("/cocoon/borrowers/request ", name="reroute")
+     */
+    public function rerouteAction()
+    {
+       $request = $this->getRequest();
+       $id = $request->query->get('id');
+       return $this->redirect($this->generateUrl('file_display', array('id' => $id)));
+    }
+    
     
     /**
      * Finds and displays an XSL transformation of a File entity.
