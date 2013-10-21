@@ -24,9 +24,7 @@ class File
     private $id;
     
      /**
-     * @Assert\File(
-     *     maxSize="100M"
-     * )
+     * @Assert\File(maxSize="100M")
      *
      * @var File $file
      */

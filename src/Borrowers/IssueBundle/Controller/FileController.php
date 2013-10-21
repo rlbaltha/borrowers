@@ -394,8 +394,10 @@ class FileController extends Controller
         $em = $this->getDoctrine()->getEntityManager();
 
         $file = $em->getRepository('BorrowersIssueBundle:File')->find($id);
+        $name = $file->getTitle();
         $path = __DIR__.'/../../../../borrowers_docs/'.$file->getPath();
-             $ext = $file->getExt();
+        $ext = $file->getExt();
+        $filename = $name.'.'.$ext;
 		
 		$response = new Response();
 		
@@ -403,42 +405,55 @@ class FileController extends Controller
                 switch ($ext) {
                       case "png":
                       $response->headers->set('Content-Type', 'image/png');
+                      $response->headers->set('Content-Disposition', 'filename="'.$filename.'"');
                       break;
                       case "gif":
                       $response->headers->set('Content-Type', 'image/gif');
+                          $response->headers->set('Content-Disposition', 'filename="'.$filename.'"');
                       break;
                       case "jpg":
                       $response->headers->set('Content-Type', 'image/jpeg');
+                          $response->headers->set('Content-Disposition', 'filename="'.$filename.'"');
                       break;
                       case "mp3":
                       $response->headers->set('Content-Type', 'audio/mpeg');
+                          $response->headers->set('Content-Disposition', 'filename="'.$filename.'"');
                       break;
                       case "mp4":
                       $response->headers->set('Content-Type', 'video/mp4');
+                          $response->headers->set('Content-Disposition', 'filename="'.$filename.'"');
                       break;
                       case "odt":
                       $response->headers->set('Content-Type', 'application/vnd.oasis.opendocument.text');
+                          $response->headers->set('Content-Disposition', 'filename="'.$filename.'"');
                       break;
                       case "ods":
                       $response->headers->set('Content-Type', 'application/vnd.oasis.opendocument.spreadsheet');
+                          $response->headers->set('Content-Disposition', 'filename="'.$filename.'"');
                       break;
                       case "odp":
                       $response->headers->set('Content-Type', 'application/vnd.oasis.opendocument.presentation');
+                          $response->headers->set('Content-Disposition', 'filename="'.$filename.'"');
                       break;
                       case "doc":
                       $response->headers->set('Content-Type', 'application/msword');
+                          $response->headers->set('Content-Disposition', 'filename="'.$filename.'"');
                       break;
                       case "ppt":
                       $response->headers->set('Content-Type', 'application/mspowerpoint');
+                          $response->headers->set('Content-Disposition', 'filename="'.$filename.'"');
                       break;
                       case "xls":
                       $response->headers->set('Content-Type', 'application/x-msexcel');
+                          $response->headers->set('Content-Disposition', 'filename="'.$filename.'"');
                       break;                  
                       case "pdf":
                       $response->headers->set('Content-Type', 'application/pdf');
+                          $response->headers->set('Content-Disposition', 'filename="'.$filename.'"');
                       break;
                       case "xml":
                       $response->headers->set('Content-Type', 'text/plain');
+                          $response->headers->set('Content-Disposition', 'filename="'.$filename.'"');
                       break;                  
                       default:
                       $response->headers->set('Content-Type', 'application/force-download');    
