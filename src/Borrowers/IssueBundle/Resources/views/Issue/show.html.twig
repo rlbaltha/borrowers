@@ -49,10 +49,11 @@
          </tr>
          {% endfor %}
          <tr><td colspan="3"><h5>Media</h5></td></tr> 
-         {% for file in section.files if file.fileType==1 %} 
-         <tr>             
-         <td><a class="" href="{{ path('file_view_content', { 'id': file.id }) }}">{{ file.title |raw }}</a></td>        
-         <td>/{{file.id}}/view_content</td>                   
+         {% for file in section.files if file.fileType==1 %}
+         {%  set filename = file.title ~'.'~ file.ext %}
+             <tr>
+         <td><a class="" href="{{ path('file_url', { 'id': file.id, 'filename': filename  }) }}">/file/{{file.id}}/{{ file.title |raw }}.{{ file.ext }}</a></td>
+         <td>/file/{{file.id}}/{{ file.title |raw }}.{{ file.ext }}</td>
          <td><a class="btn btn-primary" href="{{ path('file_edit', { 'id': file.id }) }}">Edit</a><a class="btn btn-primary" href="{{ path('file_download', { 'id': file.id }) }}">Download</a></td>       
          </tr>
          {% endfor %}         
