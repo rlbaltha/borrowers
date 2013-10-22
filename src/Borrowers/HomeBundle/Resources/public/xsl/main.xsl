@@ -827,39 +827,20 @@
 <xsl:when test="contains(@uri, '.mov') or contains(@uri, '.mp4')">
 <table align="center" cellspacing='10'>
 <tr><td>
-<script src="http://podcaster.gcsu.edu/AC_Quicktime/ac_quicktime.js" language="JavaScript" type="text/javascript"></script>
-<script src="http://podcaster.gcsu.edu/AC_Quicktime/qtp_library.js" language="JavaScript" type="text/javascript"></script>	
-		
-		<script type="text/javascript">
-			QT_WritePoster_XHTML('Click to Play', '<xsl:value-of select="@poster"/>',
-				'<xsl:value-of select="@uri"/>',
-				'601', '364', '',
-				'controller', 'true',
-				'autoplay', 'false',
-				'bgcolor', 'black',
-				'scale', 'tofit');
-		
-		</script>
-		<noscript>
-		<object width="601" height="364" classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B" codebase="http://www.apple.com/qtactivex/qtplugin.cab">
-			<param name="src" value="{@poster}" />
-			<param name="href" value="{@uri}" />
-			<param name="target" value="myself" />
-			<param name="controller" value="false" />
-			<param name="autoplay" value="true" />
-			<param name="scale" value="tofit" />
-			<embed width="601" height="364" type="video/quicktime" pluginspage="http://www.apple.com/quicktime/download/"
-				src=""
-				href="{@uri}"
-				target="myself"
-				controller="false"
-				autoplay="true"
-				scale="tofit">
-			</embed>
-</object>
-</noscript>
 
-
+    <video width="640" height="360" controls>
+        <!-- MP4 must be first for iPad! -->
+        <source src="{@uri}" type="video/mp4" /><!-- Safari / iOS video    -->
+        <!-- fallback to Flash: -->
+        <object width="640" height="360" type="application/x-shockwave-flash" data="__FLASH__.SWF">
+            <!-- Firefox uses the `data` attribute above, IE/Safari uses the param below -->
+            <param name="movie" value="__FLASH__.SWF" />
+            <param name="flashvars" value="controlbar=over&amp;image={@poster}&amp;file={@uri}" />
+            <!-- fallback image. note the title field below, put the title of the video there -->
+            <img src="{@poster}" width="640" height="360" alt="{@caption}"
+                 title="No video playback capabilities, please download the video below" />
+        </object>
+    </video>
 
 </td></tr>
 <tr><td align="center">
