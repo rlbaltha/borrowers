@@ -398,7 +398,7 @@ class FileController extends Controller
      * Finds and displays a File.
      *
      * @Route("/{id}/view_content", name="file_view_content")
-     * @Route("/file/{id}/{filename}", name="file_url")
+     * @Route("/media/{id}/{filename}", name="file_url")
      *    *
      */     
     public function viewContentAction($id)
