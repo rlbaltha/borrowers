@@ -85,7 +85,7 @@ class FileController extends Controller
         $entity  = new File();
         $request = $this->getRequest();
         $form    = $this->createForm(new FileType(), $entity);
-        $form->bind($request);
+        $form->submit($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -178,7 +178,7 @@ class FileController extends Controller
         $form = $this->createDeleteForm($id);
         $request = $this->getRequest();
 
-        $form->bind($request);
+        $form->submit($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -313,7 +313,7 @@ class FileController extends Controller
         $section->addFile($file);
 
         if ($this->getRequest()->getMethod() === 'POST') {
-            $form->bind($this->getRequest());
+            $form->submit($this->getRequest());
             if ($form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
                 $file->upload();
@@ -352,7 +352,7 @@ class FileController extends Controller
         $section->addFile($file);
 
         if ($this->getRequest()->getMethod() === 'POST') {
-            $form->bind($this->getRequest());
+            $form->submit($this->getRequest());
             if ($form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
                 $file->upload();

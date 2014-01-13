@@ -2,9 +2,6 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:strip-space elements="*"/>
 <xsl:include href="leftbar.xsl"/>
-<xsl:param name="pipeline"/>
-<xsl:variable name='path'><xsl:if test="$pipeline='preview_toc'">../production/</xsl:if></xsl:variable>
-<xsl:variable name="current_page"><xsl:text>page</xsl:text></xsl:variable>
 <xsl:template match="/">
 <xsl:variable name="bgimage">
 <xsl:value-of select="body/background"/>
@@ -12,11 +9,15 @@
 <html>
 <head>
 <title>Borrowers and Lenders:  The Journal of Shakespeare and Appropriation</title>
-<link href="/bundles/borrowershome/css/bandl5.css" type="text/css" rel="stylesheet"/>
-<script type="text/javascript" src="/bundles/borrowershome/js/nav.js"/>
-<script type="text/javascript" src="/bundles/borrowershome/js/overlib.js">
-<!-- overLIB (c) Erik Bosrup -->
-</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<link href="../../bundles/borrowershome/css/bandl5.css" type="text/css" rel="stylesheet"/>
+<script type="text/javascript" src="../../bundles/borrowershome/js/nav.js"/>
+<script type="text/javascript" src="../../bundles/borrowershome/js/overlib.js"></script>
+    <script language="javascript">
+        $( document ).ready(function() {
+
+        });
+    </script>
 </head>
 <body>
 <a name='top'/>
@@ -261,7 +262,7 @@
 <xsl:template match="onlineresources"/>
 <xsl:template match="permissions"/>
 <xsl:template match="epigraph"/>
-<!-- 
+<!--
 <xsl:template match="essayTitle">
  <p class='title'><xsl:apply-templates/></p>
 </xsl:template>
@@ -301,13 +302,13 @@
   </p>
   </xsl:when>
  <xsl:otherwise>
-  
+
   <div class="body">
   <xsl:apply-templates/>
   </div>
   </xsl:otherwise>
   </xsl:choose>
-  
+
 </xsl:template>
 
 

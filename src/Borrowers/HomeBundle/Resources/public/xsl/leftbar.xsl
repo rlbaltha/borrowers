@@ -15,7 +15,7 @@
 
 <a href="../previous" ><img name="b" src="/bundles/borrowershome/img/previous_issue_off.jpg" border="0" width='150px' height="54px"/></a>
 
-<a href="../about" ><img name="e" src="/bundles/borrowershome/img/b5-off-book-d2.jpg" border="0" width='150px' height="36px"/></a> 
+<a href="../about" ><img name="e" src="/bundles/borrowershome/img/b5-off-book-d2.jpg" border="0" width='150px' height="36px"/></a>
 </td>
 </tr>
 <tr>

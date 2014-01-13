@@ -84,7 +84,7 @@ class AuthorController extends Controller
         $entity  = new Author();
         $request = $this->getRequest();
         $form    = $this->createForm(new AuthorType(), $entity);
-        $form->bind($request);
+        $form->submit($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -176,7 +176,7 @@ class AuthorController extends Controller
         $form = $this->createDeleteForm($id);
         $request = $this->getRequest();
 
-        $form->bind($request);
+        $form->submit($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();

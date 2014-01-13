@@ -90,7 +90,7 @@ class SectionController extends Controller
         $entity->setIssue($issue);
         $request = $this->getRequest();
         $form    = $this->createForm(new SectionType(), $entity);
-        $form->bind($request);
+        $form->submit($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -183,7 +183,7 @@ class SectionController extends Controller
         $form = $this->createDeleteForm($id);
         $request = $this->getRequest();
 
-        $form->bind($request);
+        $form->submit($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
