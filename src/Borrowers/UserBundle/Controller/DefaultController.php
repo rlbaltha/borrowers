@@ -28,7 +28,7 @@ class DefaultController extends Controller
    /** public function createusersAction()
     {
 
-          $em = $this->getDoctrine()->getEntityManager();
+          $em = $this->getDoctrine()->getManager();
           $dql1 = "SELECT i FROM BorrowersIssueBundle:Import i WHERE i.pw!=''";
           $oldusers = $em->createQuery($dql1)->getResult();  
           $userManager = $this->get('fos_user.user_manager');

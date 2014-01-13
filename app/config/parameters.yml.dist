@@ -9,5 +9,7 @@ parameters:
     mailer_host: localhost
     mailer_user: null
     mailer_password: null
+    ldap_host:         xxx.xxx.xxx
+    ldap_port:         xxx
     locale: en
     secret: b752dfb1057668f79887c9607251b2cb8
