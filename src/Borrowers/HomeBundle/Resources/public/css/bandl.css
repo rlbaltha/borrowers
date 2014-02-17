@@ -1,4 +1,10 @@
 
+div.footer {
+background-color:#FFFFFF;
+background-image:url(/bundles/borrowershome/img/06-footer-book-d2.jpg);background-repeat:no-repeat;
+}
+
+
 body {font-family: Garamond, Times New Roman, Serif; color: #333333; margin: 0px; font-size:12pt; line-height: 1.3; background-color: #FFFFFF; display: block; text-align:justify }
 
 h1 {display: block; text-align: center; margin-bottom: 2em; font-family: Garamond, Times New Roman, Serif; font-size:12pt;}
@@ -22,14 +28,6 @@ p.nav {line-height: 1.3; background-color: transparent; text-align: center; font
 
 
 .body {display: block; line-height: 1.3; margin-right: 20px; font-family: Garamond, Times New Roman, Serif; font-size:12pt; text-align:justify;margin-bottom:1em;}
-
-.bodycell {
-    background-color: #CCCC99;
-    font-size: 10pt;
-    vertical-align: top;
-    padding: 10px;
-}
-
 
 pre {line-height: 1.3;font-family: Garamond, Times New Roman, Serif; font-size:12pt; margin: 0px 00px 20px 30px;}
 

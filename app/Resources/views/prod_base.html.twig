@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}Borrowers and Lenders:  The Journal of Shakespeare and Appropriation{% endblock %}</title>
+    {% block stylesheets %}
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="{{ asset('bundles/borrowershome/css/bandl5.css') }}">
+    {% endblock %}
+
+    {% block javascripts %}
+        {% javascripts '@jquery_js' '@jqueryui_js' '@bootstrap_js' combine=true output='js/compiled/main.js' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    {% endblock %}
+</head>
+
+<body>
+
+<table>
+    <tr>
+        <td class='header' style="height:150px;background: url({{ asset('bundles/borrowershome/img/01-header-book-d2.jpg') }})"></td>
+    </tr>
+    <!-- body row -->
+    <tr>
+        <td>
+            <!-- body table -->
+            <table>
+                <tr>
+                    <td class='leftside' style="vertical-align:top;background-image:url({{ asset('bundles/borrowershome/img/02-side-book-d2.jpg') }});background-repeat:repeat-y;">
+
+                        <!-- nav bar table-->
+                        <table>
+                            <tr>
+                                <td class='nav01' style="width:150px;height:58px" >
+                                    <a href="{{ path('issue_current') }}" ><img src="{{ asset('bundles/borrowershome/img/current_issue_off.jpg') }}" style="border:0;width:150px;height:58px;"/></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class='nav02'  style="width:150px;height:54px">
+
+                                    <a href="{{ path('issue_previous') }}" ><img src="{{ asset('bundles/borrowershome/img/previous_issue_off.jpg') }}" border="0" width='150px' height="54px"/></a>
+
+                                    <a href="{{ path('issue_about') }}" ><img src="{{ asset('bundles/borrowershome/img/b5-off-book-d2.jpg') }}" border="0" width='150px' height="36px"/></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class='nav03'  style="width:150px;height:36px">
+
+                                    <a href="{{ path('issue_archive') }}" ><img src="{{ asset('bundles/borrowershome/img/archive-off.jpg') }}" border="0" width='150px' height="36px"/></a>
+
+                                </td>
+                            </tr>
+
+                        </table>
+
+                    </td>
+
+                    <!-- body cell -->
+                    <td class='textarea'>
+                        <img src='{{ asset('bundles/borrowershome/img/bodyspacer.gif') }}'/>
+
+                        <table>
+                            <tr>
+
+                                    {% block body %}{% endblock %}
+
+
+                            </tr>
+                        </table>
+
+                    </td>
+
+                    <td class='rightside' style="width:330px;background-image:url({{ asset('bundles/borrowershome/img/03-rside-book-d2.jpg') }});background-repeat:repeat-y;"></td>
+                </tr>
+            </table>
+            <!--close body row-->
+        </td>
+    </tr>
+    <!--footer row-->
+    <tr>
+        <td class='footer' style="height:180px;background-image:url({{ asset('bundles/borrowershome/img/06-footer-book-d2.jpg') }});background-repeat:no-repeat;"></td>
+    </tr>
+</table>
+
+
+</body>
+</html>

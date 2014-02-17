@@ -1,54 +1,9 @@
-<html>
-<head>
-<title>Borrowers and Lenders:  The Journal of Shakespeare and Appropriation</title>
-<link href="/bundles/borrowershome/css/bandl5.css" type="text/css" rel="stylesheet"/>
-<!-- overLIB (c) Erik Bosrup -->
-</script>
-</head>
-<body>
+{% extends '::prod_base.html.twig' %}
 
+{% block body %}
 
-<!-- header table -->
-<table cellpadding='0' cellspacing='0'>
+<td class="bodycell" style="width:400px;" >
 
-<!-- header row -->
-<tr>
-<td class='header' height='150px'/>
-</tr>
-
-<!-- body row -->
-<tr>
-<td>
-
-<!-- body table -->
-<table cellpadding='0' cellspacing='0'>
-<tr>
-<td class='leftside' width='150px' valign='top'>
-{% include 'BorrowersIssueBundle:Issue:nav.html.twig' %}
-</td>
-
-<!-- body cell -->
-<td valign='top' class='textarea'>
-<img src='bundles/borrowershome/img/bodyspacer.gif'/>
-
-<table cellpadding='15'>
-<tr>
-<!--  cell with background -->
-<td class='bodycell' valign='top'>
-
-
-{#<h3 class='about'>Calls for Papers</h3>
-
-<p>The editors of <i>Borrowers and Lenders: The Journal of Shakespeare and Appropriation</i> welcome original scholarship engaging with the afterlives
- of Shakespearean texts and their literary, filmic, multimedia, and critical histories. We encourage contributors to use the online format
- to its best advantage, in particular, by imagining how to enhance or illustrate their essays with multimedia (screen captures,
- sound clips, images, and so on).</p>
-
-<p>General inquiries should be addressed to the General Editors, Christy Desmet and Sujata Iyengar, by email at borrowers@english.uga.edu
- or to Associate Editor Robert Sawyer at resawyer1@charter.net. Book reviewers may contact our book review editor, Joshua King, directly
- by email at kingja@uga.edu. Reviewers of Appropriations in Performance may contact our performance review editor, Matthew Kozusko,
- directly at mkozusko@ursinus.edu, for guidelines.</p>
-#}
 
     <h3 class='about'>Call for Papers: <i>Girls and Girlhood in Adaptations of Shakespeare</i></h3>
     <h3 class='about'>Special Issue of <i>Borrowers and Lenders: The Journal of Shakespeare and Appropriation</i></h3>
@@ -94,30 +49,6 @@
 <hr/>
 {% endfor %}
 </td>
-</tr>
-</table>
-
-<!-- ===================================Archive list================================ -->
 
 
-
-</td>
-
-<td class='rightside' width='330px'/>
-</tr>
-</table>
-
-<!--close body row-->
-</td>
-</tr>
-
-<!--footer row-->
-<tr>
-<td class='footer' height='180px'/>
-</tr>
-</table>
-
-
-</body>
-</html>
-
+{% endblock %}

@@ -1,231 +1,229 @@
-<html>
-<head>
-<title>Borrowers and Lenders:  The Journal of Shakespeare and Appropriation</title>
-<link href="/bundles/borrowershome/css/bandl5.css" type="text/css" rel="stylesheet"/>
-<!-- overLIB (c) Erik Bosrup -->
-</script>
-</head>
-<body>
+{% extends '::prod_base.html.twig' %}
+
+{% block body %}
+
+    <td class="bodycell" style="width:400px;" >
+
+        <h5 class='about'>*Style Sheet for Contributors:</h5>
+
+        <p>Author's Bio: 50-100 words, including name, affiliation, select publications, and current research
+            interests.</p>
+
+        <p>Abstract: paragraph (ca. 150-200 words) summarizing the essay's argument. </p>
 
 
-<!-- header table -->
-<table cellpadding='0' cellspacing='0'>
+        <h5 class='about'>Documentation:</h5>
 
-<!-- header row -->
-<tr>
-<td class='header' height='150px'/>
-</tr>
+        <p><b>1. Style:</b> &#160;<i>B&amp;L</i> uses <i>The Chicago Manual of Style</i>, 14th or 15th edition, with a
+            preference for parenthetical citations using the author-date -page number system. We can accept manuscripts
+            in Word, Word Perfect or RTF formats. We prefer email attachments, but also accept manuscripts on diskette
+            or CD.</p>
 
-<!-- body row -->
-<tr>
-<td>
+        <p>Articles generally run from 7000 to 9000 words, but we also occasionally publish "clusters" of shorter essays
+            on a related theme. We send articles out for review as soon as we find a reader with expertise in the field
+            who is willing to serve. Each essay will be sent to no more than two readers; if these readers disagree, the
+            editors make the final decision. We strongly encourage authors who receive a report to “Revise and Resubmit”
+            to do so, with the guidance of the editors.</p>
 
-<!-- body table -->
-<table cellpadding='0' cellspacing='0'>
-<tr>
-<td class='leftside' width='150px' valign='top'>
-{% include 'BorrowersIssueBundle:Issue:nav.html.twig' %}
-</td>
+        <p>We welcome proposals for future essay-clusters by groups of scholars. If you would like to propose an
+            essay-cluster (two or more essays on a related theme) for a general or a special issue, please send
+            manuscripts to the editors, preferably along with the name of another scholar to introduce the cluster.
+            Essay-clusters are subject to the same peer-review process as articles considered singly.</p>
 
-<!-- body cell -->
-<td valign='top' class='textarea'>
-<img src='bundles/borrowershome/img/bodyspacer.gif'/>
+        <p><b>2. Citations:</b> We prefer, where possible, parenthetical citations using the author-date-page number
+            system, e.g.,
 
-<table cellpadding='15'>
-<tr>
-<!--  cell with background -->
-<td class='bodycell' valign='top'>
-
-    
-    
-    
-    
-    
-
-<h5 class='about'>*Style Sheet for Contributors:</h5>
-
-<p>Author's Bio: 50-100 words, including name, affiliation, select publications, and current research interests.</p>
-
-<p>Abstract: paragraph (ca. 150-200 words) summarizing the essay's argument. </p>
-
-
-<h5 class='about'>Documentation:</h5>
-
-<p><b>1.	Style:</b>  &#160;<i>B&amp;L</i> uses <i>The Chicago Manual of Style</i>, 14th or 15th edition, with a preference for parenthetical citations using the author-date -page number system. We can accept manuscripts in Word, Word Perfect or RTF formats. We prefer email attachments, but also accept manuscripts on diskette or CD.</p>
-
-<p>Articles generally run from 7000 to 9000 words, but we also occasionally publish "clusters" of shorter essays on a related theme. We send articles out for review as soon as we find a reader with expertise in the field who is willing to serve. Each essay will be sent to no more than two readers; if these readers disagree, the editors make the final decision. We strongly encourage authors who receive a report to “Revise and Resubmit” to do so, with the guidance of the editors.</p>
-
-<p>We welcome proposals for future essay-clusters by groups of scholars. If you would like to propose an essay-cluster (two or more essays on a related theme) for a general or a special issue, please send manuscripts to the editors, preferably along with the name of another scholar to introduce the cluster. Essay-clusters are subject to the same peer-review process as articles considered singly.</p>
-
-<p><b>2.	Citations:</b> We prefer, where possible, parenthetical citations using the author-date-page number system, e.g., 
-
-<span class='blockquote'>Fineman, taking a world-historical point of view, hypothesizes that "Shakespeare marks the beginning of the modernist self and Freud . . . its end, the two of them together thus bracketing an epoch of subjectivity" (Fineman 1986, 47); but Sinfield largely avoids the issue, asserting a "sufficient continuity" between these understandings (Sinfield 1992, 60), while insisting that what has been the problem all along is, not selfhood, but essentialist humanism, the way in which we interpret selfhood. 
+<span class='blockquote'>Fineman, taking a world-historical point of view, hypothesizes that "Shakespeare marks the beginning of the modernist self and Freud . . . its end, the two of them together thus bracketing an epoch of subjectivity" (Fineman 1986, 47); but Sinfield largely avoids the issue, asserting a "sufficient continuity" between these understandings (Sinfield 1992, 60), while insisting that what has been the problem all along is, not selfhood, but essentialist humanism, the way in which we interpret selfhood.
 </span>
 
-Please reserve endnotes for substantive explanatory comments. We prefer endnotes to be in a separate document, but can work with endnotes created through a word processor's endnote function. For two authors with the same surname, include first initial in parenthetical citations. For two or more works by a single author, include author, date and page number: e.g., (Sinfield 1985, 72). For two or more works by a single author published in the same year, allot a letter to each work published in the same year, in alphabetical order:
-e.g., (Nisenson 2000a, 202).</p>
+            Please reserve endnotes for substantive explanatory comments. We prefer endnotes to be in a separate
+            document, but can work with endnotes created through a word processor's endnote function. For two authors
+            with the same surname, include first initial in parenthetical citations. For two or more works by a single
+            author, include author, date and page number: e.g., (Sinfield 1985, 72). For two or more works by a single
+            author published in the same year, allot a letter to each work published in the same year, in alphabetical
+            order:
+            e.g., (Nisenson 2000a, 202).</p>
 
-<p><b>3.	Quotations:</b> For poetry of three or more lines and prose quotations of four or more lines, use indented block quotations. Shorter quotations may be included in the body of the essay as inline quotations.</p>
+        <p><b>3. Quotations:</b> For poetry of three or more lines and prose quotations of four or more lines, use
+            indented block quotations. Shorter quotations may be included in the body of the essay as inline quotations.
+        </p>
 
-<p><b>4.	Languages:</b> While some foreign words or phrases may be utilized in the text (and may be italicized), the article otherwise should be entirely in English. If your text includes quotations in a language other than English, use authoritative translations (or your own), followed by English translation in parentheses. Identify the translators in the footnotes. The titles of books and articles in languages other than English should be followed immediately by their English translations in parentheses. Adhere strictly to the conventions of any foreign language you use; we depend on you for accuracy. Please use American rather than British spelling except in quotations.</p>
-
-
-<h5 class='about'>Format:</h5>
-
-<p><b>Font:</b> Use Times Roman 12 (non-proportional) font.</p>
-
-<p><b>Margins:</b> Set at 1-inch right, left, top, and bottom. Do not justify right margin. Do not set widow/orphan protection.</p>
-
-<p><b>Line Spacing:</b> Double space (2 line spaces) entire manuscript, including notes and block quotes.</p>
-
-<p><b>Page Numbers:</b> Number pages in upper right corner, beginning with page 2 (suppress page 1 number). Otherwise, use no running head.</p>
-
-<p><b>Paragraphs:</b> Use Tab key to indent paragraphs. Use automatic (soft) return within each paragraph (use hard return only for paragraph end). Use 1 hard return at the end of each paragraph. Use 2 hard returns only between sections (if any).</p>
-
-<p><b>Character Spacing:</b> Use 1 space after periods, colons, commas and semicolons. To create a dash, type 2 hyphens with one space before the preceding word and one space after the following word. To type an ellipsis, type a space between each of the 3 periods and between the preceding and following words. In the case of an ellipsis following a period, do not put a space between the period and the preceding word. Do not worry about an ellipsis breaking at the end of a line.</p>
-
-<p><b>Hyphenation:</b> Do not use automatic hyphenation. Do not hyphenate end-of-line words unless they are normally hyphenated.</p>
+        <p><b>4. Languages:</b> While some foreign words or phrases may be utilized in the text (and may be italicized),
+            the article otherwise should be entirely in English. If your text includes quotations in a language other
+            than English, use authoritative translations (or your own), followed by English translation in parentheses.
+            Identify the translators in the footnotes. The titles of books and articles in languages other than English
+            should be followed immediately by their English translations in parentheses. Adhere strictly to the
+            conventions of any foreign language you use; we depend on you for accuracy. Please use American rather than
+            British spelling except in quotations.</p>
 
 
+        <h5 class='about'>Format:</h5>
 
-<h5 class='about'>Support</h5>
-<p><i>Borrowers and Lenders: The Journal of Shakespeare and Appropriation</i> is supported by the University of Georgia English Department, the Willson Center for Humanities and Arts, University of Georgia, the President's Venture Fund of the University of Georgia, and the &lt;emma&gt; project.</p>
+        <p><b>Font:</b> Use Times Roman 12 (non-proportional) font.</p>
 
-<h5 class='about'>Permissions and Disclaimers</h5>
+        <p><b>Margins:</b> Set at 1-inch right, left, top, and bottom. Do not justify right margin. Do not set
+            widow/orphan protection.</p>
 
-<p>The opinions expressed on this site do not necessarily reflect the views of the editors, the English Department, or the University System of Georgia.</p >
-<p>Essays may not be copied or downloaded from this site without the express permission of <i>Borrowers and Lenders</i> or the author. Multimedia may not be downloaded or copied from this site without permission from the copyright holder or holders.</p >
+        <p><b>Line Spacing:</b> Double space (2 line spaces) entire manuscript, including notes and block quotes.</p>
 
-<p>Authors are responsible for securing any necessary permissions for illustrations to their essays. Contact the General Editors if you are having difficulty doing this.</p>
+        <p><b>Page Numbers:</b> Number pages in upper right corner, beginning with page 2 (suppress page 1 number).
+            Otherwise, use no running head.</p>
 
-<p>The editors have made every effort to obtain permission from copyright holders, but in some cases have been unable to contact the holders.</p >
+        <p><b>Paragraphs:</b> Use Tab key to indent paragraphs. Use automatic (soft) return within each paragraph (use
+            hard return only for paragraph end). Use 1 hard return at the end of each paragraph. Use 2 hard returns only
+            between sections (if any).</p>
 
-<p>If you have any further information about copyrights and permissions of material on this site, please contact the editors.</p >
-    
-    
-    
-    
+        <p><b>Character Spacing:</b> Use 1 space after periods, colons, commas and semicolons. To create a dash, type 2
+            hyphens with one space before the preceding word and one space after the following word. To type an
+            ellipsis, type a space between each of the 3 periods and between the preceding and following words. In the
+            case of an ellipsis following a period, do not put a space between the period and the preceding word. Do not
+            worry about an ellipsis breaking at the end of a line.</p>
 
-</td>
-<!-- white background cell -->
-<td valign='top' width='400px'>
-
-    
-
-    
-    
-<p align='right'>ISSN 1554-6985</p>
-<h3 class='about'>About the Journal</h3>
-
-<p><i>Borrowers and Lenders</i>, 
-winner of the CELJ Best New Journal Award in 2007, is a peer-reviewed, online, multimedia Shakespeare journal (http://www.borrowers.uga.edu). The journal is indexed in the <i>MLA Bibliography</i>, <i>World Shakespeare Bibliography</i>, and other databases. </p>
-
-<h4 class='about'>Editorial Staff and Board</h4>
-
-<p align='center'>
-General Editors: Christy Desmet and Sujata Iyengar, University of Georgia<br/>
-Associate Editor: Robert Sawyer, East Tennessee State University<br/>
-Managing Editor: Allison Lenhardt, University of Georgia<br/>
-Book Review Editor: Joshua King, University of Georgia<br/>
-Appropriations in Performance Editor: Matthew Kozusko, Ursinus College<br/>
-Software Code Writer: Ron Balthazor, University of Georgia<br/>
-Website Design: William Reeves, University of Georgia
-
-</p>
-
-<h4 class='about'>Editorial Board</h4>
-
-<p align='center'>
-Michael Best, University of Victoria, Victoria<br/>
-Mark Thornton Burnett, Queen’s University, Belfast<br/>
-Richard Burt, University of Florida<br/>
-Thomas Cartelli, Muhlenberg College<br/>
-Celia Daileader, Florida State University<br/>
-Juliet Dusinberre, Girton College, Cambridge<br/>
-Daniel Fischlin, University of Guelph, Ontario<br/>
-Terence Hawkes, University of Cardiff<br/>
-Russell Jackson, University of Birmingham<br/>
-Ruru Li, University of Leeds<br/>
-Arthur Little, University of California, Los Angeles<br/>
-Ania Loomba, University of Pennsylvania<br/>
-Sharon O'Dair, University of Alabama<br/>
-Laurie Osborne, Colby College<br>
-Patricia Parker, Stanford University<br/>
-David Riggs, Stanford University<br/>
-Anne Russell, Wilfrid Laurier University</br>
-Jyotsna Singh, Michigan State University<br/>
-Bruce Smith, University of Southern California<br/>
-Stanley Wells, Shakespeare Institute, University of Birmingham
-</p>
-
-{#
-<h3 class='about'>Calls for Papers</h3>
-
-<p>The editors of <i>Borrowers and Lenders: The Journal of Shakespeare and Appropriation</i> welcome original scholarship engaging with the afterlives of Shakespearean texts and their literary, filmic, multimedia, and critical histories. We encourage contributors to use the online format to its best advantage, in particular, by imagining how to enhance or illustrate their essays with multimedia (screen captures, sound clips, images, and so on).</p>
-
-<p>Currently we solicit essays, book reviews, accounts of Appropriation in Performance, essay-clusters, and new discoveries for upcoming general and special issues. General issues appear in the Fall/Winter, and Special issues in the Spring/Summer, although the production schedule can vary. We welcome suggestions for themes for special issues.</p>
-
-<p>General inquiries should be addressed to the General Editors, Christy Desmet (cdesmet@uga.edu) and Sujata Iyengar (iyengar@uga.edu), by email or to Associate Editor Robert Sawyer (resawyer1@charter.net). Book reviewers may contact our book review editor, Joshua King (kingja@uga.edu), directly. Reviewers of Appropriations in Performance may contact our performance review editor, Matthew Kozusko (mkozusko@ursinus.edu), directly  for guidelines.</p>
-    
-  #}  
-    <h3 class='about'>Call for Papers: <i>Girls and Girlhood in Adaptations of Shakespeare</i></h3>
-    <h3 class='about'>Special Issue of <i>Borrowers and Lenders: The Journal of Shakespeare and Appropriation</i></h3>
- 
-<p>The editors of <i>Borrowers and Lenders: The Journal of Shakespeare and Appropriation</i>,  in conjunction with guest editor Deanne Williams,
-    York University, extend a call for papers for <i>B&amp;L</i> 9.2 (Fall 2014) on the topic of <i>Girls and Girlhood in Adaptations of Shakespeare</i>.</p>
- 
-<p>In 2012, the United Nations celebrated the first “Day of the Girl Child,” highlighting the treatment of girls and young women 
-    as the key moral issue of our time. As the advancement of girls becomes a global economic, medical, and social priority,
-    literary scholars are turning their attention to cultural representations of and by girls and to historical and philosophical
-    conceptions of girlhood. This special issue of <i>Borrowers and Lenders</i> initiates a scholarly conversation on girls and girlhood
-    in adaptations of Shakespeare, seeking papers that address the process of adapting Shakespeare for girl actors, readers,
-    patrons or audiences; adaptations of Shakespeare’s “girl” characters; and girls’ responses to and appropriations of Shakespeare.
-    We encourage contributions that range from Shakespeare’s contemporaries and Restoration theatre to contemporary authors, playwrights,
-    visual artists and directors, as well those that engage with newer or non-canonical literary genres such as online and Web 2.0 Shakespeares;
-    fanfiction and the graphic novel; autobiography, memoirs and life writing; Shakespeare for children; and international, multicultural and
-    postcolonial adaptations.</p>
- 
-<p>Please send inquiries and completed essays as Microsoft Word documents sent as email attachments to Deanne Williams:
-    dmw[at]yorku.ca by October 1, 2013. Essays should make original contributions to the study of Shakespeare and of girlhood.
-    We encourage authors to consult Richard Lanham’s <i>Revising Prose</i> or Joseph Williams’s <i>Style: Lessons in Clarity and Grace</i> as they edit their work.
-    Essays will be reviewed by the guest editor and then by the board of <i>Borrowers and Lenders: The Journal of Shakespeare and Appropriation</i> before
-    final acceptance. Upon acceptance, we will ask authors to verify all citations and to put their essays into <i>Borrowers and Lenders</i> house style.</p>
-    
- 
-<p><i>Borrowers and Lenders: The Journal of Shakespeare and Appropriation</i> is a peer-reviewed,
-    online, multimedia journal that welcomes original scholarship engaging with the afterlives of Shakespearean texts and their literary,
-    filmic, multimedia, and critical histories. It encourages contributors to use the online format to its best advantage, in particular,
-    by imagining how to enhance or illustrate their essays with multimedia (screen captures, sound clips, images, and so on). <i>B&amp;L</i> won the CELJ's
-    "Best New Journal" Award in 2007. <i>B&amp;L</i> is fully indexed in the MLA Bibliography. <i>B&amp;L</i> is currently co-edited by Dr. Christy Desmet (cdesmet[at]uga.edu)
-    and Dr. Sujata Iyengar (iyengar[at]uga.edu); correspondence should be addressed to lenders[at]uga.edu or to Managing Editor Ms. Maria Chappell
-    (machapp[at]uga.edu).</p>    
-    
-</td>
-</tr>
-</table>
-
-<!-- ===================================Archive list================================ -->
+        <p><b>Hyphenation:</b> Do not use automatic hyphenation. Do not hyphenate end-of-line words unless they are
+            normally hyphenated.</p>
 
 
+        <h5 class='about'>Support</h5>
 
-</td>
+        <p><i>Borrowers and Lenders: The Journal of Shakespeare and Appropriation</i> is supported by the University of
+            Georgia English Department, the Willson Center for Humanities and Arts, University of Georgia, the
+            President's Venture Fund of the University of Georgia, and the &lt;emma&gt; project.</p>
 
-<td class='rightside' width='330px'/>
-</tr>
-</table>
+        <h5 class='about'>Permissions and Disclaimers</h5>
 
-<!--close body row-->
-</td>
-</tr>
+        <p>The opinions expressed on this site do not necessarily reflect the views of the editors, the English
+            Department, or the University System of Georgia.</p>
 
-<!--footer row-->
-<tr>
-<td class='footer' height='180px'/>
-</tr>
-</table>
+        <p>Essays may not be copied or downloaded from this site without the express permission of <i>Borrowers and
+                Lenders</i> or the author. Multimedia may not be downloaded or copied from this site without permission
+            from the copyright holder or holders.</p>
+
+        <p>Authors are responsible for securing any necessary permissions for illustrations to their essays. Contact the
+            General Editors if you are having difficulty doing this.</p>
+
+        <p>The editors have made every effort to obtain permission from copyright holders, but in some cases have been
+            unable to contact the holders.</p>
+
+        <p>If you have any further information about copyrights and permissions of material on this site, please contact
+            the editors.</p>
+
+    </td>
+
+    <td style="width:400px;padding:10px;" >
+
+        <p style="text-align: right">ISSN 1554-6985</p>
+
+        <h3 class='about'>About the Journal</h3>
+
+        <p><i>Borrowers and Lenders</i>,
+            winner of the CELJ Best New Journal Award in 2007, is a peer-reviewed, online, multimedia Shakespeare
+            journal (http://www.borrowers.uga.edu). The journal is indexed in the <i>MLA Bibliography</i>, <i>World
+                Shakespeare Bibliography</i>, and other databases. </p>
+
+        <h4 class='about'>Editorial Staff and Board</h4>
+
+        <p style="text-align: center">
+            General Editors: Christy Desmet and Sujata Iyengar, University of Georgia<br/>
+            Associate Editor: Robert Sawyer, East Tennessee State University<br/>
+            Managing Editor: Allison Lenhardt, University of Georgia<br/>
+            Book Review Editor: Joshua King, University of Georgia<br/>
+            Appropriations in Performance Editor: Matthew Kozusko, Ursinus College<br/>
+            Software Code Writer: Ron Balthazor, University of Georgia<br/>
+            Website Design: William Reeves, University of Georgia
+
+        </p>
+
+        <h4 class='about'>Editorial Board</h4>
+
+        <p style="text-align: center">
+            Michael Best, University of Victoria, Victoria<br/>
+            Mark Thornton Burnett, Queen’s University, Belfast<br/>
+            Richard Burt, University of Florida<br/>
+            Thomas Cartelli, Muhlenberg College<br/>
+            Celia Daileader, Florida State University<br/>
+            Juliet Dusinberre, Girton College, Cambridge<br/>
+            Daniel Fischlin, University of Guelph, Ontario<br/>
+            Terence Hawkes, University of Cardiff<br/>
+            Russell Jackson, University of Birmingham<br/>
+            Ruru Li, University of Leeds<br/>
+            Arthur Little, University of California, Los Angeles<br/>
+            Ania Loomba, University of Pennsylvania<br/>
+            Sharon O'Dair, University of Alabama<br/>
+            Laurie Osborne, Colby College<br>
+            Patricia Parker, Stanford University<br/>
+            David Riggs, Stanford University<br/>
+            Anne Russell, Wilfrid Laurier University<br/>
+            Jyotsna Singh, Michigan State University<br/>
+            Bruce Smith, University of Southern California<br/>
+            Stanley Wells, Shakespeare Institute, University of Birmingham
+        </p>
+
+        {#
+        <h3 class='about'>Calls for Papers</h3>
+
+        <p>The editors of <i>Borrowers and Lenders: The Journal of Shakespeare and Appropriation</i> welcome original scholarship engaging with the afterlives of Shakespearean texts and their literary, filmic, multimedia, and critical histories. We encourage contributors to use the online format to its best advantage, in particular, by imagining how to enhance or illustrate their essays with multimedia (screen captures, sound clips, images, and so on).</p>
+
+        <p>Currently we solicit essays, book reviews, accounts of Appropriation in Performance, essay-clusters, and new discoveries for upcoming general and special issues. General issues appear in the Fall/Winter, and Special issues in the Spring/Summer, although the production schedule can vary. We welcome suggestions for themes for special issues.</p>
+
+        <p>General inquiries should be addressed to the General Editors, Christy Desmet (cdesmet@uga.edu) and Sujata Iyengar (iyengar@uga.edu), by email or to Associate Editor Robert Sawyer (resawyer1@charter.net). Book reviewers may contact our book review editor, Joshua King (kingja@uga.edu), directly. Reviewers of Appropriations in Performance may contact our performance review editor, Matthew Kozusko (mkozusko@ursinus.edu), directly  for guidelines.</p>
+
+          #}
+        <h3 class='about'>Call for Papers: <i>Girls and Girlhood in Adaptations of Shakespeare</i></h3>
+
+        <h3 class='about'>Special Issue of <i>Borrowers and Lenders: The Journal of Shakespeare and Appropriation</i>
+        </h3>
+
+        <p>The editors of <i>Borrowers and Lenders: The Journal of Shakespeare and Appropriation</i>, in conjunction
+            with guest editor Deanne Williams,
+            York University, extend a call for papers for <i>B&amp;L</i> 9.2 (Fall 2014) on the topic of <i>Girls and
+                Girlhood in Adaptations of Shakespeare</i>.</p>
+
+        <p>In 2012, the United Nations celebrated the first “Day of the Girl Child,” highlighting the treatment of girls
+            and young women
+            as the key moral issue of our time. As the advancement of girls becomes a global economic, medical, and
+            social priority,
+            literary scholars are turning their attention to cultural representations of and by girls and to historical
+            and philosophical
+            conceptions of girlhood. This special issue of <i>Borrowers and Lenders</i> initiates a scholarly
+            conversation on girls and girlhood
+            in adaptations of Shakespeare, seeking papers that address the process of adapting Shakespeare for girl
+            actors, readers,
+            patrons or audiences; adaptations of Shakespeare’s “girl” characters; and girls’ responses to and
+            appropriations of Shakespeare.
+            We encourage contributions that range from Shakespeare’s contemporaries and Restoration theatre to
+            contemporary authors, playwrights,
+            visual artists and directors, as well those that engage with newer or non-canonical literary genres such as
+            online and Web 2.0 Shakespeares;
+            fanfiction and the graphic novel; autobiography, memoirs and life writing; Shakespeare for children; and
+            international, multicultural and
+            postcolonial adaptations.</p>
+
+        <p>Please send inquiries and completed essays as Microsoft Word documents sent as email attachments to Deanne
+            Williams:
+            dmw[at]yorku.ca by October 1, 2013. Essays should make original contributions to the study of Shakespeare
+            and of girlhood.
+            We encourage authors to consult Richard Lanham’s <i>Revising Prose</i> or Joseph Williams’s <i>Style:
+                Lessons in Clarity and Grace</i> as they edit their work.
+            Essays will be reviewed by the guest editor and then by the board of <i>Borrowers and Lenders: The Journal
+                of Shakespeare and Appropriation</i> before
+            final acceptance. Upon acceptance, we will ask authors to verify all citations and to put their essays into
+            <i>Borrowers and Lenders</i> house style.</p>
 
 
-</body>
-</html>
+        <p><i>Borrowers and Lenders: The Journal of Shakespeare and Appropriation</i> is a peer-reviewed,
+            online, multimedia journal that welcomes original scholarship engaging with the afterlives of Shakespearean
+            texts and their literary,
+            filmic, multimedia, and critical histories. It encourages contributors to use the online format to its best
+            advantage, in particular,
+            by imagining how to enhance or illustrate their essays with multimedia (screen captures, sound clips,
+            images, and so on). <i>B&amp;L</i> won the CELJ's
+            "Best New Journal" Award in 2007. <i>B&amp;L</i> is fully indexed in the MLA Bibliography. <i>B&amp;L</i> is
+            currently co-edited by Dr. Christy Desmet (cdesmet[at]uga.edu)
+            and Dr. Sujata Iyengar (iyengar[at]uga.edu); correspondence should be addressed to lenders[at]uga.edu or to
+            Managing Editor Ms. Maria Chappell
+            (machapp[at]uga.edu).</p>
 
 
+    </td>
+
+{% endblock %}
