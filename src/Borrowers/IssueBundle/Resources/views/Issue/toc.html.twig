@@ -1,50 +1,61 @@
 {% extends '::prod_base.html.twig' %}
 
 {% block body %}
+    <table>
+        <tr>
 
-<td>
-<!-- ===================================TOC================================ -->
-<!-- main toc -->
-<p align='right'>ISSN 1554-6985</p>
-<p class='toc1'>{{ issue.title | raw}}</p>
-<p class='toc2'>{{ issue.description }}</p>
-<p class='toc1'>{{ issue.subtitle }}</p>
+            <td>
+                <!-- ===================================TOC================================ -->
+                <!-- main toc -->
+                <p align='right'>ISSN 1554-6985</p>
+
+                <p class='toc1'>{{ issue.title | raw }}</p>
+
+                <p class='toc2'>{{ issue.description }}</p>
+
+                <p class='toc1'>{{ issue.subtitle }}</p>
 
 
-<p class='toc2'>EDITED  BY</p>
-<p class='toc4'>{{ issue.editors }}</p>
-<p class='toc2'>CONTENTS</p>
+                <p class='toc2'>EDITED BY</p>
+
+                <p class='toc4'>{{ issue.editors }}</p>
+
+                <p class='toc2'>CONTENTS</p>
 
 
+                <table border='0' width='100%' cellpadding='7'>
 
-<table border='0' width='100%' cellpadding='7'>
-   
-{% for section in issue.sections %} 
-{% if section.title != 'Default'%}    
-<tr>     
-<!-- section -->
-<td colspan='2'>
-<p class='toc3'>{{ section.title| raw }}</p>
-<p class='toc3'>{{ section.description }}</p>
-</td>
-</tr>
-{% endif %}
+                    {% for section in issue.sections %}
+                        {% if section.title != 'Default' %}
+                            <tr>
+                                <!-- section -->
+                                <td colspan='2'>
+                                    <p class='toc3'>{{ section.title| raw }}</p>
 
-{% for file in section.files if file.display==1%} 
+                                    <p class='toc3'>{{ section.description }}</p>
+                                </td>
+                            </tr>
+                        {% endif %}
 
-<tr>
-<td>
-<a class="" href="{{ path('file_display', { 'id': file.id }) }}">{{ file.title |raw }}</a>
-<a class="" href="{{ path('file_pdf', { 'id': file.id }) }}">(pdf)</a>
-</td>
-<td style='text-align:left'>
-    {% for author in file.authors %}{{ author.firstname | raw }} {{ author.lastname | raw }} {% endfor %}
-</td>
-</tr>
-{% endfor %}
-{% endfor %}
-</table>           
-    
-<!-- ===================================end of TOC================================ -->
-</td>
+                        {% for file in section.files if file.display==1 %}
+
+                            <tr>
+                                <td>
+                                    <a class=""
+                                       href="{{ path('file_show', { 'id': file.id }) }}">{{ file.title |raw }}</a>
+                                    <a class="" href="{{ path('file_pdf', { 'id': file.id }) }}">(pdf)</a>
+                                </td>
+                                <td style='text-align:left'>
+                                    {% for author in file.authors %}{{ author.firstname | raw }} {{ author.lastname | raw }} {% endfor %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% endfor %}
+                </table>
+
+                <!-- ===================================end of TOC================================ -->
+            </td>
+        </tr>
+    </table>
+
 {% endblock %}

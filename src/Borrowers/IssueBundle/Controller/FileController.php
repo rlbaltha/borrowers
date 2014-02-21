@@ -43,17 +43,30 @@ class FileController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BorrowersIssueBundle:File')->find($id);
+        $file = $em->getRepository('BorrowersIssueBundle:File')->find($id);
+        $path = __DIR__.'/../../../../borrowers_docs/'.$file->getPath();
 
-        if (!$entity) {
+        if (!$file) {
             throw $this->createNotFoundException('Unable to find File entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
+        $xp = new \XsltProcessor();
+
+        $xsl = new \DomDocument;
+        $xsl->load('bundles/borrowershome/xsl/main.xsl');
+        $xp->importStylesheet($xsl);
+
+        $xml_doc = new \DomDocument;
+        $xml_doc->load($path);
+
+        if ($html = $xp->transformToXML($xml_doc)) {
+        } else {
+            trigger_error('XSL transformation failed.', E_USER_ERROR);
+        }
 
         return array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        );
+            'html'      => $html,
+      );
     }
 
     /**

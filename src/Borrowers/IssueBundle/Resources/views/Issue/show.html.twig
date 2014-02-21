@@ -9,12 +9,12 @@
         <h4>{{ issue.editors }}</h4>
         <h4>({% if issue.display == 0 %}Development{% elseif issue.display == 1 %}Archive{% elseif issue.display == 2 %}Previous{% else %}Current{% endif %})</h4>
         <div class="row margintop">
-            <div class="span3">
+            <div class="col-sm-8">
                 <a class="btn btn-info" href="{{ path('issue_toc', { 'id': issue.id }) }}">TOC</a>
                 <a class="btn btn-primary" href="{{ path('issue_edit', { 'id': issue.id }) }}">Edit</a>
                 <a class="btn btn-primary" href="{{ path('section_new', { 'issue_id': issue.id }) }}">Add Section</a>
             </div>
-            <div class="span1">
+            <div class="col-sm-1">
                 <form action="{{ path('issue_delete', { 'id': issue.id }) }}" method="post">
                     {{ form_widget(delete_form) }}
                     <button class="btn btn-danger" type="submit">Delete</button>
@@ -34,12 +34,12 @@
                 <a class="btn btn-primary pull-right" href="{{ path('file_upload', { 'issueid':issue.id,'sectionid': section.id }) }}">Upload XML</a>
 
 
-                <table id="section{{section.id}}" class="table">
+                <table id="section{{section.id}}" class="table col-sm-10">
                     <tbody>
                     <tr><td colspan="3"><h5>XML</h5></td></tr>
                     {% for file in section.files if file.fileType==0 %}
                         <tr>
-                            <td><a class="" href="{{ path('file_display', { 'id': file.id }) }}">{{ file.title |raw }}</a> ({% if file.display == 0 %}Development{% elseif file.display == 1 %}Production{% endif %})</td>
+                            <td><a class="" href="{{ path('file_show', { 'id': file.id }) }}">{{ file.title |raw }}</a> ({% if file.display == 0 %}Development{% elseif file.display == 1 %}Production{% endif %})</td>
                             <td>{% for author in file.authors %}{{ author.firstname | raw }} {{ author.lastname | raw }}  {% endfor %}</td>
                             <td><a class="btn btn-info" href="{{ path('file_pdf', { 'id': file.id }) }}">PDF</a>
                                 <a class="btn btn-primary" href="{{ path('file_edit', { 'id': file.id }) }}">Edit</a>
