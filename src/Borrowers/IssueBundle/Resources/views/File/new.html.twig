@@ -2,7 +2,7 @@
 {% extends 'BorrowersHomeBundle::layout.html.twig' %}
 
 {% block content %}
-<div class="span6 well"> 
+<div class="col-sm-10 well">
 <form action="{{ path('file_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
     <div>

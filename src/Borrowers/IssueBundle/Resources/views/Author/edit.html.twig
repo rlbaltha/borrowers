@@ -3,8 +3,8 @@
 
 {% block content %}
 
-<div class="row">   
-    <div class="span6 well"> 
+
+    <div class="col-sm-12 well">
         
         <form action="{{ path('author_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }} novalidate="novalidate">
             {{ form_widget(edit_form) }}
@@ -12,7 +12,8 @@
             <button class="btn btn-primary" type="submit">Update</button>
         </div>
         </form>
-      
+
+    <hr/>
     <form action="{{ path('author_delete', { 'id': entity.id }) }}" method="post" novalidate="novalidate">
             {{ form_widget(delete_form) }}
             <button class="btn btn-danger" type="submit">Delete</button>
@@ -20,5 +21,5 @@
 
             
 </div>
-</div>            
+
 {% endblock %}

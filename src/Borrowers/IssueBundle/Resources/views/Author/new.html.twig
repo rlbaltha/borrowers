@@ -3,18 +3,18 @@
 
 {% block content %}
 
-<div class="span2">
+<div class="col-sm-12 well">
 <a class="btn btn-info" href="{{ path('author') }}">List</a>
  
 </div>       
   
 
 
-<div class="span6 well"> 
+<div class="col-sm-12 well">
 <form action="{{ path('author_create') }}" method="post" {{ form_enctype(form) }} novalidate="novalidate">
     {{ form_widget(form) }}
     <div>
-        <button class="btn" type="submit">Create</button>
+        <button class="btn btn-default" type="submit">Create</button>
     </div>
 </form>
 </div>

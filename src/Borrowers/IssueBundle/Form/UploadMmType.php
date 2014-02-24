@@ -12,8 +12,9 @@ class UploadMmType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('file')  
-            ->add('title')
+            ->add('file')
+            ->add('title','text', array('attr' => array('class' => 'text form-control'),))
+
         ;
     }
 

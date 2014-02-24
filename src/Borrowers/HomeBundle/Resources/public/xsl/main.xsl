@@ -655,95 +655,165 @@
 
         <xsl:choose>
             <xsl:when test="contains(@uri, '.mov') or contains(@uri, '.mp4')">
-                <table align="center" cellspacing='10'>
-                    <tr><td>
-                        <script src="http://podcaster.gcsu.edu/AC_Quicktime/ac_quicktime.js" language="JavaScript" type="text/javascript"></script>
-                        <script src="http://podcaster.gcsu.edu/AC_Quicktime/qtp_library.js" language="JavaScript" type="text/javascript"></script>
 
-                        <script type="text/javascript">
-                            QT_WritePoster_XHTML('Click to Play', '<xsl:value-of select="@poster"/>',
-                            '<xsl:value-of select="@uri"/>',
-                            '601', '364', '',
-                            'controller', 'true',
-                            'autoplay', 'false',
-                            'bgcolor', 'black',
-                            'scale', 'tofit');
+                <script type="text/javascript">
 
-                        </script>
-                        <noscript>
-                            <object width="601" height="364" classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B" codebase="http://www.apple.com/qtactivex/qtplugin.cab">
-                                <param name="src" value="{@poster}" />
-                                <param name="href" value="{@uri}" />
-                                <param name="target" value="myself" />
-                                <param name="controller" value="false" />
-                                <param name="autoplay" value="true" />
-                                <param name="scale" value="tofit" />
-                                <embed width="601" height="364" type="video/quicktime" pluginspage="http://www.apple.com/quicktime/download/"
-                                       src=""
-                                       href="{@uri}"
-                                       target="myself"
-                                       controller="false"
-                                       autoplay="true"
-                                       scale="tofit">
-                                </embed>
-                            </object>
-                        </noscript>
+                    $(document).ready(function(){
+                    var position = "<xsl:value-of select="position()"/>";
+                    $("#jquery_jplayer_1").jPlayer({
+                    ready: function () {
+                    $("#jquery_jplayer_" + position).jPlayer("setMedia", {
+                    m4v: "<xsl:value-of select="@uri"/>",
+                    poster: "<xsl:value-of select="@poster"/>"
+                    });
+                    },
+                    swfPath: "/js",
+                    supplied: "m4v, ogv"
+                    });
+                    });
+                </script>
+                <div id="jp_container_1" class="jp-video" style="margin-left:auto;margin-right:auto">
+                    <div class="jp-type-single">
+                        <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+                        <div class="jp-gui">
+                            <div class="jp-video-play">
+                                <a href="javascript:;" class="jp-video-play-icon" tabindex="1">play</a>
+                            </div>
+                            <div class="jp-interface">
+                                <div class="jp-progress">
+                                    <div class="jp-seek-bar">
+                                        <div class="jp-play-bar"></div>
+                                    </div>
+                                </div>
+                                <div class="jp-current-time"></div>
+                                <div class="jp-duration"></div>
+                                <div class="jp-controls-holder">
+                                    <ul class="jp-controls">
+                                        <li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+                                        <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+                                        <li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
+                                        <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
+                                        <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
+                                        <li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max volume</a></li>
+                                    </ul>
+                                    <div class="jp-volume-bar">
+                                        <div class="jp-volume-bar-value"></div>
+                                    </div>
+                                    <ul class="jp-toggles">
+                                        <li><a href="javascript:;" class="jp-full-screen" tabindex="1" title="full screen">full screen</a></li>
+                                        <li><a href="javascript:;" class="jp-restore-screen" tabindex="1" title="restore screen">restore screen</a></li>
+                                        <li><a href="javascript:;" class="jp-repeat" tabindex="1" title="repeat">repeat</a></li>
+                                        <li><a href="javascript:;" class="jp-repeat-off" tabindex="1" title="repeat off">repeat off</a></li>
+                                    </ul>
+                                </div>
+                                <div class="jp-title">
+                                    <ul>
+                                        <li><xsl:value-of select="@caption"/></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="jp-no-solution">
+                            <span>Update Required</span>
+                            To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+                        </div>
+                    </div>
+                </div>
 
 
 
-                    </td></tr>
-                    <tr><td align="center">
-                        <i><xsl:value-of select="@caption"/></i>
-                    </td></tr>
-                </table>
-            </xsl:when>
-            <xsl:otherwise>
-                <center>
-                    <FORM ACTION="{$uri}" METHOD="GET">
-                        <INPUT TYPE="submit" VALUE="Video: RealPlayer required"/>
-                    </FORM>
-                    <i><xsl:apply-templates/></i>
-                </center>
-                <br/>
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:template>
-
-
-
-    <xsl:template name="globalReplace">
-        <xsl:param name="outputString"/>
-        <xsl:param name="target"/>
-        <xsl:param name="target2"/>
-        <xsl:param name="replacement"/>
-        <xsl:choose>
-            <xsl:when test="contains($outputString,$target)">
-
-                <xsl:value-of select=
-                                      "concat(substring-before($outputString,$target),
-               $replacement)"/>
-                <xsl:call-template name="globalReplace">
-                    <xsl:with-param name="outputString"
-                                    select="substring-after($outputString,$target)"/>
-                    <xsl:with-param name="target" select="$target"/>
-                    <xsl:with-param name="replacement"
-                                    select="$replacement"/>
-                </xsl:call-template>
-            </xsl:when>
             <!--
-            <xsl:when test="contains($outputString,$target2)">
+            <table align="center" cellspacing='10'>
+                <tr><td>
+                    <script src="http://podcaster.gcsu.edu/AC_Quicktime/ac_quicktime.js" language="JavaScript" type="text/javascript"></script>
+                    <script src="http://podcaster.gcsu.edu/AC_Quicktime/qtp_library.js" language="JavaScript" type="text/javascript"></script>
 
-              <xsl:value-of select=
-                "concat(substring-before($outputString,$target2),
-                       $replacement2)"/>
-              <xsl:call-template name="globalReplace">
+                    <script type="text/javascript">
+                        QT_WritePoster_XHTML('Click to Play', '<xsl:value-of select="@poster"/>',
+                        '<xsl:value-of select="@uri"/>',
+                        '601', '364', '',
+                        'controller', 'true',
+                        'autoplay', 'false',
+                        'bgcolor', 'black',
+                        'scale', 'tofit');
+
+                    </script>
+                    <noscript>
+                        <object width="601" height="364" classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B" codebase="http://www.apple.com/qtactivex/qtplugin.cab">
+                            <param name="src" value="{@poster}" />
+                            <param name="href" value="{@uri}" />
+                            <param name="target" value="myself" />
+                            <param name="controller" value="false" />
+                            <param name="autoplay" value="true" />
+                            <param name="scale" value="tofit" />
+                            <embed width="601" height="364" type="video/quicktime" pluginspage="http://www.apple.com/quicktime/download/"
+                                   src=""
+                                   href="{@uri}"
+                                   target="myself"
+                                   controller="false"
+                                   autoplay="true"
+                                   scale="tofit">
+                            </embed>
+                        </object>
+                    </noscript>
+
+
+
+                </td></tr>
+                <tr><td align="center">
+                    <i><xsl:value-of select="@caption"/></i>
+                </td></tr>
+            </table>
+            -->
+
+        </xsl:when>
+        <xsl:otherwise>
+            <center>
+                <FORM ACTION="{$uri}" METHOD="GET">
+                    <INPUT TYPE="submit" VALUE="Video: RealPlayer required"/>
+                </FORM>
+                <i><xsl:apply-templates/></i>
+            </center>
+            <br/>
+        </xsl:otherwise>
+    </xsl:choose>
+</xsl:template>
+
+
+
+<xsl:template name="globalReplace">
+    <xsl:param name="outputString"/>
+    <xsl:param name="target"/>
+    <xsl:param name="target2"/>
+    <xsl:param name="replacement"/>
+    <xsl:choose>
+        <xsl:when test="contains($outputString,$target)">
+
+            <xsl:value-of select=
+                                  "concat(substring-before($outputString,$target),
+           $replacement)"/>
+            <xsl:call-template name="globalReplace">
                 <xsl:with-param name="outputString"
-                     select="substring-after($outputString,$target2)"/>
-                <xsl:with-param name="target" select="$target2"/>
-                <xsl:with-param name="replacement2"
-                     select="$replacement2"/>
-              </xsl:call-template>
-            </xsl:when>  -->
+                                select="substring-after($outputString,$target)"/>
+                <xsl:with-param name="target" select="$target"/>
+                <xsl:with-param name="replacement"
+                                select="$replacement"/>
+            </xsl:call-template>
+        </xsl:when>
+        <!--
+        <xsl:when test="contains($outputString,$target2)">
+
+          <xsl:value-of select=
+            "concat(substring-before($outputString,$target2),
+                   $replacement2)"/>
+          <xsl:call-template name="globalReplace">
+            <xsl:with-param name="outputString"
+                 select="substring-after($outputString,$target2)"/>
+            <xsl:with-param name="target" select="$target2"/>
+            <xsl:with-param name="replacement2"
+                 select="$replacement2"/>
+          </xsl:call-template>
+        </xsl:when>  -->
             <xsl:otherwise>
                 <xsl:value-of select="$outputString"/>
             </xsl:otherwise>
