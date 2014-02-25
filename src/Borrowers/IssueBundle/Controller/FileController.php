@@ -36,7 +36,7 @@ class FileController extends Controller
     /**
      * Finds and displays a File entity.
      *
-     * @Route("/file/{id}/show", name="file_show")
+     * @Route("/{id}/show", name="file_show")
      * @Template()
      */
     public function showAction($id)

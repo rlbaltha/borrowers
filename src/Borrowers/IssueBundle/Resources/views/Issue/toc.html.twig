@@ -9,27 +9,27 @@
                 <!-- main toc -->
                 <p align='right'>ISSN 1554-6985</p>
 
-                <p class='toc1'>{{ issue.title | raw }}</p>
+                <p class='toc1' style="padding:7px;">{{ issue.title | raw }}</p>
 
-                <p class='toc2'>{{ issue.description }}</p>
+                <p class='toc2' style="padding:7px;">{{ issue.description }}</p>
 
-                <p class='toc1'>{{ issue.subtitle }}</p>
-
-
-                <p class='toc2'>EDITED BY</p>
-
-                <p class='toc4'>{{ issue.editors }}</p>
-
-                <p class='toc2'>CONTENTS</p>
+                <p class='toc1' style="padding:7px;">{{ issue.subtitle }}</p>
 
 
-                <table border='0' width='100%' cellpadding='7'>
+                <p class='toc2' style="padding:7px;">EDITED BY</p>
+
+                <p class='toc4' style="padding:7px;">{{ issue.editors }}</p>
+
+                <p class='toc2' style="padding:7px;">CONTENTS</p>
+
+
+                <table>
 
                     {% for section in issue.sections %}
                         {% if section.title != 'Default' %}
                             <tr>
                                 <!-- section -->
-                                <td colspan='2'>
+                                <td colspan='2' style="padding:7px;">
                                     <p class='toc3'>{{ section.title| raw }}</p>
 
                                     <p class='toc3'>{{ section.description }}</p>
@@ -40,12 +40,12 @@
                         {% for file in section.files if file.display==1 %}
 
                             <tr>
-                                <td>
-                                    <a class=""
+                                <td style="padding:7px;">
+                                    <a
                                        href="{{ path('file_show', { 'id': file.id }) }}">{{ file.title |raw }}</a>
                                     <a class="" href="{{ path('file_pdf', { 'id': file.id }) }}">(pdf)</a>
                                 </td>
-                                <td style='text-align:left'>
+                                <td style='text-align:left;padding:7px;'>
                                     {% for author in file.authors %}{{ author.firstname | raw }} {{ author.lastname | raw }} {% endfor %}
                                 </td>
                             </tr>
