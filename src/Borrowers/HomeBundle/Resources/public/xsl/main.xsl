@@ -655,7 +655,7 @@
 
         <xsl:choose>
             <xsl:when test="contains(@uri, '.mov') or contains(@uri, '.mp4')">
-
+                <!--
                 <script type="text/javascript">
                     $(document).ready(function(){
                     var position = "<xsl:value-of select="position()"/>";
@@ -718,10 +718,10 @@
                         </div>
                     </div>
                 </div>
+-->
 
 
 
-            <!--
             <table align="center" cellspacing='10'>
                 <tr><td>
                     <script src="http://podcaster.gcsu.edu/AC_Quicktime/ac_quicktime.js" language="JavaScript" type="text/javascript"></script>
@@ -763,7 +763,7 @@
                     <i><xsl:value-of select="@caption"/></i>
                 </td></tr>
             </table>
-            -->
+
 
         </xsl:when>
         <xsl:otherwise>
