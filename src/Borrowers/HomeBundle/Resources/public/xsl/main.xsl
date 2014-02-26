@@ -657,10 +657,9 @@
             <xsl:when test="contains(@uri, '.mov') or contains(@uri, '.mp4')">
 
                 <script type="text/javascript">
-
                     $(document).ready(function(){
                     var position = "<xsl:value-of select="position()"/>";
-                    $("#jquery_jplayer_1").jPlayer({
+                    $("#jquery_jplayer_" + position).jPlayer({
                     ready: function () {
                     $("#jquery_jplayer_" + position).jPlayer("setMedia", {
                     m4v: "<xsl:value-of select="@uri"/>",
@@ -672,9 +671,9 @@
                     });
                     });
                 </script>
-                <div id="jp_container_1" class="jp-video" style="margin-left:auto;margin-right:auto">
+                <div id="jp_container_{position()}" class="jp-video" style="margin-left:auto;margin-right:auto">
                     <div class="jp-type-single">
-                        <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+                        <div id="jquery_jplayer_{position()}" class="jp-jplayer"></div>
                         <div class="jp-gui">
                             <div class="jp-video-play">
                                 <a href="javascript:;" class="jp-video-play-icon" tabindex="1">play</a>
