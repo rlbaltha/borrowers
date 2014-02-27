@@ -9,4 +9,5 @@
 /app/config/parameters.yml
 /nbproject
 /composer.phar
+/components
 .idea
