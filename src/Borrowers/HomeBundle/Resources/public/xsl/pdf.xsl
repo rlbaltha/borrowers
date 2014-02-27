@@ -1,4 +1,4 @@
-<?xml version="1.0" ?>
+<?xml version="1.0" encoding="UTF8"?>
 <xsl:stylesheet version="1.0" 
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
                 xmlns:fo="http://www.w3.org/1999/XSL/Format">
@@ -453,8 +453,11 @@
 
 <xsl:template match="pdfReplace">
     <xsl:value-of select="@replace"/>
-  </xsl:template>
+</xsl:template>
 
+<xsl:template match="pdfReplaceWithImage">
+    <fo:external-graphic src="url({@uri})" width="{@width}"/>
+</xsl:template>
 
 <xsl:template match="comment"/>
 <xsl:template match="error"/>   
