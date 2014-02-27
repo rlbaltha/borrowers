@@ -1,123 +1,81 @@
-<html>
-<head>
-<title>Borrowers and Lenders:  The Journal of Shakespeare and Appropriation</title>
-<link href="/bundles/borrowershome/css/bandl5.css" type="text/css" rel="stylesheet"/>
-<!-- overLIB (c) Erik Bosrup -->
-</script>
-</head>
-<body>
+{% extends '::prod_base.html.twig' %}
+
+{% block body %}
+    <table>
+        <tr>
+            <td class="bodycell" style="width:400px;">
 
 
-<!-- header table -->
-<table cellpadding='0' cellspacing='0'>
+                <h3 class='about'>Call for Papers: <i>Girls and Girlhood in Adaptations of Shakespeare</i></h3>
 
-<!-- header row -->
-<tr>
-<td class='header' height='150px'/>
-</tr>
+                <h3 class='about'>Special Issue of <i>Borrowers and Lenders: The Journal of Shakespeare and
+                        Appropriation</i></h3>
 
-<!-- body row -->
-<tr>
-<td>
+                <p>The editors of <i>Borrowers and Lenders: The Journal of Shakespeare and Appropriation</i>, in
+                    conjunction with guest editor Deanne Williams,
+                    York University, extend a call for papers for <i>B&amp;L</i> 9.2 (Fall 2014) on the topic of <i>Girls
+                        and Girlhood in Adaptations of Shakespeare</i>.</p>
 
-<!-- body table -->
-<table cellpadding='0' cellspacing='0'>
-<tr>
-<td class='leftside' width='150px' valign='top'>
-{% include 'BorrowersIssueBundle:Issue:nav.html.twig' %}
-</td>
+                <p>In 2012, the United Nations celebrated the first “Day of the Girl Child,” highlighting the treatment
+                    of girls and young women
+                    as the key moral issue of our time. As the advancement of girls becomes a global economic, medical,
+                    and social priority,
+                    literary scholars are turning their attention to cultural representations of and by girls and to
+                    historical and philosophical
+                    conceptions of girlhood. This special issue of <i>Borrowers and Lenders</i> initiates a scholarly
+                    conversation on girls and girlhood
+                    in adaptations of Shakespeare, seeking papers that address the process of adapting Shakespeare for
+                    girl actors, readers,
+                    patrons or audiences; adaptations of Shakespeare’s “girl” characters; and girls’ responses to and
+                    appropriations of Shakespeare.
+                    We encourage contributions that range from Shakespeare’s contemporaries and Restoration theatre to
+                    contemporary authors, playwrights,
+                    visual artists and directors, as well those that engage with newer or non-canonical literary genres
+                    such as online and Web 2.0 Shakespeares;
+                    fanfiction and the graphic novel; autobiography, memoirs and life writing; Shakespeare for children;
+                    and international, multicultural and
+                    postcolonial adaptations.</p>
 
-<!-- body cell -->
-<td valign='top' class='textarea'>
-<img src='bundles/borrowershome/img/bodyspacer.gif'/>
-
-<table cellpadding='15'>
-<tr>
-<!--  cell with background -->
-<td class='bodycell' valign='top'>
-
-
-{#<h3 class='about'>Calls for Papers</h3>
-
-<p>The editors of <i>Borrowers and Lenders: The Journal of Shakespeare and Appropriation</i> welcome original scholarship engaging with the afterlives
- of Shakespearean texts and their literary, filmic, multimedia, and critical histories. We encourage contributors to use the online format
- to its best advantage, in particular, by imagining how to enhance or illustrate their essays with multimedia (screen captures,
- sound clips, images, and so on).</p>
-
-<p>General inquiries should be addressed to the General Editors, Christy Desmet and Sujata Iyengar, by email at borrowers@english.uga.edu
- or to Associate Editor Robert Sawyer at resawyer1@charter.net. Book reviewers may contact our book review editor, Joshua King, directly
- by email at kingja@uga.edu. Reviewers of Appropriations in Performance may contact our performance review editor, Matthew Kozusko,
- directly at mkozusko@ursinus.edu, for guidelines.</p>
-#}
-
-    <h3 class='about'>Call for Papers: <i>Girls and Girlhood in Adaptations of Shakespeare</i></h3>
-    <h3 class='about'>Special Issue of <i>Borrowers and Lenders: The Journal of Shakespeare and Appropriation</i></h3>
- 
-<p>The editors of <i>Borrowers and Lenders: The Journal of Shakespeare and Appropriation</i>,  in conjunction with guest editor Deanne Williams,
-    York University, extend a call for papers for <i>B&amp;L</i> 9.2 (Fall 2014) on the topic of <i>Girls and Girlhood in Adaptations of Shakespeare</i>.</p>
- 
-<p>In 2012, the United Nations celebrated the first “Day of the Girl Child,” highlighting the treatment of girls and young women 
-    as the key moral issue of our time. As the advancement of girls becomes a global economic, medical, and social priority,
-    literary scholars are turning their attention to cultural representations of and by girls and to historical and philosophical
-    conceptions of girlhood. This special issue of <i>Borrowers and Lenders</i> initiates a scholarly conversation on girls and girlhood
-    in adaptations of Shakespeare, seeking papers that address the process of adapting Shakespeare for girl actors, readers,
-    patrons or audiences; adaptations of Shakespeare’s “girl” characters; and girls’ responses to and appropriations of Shakespeare.
-    We encourage contributions that range from Shakespeare’s contemporaries and Restoration theatre to contemporary authors, playwrights,
-    visual artists and directors, as well those that engage with newer or non-canonical literary genres such as online and Web 2.0 Shakespeares;
-    fanfiction and the graphic novel; autobiography, memoirs and life writing; Shakespeare for children; and international, multicultural and
-    postcolonial adaptations.</p>
- 
-<p>Please send inquiries and completed essays as Microsoft Word documents sent as email attachments to Deanne Williams:
-    dmw[at]yorku.ca by October 1, 2013. Essays should make original contributions to the study of Shakespeare and of girlhood.
-    We encourage authors to consult Richard Lanham’s <i>Revising Prose</i> or Joseph Williams’s <i>Style: Lessons in Clarity and Grace</i> as they edit their work.
-    Essays will be reviewed by the guest editor and then by the board of <i>Borrowers and Lenders: The Journal of Shakespeare and Appropriation</i> before
-    final acceptance. Upon acceptance, we will ask authors to verify all citations and to put their essays into <i>Borrowers and Lenders</i> house style.</p>
-    
- 
-<p><i>Borrowers and Lenders: The Journal of Shakespeare and Appropriation</i> is a peer-reviewed,
-    online, multimedia journal that welcomes original scholarship engaging with the afterlives of Shakespearean texts and their literary,
-    filmic, multimedia, and critical histories. It encourages contributors to use the online format to its best advantage, in particular,
-    by imagining how to enhance or illustrate their essays with multimedia (screen captures, sound clips, images, and so on). <i>B&amp;L</i> won the CELJ's
-    "Best New Journal" Award in 2007. <i>B&amp;L</i> is fully indexed in the MLA Bibliography. <i>B&amp;L</i> is currently co-edited by Dr. Christy Desmet (cdesmet[at]uga.edu)
-    and Dr. Sujata Iyengar (iyengar[at]uga.edu); correspondence should be addressed to lenders[at]uga.edu or to Managing Editor Ms. Maria Chappell
-    (machapp[at]uga.edu).</p>
+                <p>Please send inquiries and completed essays as Microsoft Word documents sent as email attachments to
+                    Deanne Williams:
+                    dmw[at]yorku.ca by October 1, 2013. Essays should make original contributions to the study of
+                    Shakespeare and of girlhood.
+                    We encourage authors to consult Richard Lanham’s <i>Revising Prose</i> or Joseph Williams’s <i>Style:
+                        Lessons in Clarity and Grace</i> as they edit their work.
+                    Essays will be reviewed by the guest editor and then by the board of <i>Borrowers and Lenders: The
+                        Journal of Shakespeare and Appropriation</i> before
+                    final acceptance. Upon acceptance, we will ask authors to verify all citations and to put their
+                    essays into <i>Borrowers and Lenders</i> house style.</p>
 
 
-
-</td>
-<!-- white background cell -->
-<td valign='top' width='400px'>
-{% for issue in issues %} 
-<a class="" href="{{ path('issue_toc', { 'id': issue.id }) }}"><p class='toc3'>{{ issue.title | raw}}</p></a>
-<a class="" href="{{ path('issue_toc', { 'id': issue.id }) }}"><p class='toc2'>{{ issue.description }}</p></a>
-<a class="" href="{{ path('issue_toc', { 'id': issue.id }) }}"><p class='toc3'>{{ issue.subtitle }}</p></a>
-<hr/>
-{% endfor %}
-</td>
-</tr>
-</table>
-
-<!-- ===================================Archive list================================ -->
+                <p><i>Borrowers and Lenders: The Journal of Shakespeare and Appropriation</i> is a peer-reviewed,
+                    online, multimedia journal that welcomes original scholarship engaging with the afterlives of
+                    Shakespearean texts and their literary,
+                    filmic, multimedia, and critical histories. It encourages contributors to use the online format to
+                    its best advantage, in particular,
+                    by imagining how to enhance or illustrate their essays with multimedia (screen captures, sound
+                    clips, images, and so on). <i>B&amp;L</i> won the CELJ's
+                    "Best New Journal" Award in 2007. <i>B&amp;L</i> is fully indexed in the MLA Bibliography. <i>B&amp;L</i>
+                    is currently co-edited by Dr. Christy Desmet (cdesmet[at]uga.edu)
+                    and Dr. Sujata Iyengar (iyengar[at]uga.edu); correspondence should be addressed to
+                    lenders[at]uga.edu or to Managing Editor Ms. Maria Chappell
+                    (machapp[at]uga.edu).</p>
 
 
+            </td>
+            <!-- white background cell -->
+            <td valign='top' width='400px'>
+                {% for issue in issues %}
+                    <a class="" href="{{ path('issue_toc', { 'id': issue.id }) }}"><p
+                                class='toc3'>{{ issue.title | raw }}</p></a>
+                    <a class="" href="{{ path('issue_toc', { 'id': issue.id }) }}"><p
+                                class='toc2'>{{ issue.description }}</p></a>
+                    <a class="" href="{{ path('issue_toc', { 'id': issue.id }) }}"><p
+                                class='toc3'>{{ issue.subtitle }}</p></a>
+                    <hr/>
+                {% endfor %}
+            </td>
+        </tr>
+    </table>
 
-</td>
-
-<td class='rightside' width='330px'/>
-</tr>
-</table>
-
-<!--close body row-->
-</td>
-</tr>
-
-<!--footer row-->
-<tr>
-<td class='footer' height='180px'/>
-</tr>
-</table>
-
-
-</body>
-</html>
-
+{% endblock %}

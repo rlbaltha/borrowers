@@ -2,12 +2,12 @@
 {% extends 'BorrowersHomeBundle::layout.html.twig' %}
 
 {% block content %}
-   <div class="span9 well">
+   <div class="col-sm-12 well">
       <a class="btn btn-primary" href="{{ path('author_new') }}">New</a>
    </div>
 
 
-<div class="span10">
+<div class="col-sm-10">
 <table class="table">   
 <tbody>
     {% for entity in entities %}

@@ -26,7 +26,7 @@ class FileController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('BorrowersIssueBundle:File')->findRecentFiles();
 
@@ -36,24 +36,37 @@ class FileController extends Controller
     /**
      * Finds and displays a File entity.
      *
-     * @Route("/file/{id}/show", name="file_show")
+     * @Route("/{id}/show", name="file_show")
      * @Template()
      */
     public function showAction($id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BorrowersIssueBundle:File')->find($id);
+        $file = $em->getRepository('BorrowersIssueBundle:File')->find($id);
+        $path = __DIR__.'/../../../../borrowers_docs/'.$file->getPath();
 
-        if (!$entity) {
+        if (!$file) {
             throw $this->createNotFoundException('Unable to find File entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
+        $xp = new \XsltProcessor();
+
+        $xsl = new \DomDocument;
+        $xsl->load('bundles/borrowershome/xsl/main.xsl');
+        $xp->importStylesheet($xsl);
+
+        $xml_doc = new \DomDocument;
+        $xml_doc->load($path);
+
+        if ($html = $xp->transformToXML($xml_doc)) {
+        } else {
+            trigger_error('XSL transformation failed.', E_USER_ERROR);
+        }
 
         return array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        );
+            'html'      => $html,
+      );
     }
 
     /**
@@ -85,10 +98,10 @@ class FileController extends Controller
         $entity  = new File();
         $request = $this->getRequest();
         $form    = $this->createForm(new FileType(), $entity);
-        $form->bindRequest($request);
+        $form->submit($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getEntityManager();
+            $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
 
@@ -110,7 +123,7 @@ class FileController extends Controller
      */
     public function editAction($id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('BorrowersIssueBundle:File')->find($id);
 
@@ -137,7 +150,7 @@ class FileController extends Controller
      */
     public function updateAction($id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('BorrowersIssueBundle:File')->find($id);
         $issue = $entity->getIssue()->getId();
@@ -151,7 +164,7 @@ class FileController extends Controller
 
         $request = $this->getRequest();
 
-        $editForm->bindRequest($request);
+        $editForm->bind($request);
 
         if ($editForm->isValid()) {
             $em->persist($entity);
@@ -178,10 +191,10 @@ class FileController extends Controller
         $form = $this->createDeleteForm($id);
         $request = $this->getRequest();
 
-        $form->bindRequest($request);
+        $form->submit($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getEntityManager();
+            $em = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('BorrowersIssueBundle:File')->find($id);
             $issue = $entity->getIssue()->getId();
 
@@ -225,7 +238,7 @@ class FileController extends Controller
      */
     public function displayAction($id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $file = $em->getRepository('BorrowersIssueBundle:File')->find($id);
         $path = __DIR__.'/../../../../borrowers_docs/'.$file->getPath();
@@ -265,7 +278,7 @@ class FileController extends Controller
      */
     public function pdfAction($id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $file = $em->getRepository('BorrowersIssueBundle:File')->find($id);
         $xmlpath =  __DIR__.'/../../../../borrowers_docs/'.$file->getPath();
@@ -299,7 +312,7 @@ class FileController extends Controller
         $securityContext = $this->get('security.context');
         $user = $securityContext->getToken()->getUser();
         
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         $issue = $em->getRepository('BorrowersIssueBundle:Issue')->find($issueid);
         $section = $em->getRepository('BorrowersIssueBundle:Section')->find($sectionid);
         $subdir = $issue->getIssue();
@@ -313,9 +326,9 @@ class FileController extends Controller
         $section->addFile($file);
 
         if ($this->getRequest()->getMethod() === 'POST') {
-            $form->bindRequest($this->getRequest());
+            $form->submit($this->getRequest());
             if ($form->isValid()) {
-                $em = $this->getDoctrine()->getEntityManager();
+                $em = $this->getDoctrine()->getManager();
                 $file->upload();
                 $em->persist($file);
                 $em->flush();
@@ -338,7 +351,7 @@ class FileController extends Controller
         $securityContext = $this->get('security.context');
         $user = $securityContext->getToken()->getUser();
         
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         $issue = $em->getRepository('BorrowersIssueBundle:Issue')->find($issueid);
         $section = $em->getRepository('BorrowersIssueBundle:Section')->find($sectionid);
         $options = array('issueid' => $issueid);
@@ -352,9 +365,9 @@ class FileController extends Controller
         $section->addFile($file);
 
         if ($this->getRequest()->getMethod() === 'POST') {
-            $form->bindRequest($this->getRequest());
+            $form->submit($this->getRequest());
             if ($form->isValid()) {
-                $em = $this->getDoctrine()->getEntityManager();
+                $em = $this->getDoctrine()->getManager();
                 $file->upload();
                 $em->persist($file);
                 $em->flush();
@@ -376,7 +389,7 @@ class FileController extends Controller
     public function downloadAction($id)
 	{
         
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $file = $em->getRepository('BorrowersIssueBundle:File')->find($id);
         $path = __DIR__.'/../../../../borrowers_docs/'.$file->getPath();
@@ -404,7 +417,7 @@ class FileController extends Controller
     public function viewContentAction($id)
 	{
         
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $file = $em->getRepository('BorrowersIssueBundle:File')->find($id);
         $name = $file->getTitle();

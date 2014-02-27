@@ -13,14 +13,15 @@ class FileType extends AbstractType
     {
         $builder
             ->add('path','hidden')
-            ->add('title','text', array('attr' => array('class' => 'formtext'),))
-            ->add('sortorder') 
-            ->add('display', 'choice', array('choices'   => array('0' => 'Development', '1' => 'Production'), 'required'  => true,))
-            ->add('authors','entity', array('class'=> 'Borrowers\IssueBundle\Entity\Author', 'property'=>'name', 'expanded'=>false,'multiple'=>true,'required' => false,'query_builder' => 
+            ->add('title','text', array('attr' => array('class' => 'text form-control'),))
+            ->add('sortorder','text', array('attr' => array('class' => 'text form-control'),))
+            ->add('display', 'choice', array('choices'   => array('0' => 'Development', '1' => 'Production'), 'required'  => true,'attr' => array('class' => 'form-control'),))
+            ->add('authors','entity', array('class'=> 'Borrowers\IssueBundle\Entity\Author', 'property'=>'name', 'expanded'=>false,'multiple'=>true,'required' => false,
+                 'query_builder' =>
                  function(\Borrowers\IssueBundle\Entity\AuthorRepository $er) {
                  return $er->createQueryBuilder('a')
                  ->orderBy('a.lastname', 'ASC');
-                 })) 
+                 }))
         ;
     }
 

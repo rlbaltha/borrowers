@@ -25,7 +25,7 @@ class SectionController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('BorrowersIssueBundle:Section')->findAll();
 
@@ -40,7 +40,7 @@ class SectionController extends Controller
      */
     public function showAction($id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('BorrowersIssueBundle:Section')->find($id);
 
@@ -84,16 +84,16 @@ class SectionController extends Controller
      */
     public function createAction($issue_id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         $issue = $em->getRepository('BorrowersIssueBundle:Issue')->find($issue_id);
         $entity  = new Section();
         $entity->setIssue($issue);
         $request = $this->getRequest();
         $form    = $this->createForm(new SectionType(), $entity);
-        $form->bindRequest($request);
+        $form->submit($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getEntityManager();
+            $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
 
@@ -115,7 +115,7 @@ class SectionController extends Controller
      */
     public function editAction($id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('BorrowersIssueBundle:Section')->find($id);
 
@@ -142,7 +142,7 @@ class SectionController extends Controller
      */
     public function updateAction($id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('BorrowersIssueBundle:Section')->find($id);
         $issue = $entity->getIssue()->getId();
@@ -156,7 +156,7 @@ class SectionController extends Controller
 
         $request = $this->getRequest();
 
-        $editForm->bindRequest($request);
+        $editForm->bind($request);
 
         if ($editForm->isValid()) {
             $em->persist($entity);
@@ -183,10 +183,10 @@ class SectionController extends Controller
         $form = $this->createDeleteForm($id);
         $request = $this->getRequest();
 
-        $form->bindRequest($request);
+        $form->submit($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getEntityManager();
+            $em = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('BorrowersIssueBundle:Section')->find($id);
             $issue = $entity->getIssue()->getId();
 

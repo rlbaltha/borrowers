@@ -22,7 +22,7 @@ class IssueController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $issues = $em->getRepository('BorrowersIssueBundle:Issue')->listIssues();
 
@@ -37,7 +37,7 @@ class IssueController extends Controller
      */
     public function showAction($id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $issue = $em->getRepository('BorrowersIssueBundle:Issue')->find($id);
 
@@ -60,7 +60,7 @@ class IssueController extends Controller
      */
     public function tocAction($id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $issue = $em->getRepository('BorrowersIssueBundle:Issue')->find($id);
 
@@ -80,7 +80,7 @@ class IssueController extends Controller
      */
     public function archiveAction()
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $issues = $em->getRepository('BorrowersIssueBundle:Issue')->listArchive();
 
@@ -108,7 +108,7 @@ class IssueController extends Controller
      */
     public function currentAction()
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $issue = $em->getRepository('BorrowersIssueBundle:Issue')->findCurrentIssue();
 
@@ -127,7 +127,7 @@ class IssueController extends Controller
      */
     public function previousAction()
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $issue = $em->getRepository('BorrowersIssueBundle:Issue')->findPreviousIssue();
 
@@ -167,10 +167,10 @@ class IssueController extends Controller
         $issue  = new Issue();
         $request = $this->getRequest();
         $form    = $this->createForm(new IssueType(), $issue);
-        $form->bindRequest($request);
+        $form->submit($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getEntityManager();
+            $em = $this->getDoctrine()->getManager();
             $em->persist($issue);
             $em->flush();
 
@@ -192,7 +192,7 @@ class IssueController extends Controller
      */
     public function editAction($id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $issue = $em->getRepository('BorrowersIssueBundle:Issue')->find($id);
 
@@ -219,7 +219,7 @@ class IssueController extends Controller
      */
     public function updateAction($id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $issue = $em->getRepository('BorrowersIssueBundle:Issue')->find($id);
 
@@ -232,7 +232,7 @@ class IssueController extends Controller
 
         $request = $this->getRequest();
 
-        $editForm->bindRequest($request);
+        $editForm->bind($request);
 
         if ($editForm->isValid()) {
             $em->persist($issue);
@@ -259,10 +259,10 @@ class IssueController extends Controller
         $form = $this->createDeleteForm($id);
         $request = $this->getRequest();
 
-        $form->bindRequest($request);
+        $form->submit($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getEntityManager();
+            $em = $this->getDoctrine()->getManager();
             $issue = $em->getRepository('BorrowersIssueBundle:Issue')->find($id);
 
             if (!$issue) {

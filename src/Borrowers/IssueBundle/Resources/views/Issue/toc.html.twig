@@ -1,94 +1,61 @@
-<html>
-<head>
-<title>Borrowers and Lenders:  The Journal of Shakespeare and Appropriation</title>
-<link href="/bundles/borrowershome/css/bandl5.css" type="text/css" rel="stylesheet"/>
-</head>
-<body>
+{% extends '::prod_base.html.twig' %}
+
+{% block body %}
+    <table>
+        <tr>
+
+            <td>
+                <!-- ===================================TOC================================ -->
+                <!-- main toc -->
+                <p align='right'>ISSN 1554-6985</p>
+
+                <p class='toc1' style="padding:7px;">{{ issue.title | raw }}</p>
+
+                <p class='toc2' style="padding:7px;">{{ issue.description }}</p>
+
+                <p class='toc1' style="padding:7px;">{{ issue.subtitle }}</p>
 
 
-<!-- header table -->
-<table cellpadding='0' cellspacing='0'>
+                <p class='toc2' style="padding:7px;">EDITED BY</p>
 
-<!-- header row -->
-<tr>
-<td class='header' height='150px'/>
-</tr>
+                <p class='toc4' style="padding:7px;">{{ issue.editors }}</p>
 
-<!-- body row -->
-<tr>
-<td>
-
-<!-- body table -->
-<table cellpadding='0' cellspacing='0'>
-<tr>
-<td class='leftside' width='150px' valign='top'>
-{% include 'BorrowersIssueBundle:Issue:nav.html.twig' %}
-</td>
-
-<!-- body cell -->
-<td valign='top' class='textarea'>
-<img src='/bundles/borrowershome/img/bodyspacer.gif'/>
-<br/>
+                <p class='toc2' style="padding:7px;">CONTENTS</p>
 
 
-<!-- ===================================TOC================================ -->
-<!-- main toc -->
-<p align='right'>ISSN 1554-6985</p>
-<p class='toc1'>{{ issue.title | raw}}</p>
-<p class='toc2'>{{ issue.description }}</p>
-<p class='toc1'>{{ issue.subtitle }}</p>
+                <table>
 
+                    {% for section in issue.sections %}
+                        {% if section.title != 'Default' %}
+                            <tr>
+                                <!-- section -->
+                                <td colspan='2' style="padding:7px;">
+                                    <p class='toc3'>{{ section.title| raw }}</p>
 
-<p class='toc2'>EDITED  BY</p>
-<p class='toc4'>{{ issue.editors }}</p>
-<p class='toc2'>CONTENTS</p>
+                                    <p class='toc3'>{{ section.description }}</p>
+                                </td>
+                            </tr>
+                        {% endif %}
 
+                        {% for file in section.files if file.display==1 %}
 
+                            <tr>
+                                <td style="padding:7px;">
+                                    <a
+                                       href="{{ path('file_show', { 'id': file.id }) }}">{{ file.title |raw }}</a>
+                                    <a class="" href="{{ path('file_pdf', { 'id': file.id }) }}">(pdf)</a>
+                                </td>
+                                <td style='text-align:left;padding:7px;'>
+                                    {% for author in file.authors %}{{ author.firstname | raw }} {{ author.lastname | raw }} {% endfor %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% endfor %}
+                </table>
 
-<table border='0' width='100%' cellpadding='7'>
-   
-{% for section in issue.sections %} 
-{% if section.title != 'Default'%}    
-<tr>     
-<!-- section -->
-<td colspan='2'>
-<p class='toc3'>{{ section.title| raw }}</p>
-<p class='toc3'>{{ section.description }}</p>
-</td>
-</tr>
-{% endif %}
+                <!-- ===================================end of TOC================================ -->
+            </td>
+        </tr>
+    </table>
 
-{% for file in section.files if file.display==1%} 
-
-<tr>
-<td>
-<a class="" href="{{ path('file_display', { 'id': file.id }) }}">{{ file.title |raw }}</a>
-<a class="" href="{{ path('file_pdf', { 'id': file.id }) }}">(pdf)</a>
-</td>
-<td style='text-align:left'>
-    {% for author in file.authors %}{{ author.firstname | raw }} {{ author.lastname | raw }} {% endfor %}
-</td>
-</tr>
-{% endfor %}
-{% endfor %}
-</table>           
-    
-<!-- ===================================end of TOC================================ -->
-</td>
-
-<td class='rightside' width='330px'/>
-</tr>
-</table>
-
-</td>
-</tr>
-
-<!--footer row-->
-<tr>
-<td class='footer' height='180px'/>
-</tr>
-</table>
-
-
-</body>
-</html>
+{% endblock %}

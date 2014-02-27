@@ -52,7 +52,7 @@
   <fo:page-sequence master-reference="document">
   <fo:title font-variant="small-caps">Borrowers and Lenders</fo:title>
     <fo:static-content flow-name="header-even">
-      <fo:block text-align-last="start" font-family="Times-Roman" line-height="1.5em" font-variant="small-caps">
+      <fo:block text-align-last="start" font-family="Times" line-height="1.5em" font-variant="small-caps">
       <fo:inline>
       <fo:page-number/>
       <fo:leader leader-length='14em' leader-pattern='space'/>
@@ -61,7 +61,7 @@
       </fo:block>
     </fo:static-content>
     <fo:static-content flow-name="header-odd">
-      <fo:block text-align-last="end" font-family="Times-Roman" line-height="1.5em" font-variant="small-caps">
+      <fo:block text-align-last="end" font-family="Times" line-height="1.5em" font-variant="small-caps">
       <fo:inline>
       Borrowers and Lenders      
       <fo:leader leader-length='14em' leader-pattern='space'/>
@@ -79,13 +79,13 @@
 <!-- notes -->     
 
       <xsl:if test="count(//note) != 0">
-      <fo:block font-family="Times-Roman" font-size='14pt' text-indent="2em" line-height="1.5em" text-align="center"  space-before.optimum="1em" space-after="0em" font-variant="small-caps">
+      <fo:block font-family="Times" font-size='14pt' text-indent="2em" line-height="1.5em" text-align="center"  space-before.optimum="1em" space-after="0em" font-variant="small-caps">
       <xsl:text>Notes</xsl:text>
       </fo:block>
       </xsl:if>
 
      <xsl:for-each select='//note'>
-    <fo:block font-family="Times-Roman" margin-left="1.3em" line-height="1.5em" text-align="justify" text-indent='-1.3em'>
+    <fo:block font-family="Times" margin-left="1.3em" line-height="1.5em" text-align="justify" text-indent='-1.3em'>
       <xsl:number level="any"/><xsl:text>.  </xsl:text>
       <xsl:apply-templates/>
      </fo:block>
@@ -93,9 +93,9 @@
       
 <!--online resources section-->
     <xsl:if test="count(//onlineresourceitem) != 0">
-    <fo:block font-family="Times-Roman" font-size='14pt' line-height="1.5em" space-before.optimum="1em" space-after="0em" text-align="center" font-variant="small-caps"><xsl:text>Online Resources</xsl:text></fo:block>
+    <fo:block font-family="Times" font-size='14pt' line-height="1.5em" space-before.optimum="1em" space-after="0em" text-align="center" font-variant="small-caps"><xsl:text>Online Resources</xsl:text></fo:block>
     <xsl:for-each select="//onlineresourceitem">
-    <fo:block font-family="Times-Roman" line-height="1.5em" text-align="justify">
+    <fo:block font-family="Times" line-height="1.5em" text-align="justify">
     <xsl:apply-templates/>
     </fo:block>
     </xsl:for-each>
@@ -103,9 +103,9 @@
    
 <!--permissions section-->
     <xsl:if test="count(//permissionsitem) != 0">
-    <fo:block font-family="Times-Roman" font-size='14pt' line-height="1.5em" space-before.optimum="1em" space-after="0em" text-align="center" font-variant="small-caps"><xsl:text>Permissions</xsl:text></fo:block>
+    <fo:block font-family="Times" font-size='14pt' line-height="1.5em" space-before.optimum="1em" space-after="0em" text-align="center" font-variant="small-caps"><xsl:text>Permissions</xsl:text></fo:block>
     <xsl:for-each select="//permissionsitem">
-    <fo:block font-family="Times-Roman" line-height="1.5em" text-align="justify">
+    <fo:block font-family="Times" line-height="1.5em" text-align="justify">
     <xsl:apply-templates/>
     </fo:block>
     </xsl:for-each>
@@ -113,10 +113,10 @@
       
 <!-- references -->      
     <xsl:if test="count(//refitem) != 0">
-    <fo:block font-family="Times-Roman" font-variant="small-caps" font-size='14pt' line-height="1.5em"  break-before="page" space-after="0em" text-align="center">
+    <fo:block font-family="Times" font-variant="small-caps" font-size='14pt' line-height="1.5em"  break-before="page" space-after="0em" text-align="center">
    <xsl:text>References</xsl:text></fo:block>
    <xsl:for-each select="//refitem">
-    <fo:block font-family="Times-Roman" margin-left="3em" line-height="1.5em" text-align="justify" text-indent='-3em'>
+    <fo:block font-family="Times" margin-left="3em" line-height="1.5em" text-align="justify" text-indent='-3em'>
    <xsl:apply-templates/>
     </fo:block>
    </xsl:for-each>
@@ -137,19 +137,19 @@
 <!-- templates -->
   
   <xsl:template match="essayTitle">
-    <fo:block font-family="Times-Roman" font-size='20pt' line-height="2em" space-before.optimum="1em" space-after="1em" text-align="center"><xsl:apply-templates/></fo:block>
+    <fo:block font-family="Times" font-size='20pt' line-height="2em" space-before.optimum="1em" space-after="1em" text-align="center"><xsl:apply-templates/></fo:block>
   </xsl:template>
   
   <xsl:template match="revieweditem">
-    <fo:block font-family="Times-Roman" font-size='16pt' line-height="2em" space-before.optimum="1em" space-after="1em" text-align="center" font-variant="small-caps"><xsl:apply-templates/></fo:block>
+    <fo:block font-family="Times" font-size='16pt' line-height="2em" space-before.optimum="1em" space-after="1em" text-align="center" font-variant="small-caps"><xsl:apply-templates/></fo:block>
   </xsl:template>
  
  <xsl:template match="subTitle">
-    <fo:block font-family="Times-Roman" font-size='14pt' font-variant="small-caps" line-height="1.5em" space-before.optimum="1em" space-after=".5em" text-align="center"><xsl:apply-templates/></fo:block>
+    <fo:block font-family="Times" font-size='14pt' font-variant="small-caps" line-height="1.5em" space-before.optimum="1em" space-after=".5em" text-align="center"><xsl:apply-templates/></fo:block>
   </xsl:template>
   
  <xsl:template match="byline">
-    <fo:block font-family="Times-Roman" font-size='14pt' line-height="1.5em" space-before.optimum="0.5em" space-after="1em" text-align="center" font-variant="small-caps">
+    <fo:block font-family="Times" font-size='14pt' line-height="1.5em" space-before.optimum="0.5em" space-after="1em" text-align="center" font-variant="small-caps">
     <xsl:value-of select='author'/><xsl:if test="institution!=''">, <xsl:value-of select='institution'/></xsl:if>
     </fo:block>
   </xsl:template>
@@ -158,7 +158,7 @@
   
 
 <xsl:template match="paragraph">
-<fo:block font-family="Times-Roman" font-size='12pt' line-height="1.5em" text-align="justify">
+<fo:block font-family="Times" font-size='12pt' line-height="1.5em" text-align="justify">
 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<xsl:apply-templates/>
 </fo:block>
 </xsl:template>
@@ -177,13 +177,13 @@
 		</xsl:otherwise>
 		</xsl:choose>
 	</xsl:variable>
-<fo:block font-family="Times-Roman" margin-left="3em"  line-height="1.5em" text-align="left" space-before.optimum="1em" space-after=".2em">
+<fo:block font-family="Times" margin-left="3em"  line-height="1.5em" text-align="left" space-before.optimum="1em" space-after=".2em">
 	<xsl:if test="string($line)">
-		<fo:block font-family="Times-Roman" text-indent="3em" line-height="0.5em" text-align="left">
+		<fo:block font-family="Times" text-indent="3em" line-height="0.5em" text-align="left">
 		<xsl:value-of select="$line"/></fo:block>
 	</xsl:if>
 	<xsl:if test="$multiline">
-		<fo:block font-family="Times-Roman" text-indent="3em" line-height="0.5em" text-align="left">
+		<fo:block font-family="Times" text-indent="3em" line-height="0.5em" text-align="left">
 		<xsl:call-template name="split">
 		<xsl:with-param name="string" select="substring-after($string, $break)"/>
 		</xsl:call-template>
@@ -195,13 +195,13 @@
 
 
 <xsl:template match="abstract/paragraph">
-<fo:block font-family="Times-Roman" font-size='10pt' line-height="1.5em" text-align="justify" margin-left="3em" margin-right="3em">
+<fo:block font-family="Times" font-size='10pt' line-height="1.5em" text-align="justify" margin-left="3em" margin-right="3em">
 <xsl:apply-templates/>
 </fo:block>
 </xsl:template>
 
 <xsl:template match="epigraph">
-<fo:block font-family="Times-Roman" font-size='10pt' line-height="1.5em" text-align="justify" margin-left="3em" margin-right="3em" font-style='italic' space-after="2em">
+<fo:block font-family="Times" font-size='10pt' line-height="1.5em" text-align="justify" margin-left="3em" margin-right="3em" font-style='italic' space-after="2em">
 <xsl:apply-templates/>
 </fo:block>
 </xsl:template>
@@ -209,9 +209,9 @@
 <xsl:template match="abstract">
 <fo:block><fo:leader leader-pattern='rule' leader-length='100%' rule-style='solid'/></fo:block>
 
-<fo:block font-family="Times-Roman" font-size='14pt' line-height="1.5em" space-before.optimum="0.5em" space-after="0.5em" text-align="center"  font-variant="small-caps">Abstract</fo:block>
+<fo:block font-family="Times" font-size='14pt' line-height="1.5em" space-before.optimum="0.5em" space-after="0.5em" text-align="center"  font-variant="small-caps">Abstract</fo:block>
 
-<fo:block font-family="Times-Roman"  font-size='10pt'  line-height="1.1em" text-align="justify" space-before.optimum="1em" space-after="0em">
+<fo:block font-family="Times"  font-size='10pt'  line-height="1.1em" text-align="justify" space-before.optimum="1em" space-after="0em">
 <xsl:apply-templates/>
 </fo:block>
 <fo:block space-after="2em"><fo:leader leader-pattern='rule' leader-length='100%' rule-style='solid'/></fo:block>
@@ -219,7 +219,7 @@
 
 
 <xsl:template match="blockQuote">
-<fo:block font-family="Times-Roman" margin-left="3em"  line-height="1.5em" text-align="justify" space-before.optimum="1em" space-after="1em">
+<fo:block font-family="Times" margin-left="3em"  line-height="1.5em" text-align="justify" space-before.optimum="1em" space-after="1em">
 <xsl:apply-templates/>
 <xsl:if test="@pageNumber!='' or @lineNumber!=''">
  <xsl:text> (</xsl:text>
@@ -236,7 +236,7 @@
 </xsl:template>
 
 <xsl:template match="poem">
-<fo:block font-family="Times-Roman" text-indent="10em" line-height="1.5em" text-align="justify">
+<fo:block font-family="Times" text-indent="10em" line-height="1.5em" text-align="justify">
 <xsl:apply-templates/>
 </fo:block>
 </xsl:template> 
@@ -296,7 +296,7 @@
 </xsl:template>
 
 <xsl:template match="line">
-<fo:block font-family="Times-Roman" text-indent="3em" line-height="1.5em" text-align="justify">
+<fo:block font-family="Times" text-indent="3em" line-height="1.5em" text-align="justify">
  <xsl:apply-templates/>
  <xsl:if test='position()=last()'>
 <xsl:if test="@pageNumber!='' or @lineNumber!=''">
@@ -323,7 +323,7 @@
 
 <!-- old broken fo list 
 <xsl:template match="list">
-<fo:block font-family="Times-Roman" margin-left="3em"  line-height="1.5em" text-align="justify" space-before.optimum="1em" space-after="1em">
+<fo:block font-family="Times" margin-left="3em"  line-height="1.5em" text-align="justify" space-before.optimum="1em" space-after="1em">
 <xsl:choose>
  <xsl:when test="@type='numbered'">
  	<fo:list-block >
@@ -364,7 +364,7 @@
 -->
 
 <xsl:template match="list">
-<fo:block font-family="Times-Roman" margin-left="3em"  line-height="1.5em" text-align="left" space-before.optimum="1em" space-after="1em">
+<fo:block font-family="Times" margin-left="3em"  line-height="1.5em" text-align="left" space-before.optimum="1em" space-after="1em">
 <xsl:apply-templates/>
 </fo:block>
 </xsl:template>

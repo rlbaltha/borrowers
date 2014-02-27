@@ -25,7 +25,7 @@ class AuthorController extends Controller
     public function indexAction()
     {       
         
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('BorrowersIssueBundle:Author')->listAuthors();
 
@@ -40,7 +40,7 @@ class AuthorController extends Controller
      */
     public function showAction($id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('BorrowersIssueBundle:Author')->find($id);
 
@@ -84,10 +84,10 @@ class AuthorController extends Controller
         $entity  = new Author();
         $request = $this->getRequest();
         $form    = $this->createForm(new AuthorType(), $entity);
-        $form->bindRequest($request);
+        $form->submit($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getEntityManager();
+            $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
 
@@ -109,7 +109,7 @@ class AuthorController extends Controller
      */
     public function editAction($id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('BorrowersIssueBundle:Author')->find($id);
 
@@ -136,7 +136,7 @@ class AuthorController extends Controller
      */
     public function updateAction($id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('BorrowersIssueBundle:Author')->find($id);
 
@@ -149,7 +149,7 @@ class AuthorController extends Controller
 
         $request = $this->getRequest();
 
-        $editForm->bindRequest($request);
+        $editForm->bind($request);
 
         if ($editForm->isValid()) {
             $em->persist($entity);
@@ -176,10 +176,10 @@ class AuthorController extends Controller
         $form = $this->createDeleteForm($id);
         $request = $this->getRequest();
 
-        $form->bindRequest($request);
+        $form->submit($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getEntityManager();
+            $em = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('BorrowersIssueBundle:Author')->find($id);
 
             if (!$entity) {

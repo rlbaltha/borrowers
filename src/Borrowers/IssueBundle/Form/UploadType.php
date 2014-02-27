@@ -12,10 +12,11 @@ class UploadType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('file')  
-            ->add('title')
-            ->add('sortorder') 
-            ->add('display', 'choice', array('choices'   => array('0' => 'Development', '1' => 'Production'), 'required'  => true,))  
+
+            ->add('file')
+            ->add('title','text', array('attr' => array('class' => 'text form-control'),))
+            ->add('sortorder','text', array('attr' => array('class' => 'text form-control'),))
+            ->add('display', 'choice', array('choices'   => array('0' => 'Development', '1' => 'Production'), 'required'  => true,'attr' => array('class' => 'form-control'),))
         ;
     }
 
