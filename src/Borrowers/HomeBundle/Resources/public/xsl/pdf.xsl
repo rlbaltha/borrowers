@@ -453,7 +453,11 @@
 
 <xsl:template match="pdfReplace">
     <xsl:value-of select="@replace"/>
-  </xsl:template>
+</xsl:template>
+
+<xsl:template match="pdfReplaceWithImage">
+    <fo:external-graphic src="url({@uri})" width="{@width}"/>
+</xsl:template>
 
 
 <xsl:template match="comment"/>
