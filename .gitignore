@@ -14,5 +14,6 @@
 /app/config/parameters.yml
 /nbproject
 /composer.phar
-node_modules
+/components
+/node_modules
 .idea
