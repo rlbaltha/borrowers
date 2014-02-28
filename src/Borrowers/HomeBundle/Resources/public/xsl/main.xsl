@@ -93,7 +93,7 @@
                 <table>
                     <tr>
                         <td valign='top'>
-                            <a href='{$notereturn}'><xsl:number level="any"/><xsl:text>.  </xsl:text></a>
+                            <a href='{$notereturn}'><xsl:number level="any"/><xsl:text>.&#160;&#160;  </xsl:text></a>
                         </td>
                         <td>
                             <xsl:apply-templates/>
