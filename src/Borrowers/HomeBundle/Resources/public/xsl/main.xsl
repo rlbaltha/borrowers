@@ -285,8 +285,8 @@
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
-        <table align="{@align}" cellspacing='10'>
-            <tr><td>
+        <table align="{@align}">
+            <tr><td style="padding:20px">
                 <xsl:choose>
                     <xsl:when test="$uri!=''">
                         <img src="{$uri}"/>
@@ -296,7 +296,7 @@
                     </xsl:otherwise>
                 </xsl:choose>
             </td></tr>
-            <tr><td align="{@align}">
+            <tr><td align="{@align}" style="padding:20px">
                 <i><xsl:value-of select="@caption"/></i>
             </td></tr>
         </table>
