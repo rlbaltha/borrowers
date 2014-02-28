@@ -321,48 +321,6 @@
 </xsl:if>
 </xsl:template>
 
-<!-- old broken fo list 
-<xsl:template match="list">
-<fo:block font-family="Times" margin-left="3em"  line-height="1.5em" text-align="justify" space-before.optimum="1em" space-after="1em">
-<xsl:choose>
- <xsl:when test="@type='numbered'">
- 	<fo:list-block >
-	<xsl:apply-templates/>
-	</fo:list-block>
- </xsl:when>
- <xsl:when test="@type='bulleted'">
- 	<fo:list-block >
-	<xsl:apply-templates/>
-	</fo:list-block>
- </xsl:when>
-</xsl:choose>
-</fo:block>
-</xsl:template>
-
-
-<xsl:template match="listItem">
-        <fo:list-item>
-            	<fo:list-item-label end-indent="label-end()" >
-                <fo:block>
-		<xsl:choose>
-		<xsl:when test="../@type='numbered'">
-		<xsl:value-of select="position()"/><xsl:text>. </xsl:text>
-		</xsl:when>
-		<xsl:when test="../@type='bulleted'">
-		<xsl:text>&#183; </xsl:text>
-		</xsl:when>
-		</xsl:choose>
-		</fo:block>
-		</fo:list-item-label>
-		<fo:list-item-body start-indent="body-start()" >
-                <fo:block>
-                    <xsl:apply-templates/>
-                </fo:block>
-            </fo:list-item-body>
-	</fo:list-item>
-</xsl:template>
--->
-
 <xsl:template match="list">
 <fo:block font-family="Times" margin-left="3em"  line-height="1.5em" text-align="left" space-before.optimum="1em" space-after="1em">
 <xsl:apply-templates/>

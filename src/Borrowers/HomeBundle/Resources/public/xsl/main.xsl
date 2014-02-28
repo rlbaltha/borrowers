@@ -316,13 +316,7 @@
             <xsl:value-of select='@refid'/>
         </xsl:variable>
         <xsl:variable name='source'>
-            <xsl:call-template name="globalReplace">
-                <xsl:with-param name="outputString" select="../../references/refitem[@refid=$refid]"/>
-                <xsl:with-param name="target" select="&quot;'&quot;"/>
-                <xsl:with-param name="replacement" select="&quot;\'&quot;"/>
-                <!--   <xsl:with-param name="target2" select=""/>
-                  <xsl:with-param name="replacement2" select=""/>-->
-            </xsl:call-template>
+            <xsl:value-of select="../../references/refitem[@refid=$refid]"/>
         </xsl:variable>
 
         <xsl:choose>
@@ -357,13 +351,7 @@
             <xsl:value-of select='@refid'/>
         </xsl:variable>
         <xsl:variable name='source'>
-            <xsl:call-template name="globalReplace">
-                <xsl:with-param name="outputString" select="/body/references/refitem[@refid=$refid]"/>
-                <xsl:with-param name="target" select="&quot;'&quot;"/>
-                <xsl:with-param name="replacement" select="&quot;\'&quot;"/>
-                <!--   <xsl:with-param name="target2" select=""/>
-                  <xsl:with-param name="replacement2" select=""/>-->
-            </xsl:call-template>
+            <xsl:value-of select="/body/references/refitem[@refid=$refid]"/>
         </xsl:variable>
 
         <xsl:choose>
@@ -396,11 +384,7 @@
             <xsl:value-of select='@refid'/>
         </xsl:variable>
         <xsl:variable name='source'>
-            <xsl:call-template name="globalReplace">
-                <xsl:with-param name="outputString" select="/body/references/refitem[@refid=$refid]"/>
-                <xsl:with-param name="target" select="&quot;'&quot;"/>
-                <xsl:with-param name="replacement" select="&quot;\'&quot;"/>
-            </xsl:call-template>
+            <xsl:value-of select="/body/references/refitem[@refid=$refid]"/>
         </xsl:variable>
 
 
@@ -421,11 +405,7 @@
             <xsl:value-of select='@refid'/>
         </xsl:variable>
         <xsl:variable name='source'>
-            <xsl:call-template name="globalReplace">
-                <xsl:with-param name="outputString" select="/body/references/refitem[@refid=$refid]"/>
-                <xsl:with-param name="target" select="&quot;'&quot;"/>
-                <xsl:with-param name="replacement" select="&quot;\'&quot;"/>
-            </xsl:call-template>
+            <xsl:value-of select="/body/references/refitem[@refid=$refid]"/>
         </xsl:variable>
 
 
@@ -447,11 +427,7 @@
             <xsl:value-of select='@refid'/>
         </xsl:variable>
         <xsl:variable name='source'>
-            <xsl:call-template name="globalReplace">
-                <xsl:with-param name="outputString" select="/body/references/refitem[@refid=$refid]"/>
-                <xsl:with-param name="target" select="&quot;'&quot;"/>
-                <xsl:with-param name="replacement" select="&quot;\'&quot;"/>
-            </xsl:call-template>
+            <xsl:value-of select="/body/references/refitem[@refid=$refid]"/>
         </xsl:variable>
 
 

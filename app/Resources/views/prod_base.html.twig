@@ -4,7 +4,6 @@
     <meta charset="UTF-8"/>
     <title>{% block title %}Borrowers and Lenders:  The Journal of Shakespeare and Appropriation{% endblock %}</title>
     {% block stylesheets %}
-        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
         <link type="text/css" rel="stylesheet" href="{{ asset('bundles/borrowershome/css/bandl5.css') }}">
     {% endblock %}
 
@@ -23,20 +22,20 @@ $( document ).ready(function() {
 });
 
 </script>
-<table>
+<table cellpadding="0">
     <tr>
-        <td class='header' style="height:148px;background: url({{ asset('bundles/borrowershome/img/01-header-book-d2.jpg') }})"></td>
+        <td class='header' style="padding:0;border:0;margin: 0; border-spacing: 0;height:145px;background: url({{ asset('bundles/borrowershome/img/01-header-book-d2.jpg') }})"></td>
     </tr>
-    <!-- body row -->
-    <tr>
+
+    <tr >
         <td>
             <!-- body table -->
-            <table>
+            <table cellpadding="0">
                 <tr>
                     <td class='leftside' style="vertical-align:top;background-image:url({{ asset('bundles/borrowershome/img/02-side-book-d2.jpg') }});background-repeat:repeat-y;">
 
                         <!-- nav bar table-->
-                        <table>
+                        <table cellpadding="0">
                             <tr>
                                 <td class='nav01' style="width:150px;height:58px" >
                                     <a href="{{ path('issue_current') }}" ><img src="{{ asset('bundles/borrowershome/img/current_issue_off.jpg') }}" style="border:0;width:150px;height:58px;"/></a>
