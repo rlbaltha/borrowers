@@ -296,7 +296,7 @@
                     </xsl:otherwise>
                 </xsl:choose>
             </td></tr>
-            <tr><td align="{@align}" style="padding:20px">
+            <tr><td align="{@align}" style="padding-bottom:10px">
                 <i><xsl:value-of select="@caption"/></i>
             </td></tr>
         </table>
