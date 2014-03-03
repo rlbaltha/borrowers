@@ -414,7 +414,7 @@
 </xsl:template>
 
 <xsl:template match="pdfReplaceWithImage">
-    <fo:external-graphic src="url({@uri})" height="{@height}"/>
+    <fo:external-graphic src="url({@uri})" width="{@width}" height="{@height}"/>
 </xsl:template>
 
 
