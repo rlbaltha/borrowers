@@ -54,7 +54,6 @@
                 <a name='abstract'/>
                 <p class='title'><xsl:text>Abstract</xsl:text></p>
                 <xsl:apply-templates/>
-                <br/>
                 <hr/>
             </xsl:for-each>
 
@@ -699,7 +698,7 @@
 
 
             <table align="center" cellspacing='10'>
-                <tr><td>
+                <tr><td style="padding:20px">
                     <script src="http://podcaster.gcsu.edu/AC_Quicktime/ac_quicktime.js" language="JavaScript" type="text/javascript"></script>
                     <script src="http://podcaster.gcsu.edu/AC_Quicktime/qtp_library.js" language="JavaScript" type="text/javascript"></script>
 
