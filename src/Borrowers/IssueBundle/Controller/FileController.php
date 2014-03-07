@@ -36,7 +36,7 @@ class FileController extends Controller
     /**
      * Finds and displays a File entity.
      *
-     * @Route("/{id}/show", name="file_show")
+     * @Route("/{id}/show", name="file_show", schemes="http")
      * @Template()
      */
     public function showAction($id)
@@ -164,7 +164,7 @@ class FileController extends Controller
 
         $request = $this->getRequest();
 
-        $editForm->bind($request);
+        $editForm->submit($request);
 
         if ($editForm->isValid()) {
             $em->persist($entity);
