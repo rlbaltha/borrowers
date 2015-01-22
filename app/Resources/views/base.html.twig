@@ -13,6 +13,15 @@
             <script src="{{ asset_url }}"></script>
             {% endjavascripts %}
         {% endblock %}
+        <script language="javascript">
+            $(document).ready(function()
+            {
+                $("input:submit").addClass("btn btn-primary btn-lg btn-block");
+                $("input:text").addClass("form-control");
+                $("input:password").addClass("form-control");
+
+            });
+        </script>
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
