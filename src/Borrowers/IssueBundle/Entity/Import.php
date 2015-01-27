@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Borrowers\IssueBundle\Entity\Import
  *
- * @ORM\Table()
+ * @ORM\Table(name="import")
  * @ORM\Entity
  */
 class Import

@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Borrowers\IssueBundle\Entity\Issue
  *
- * @ORM\Table()
+ * @ORM\Table(name="issue")
  * @ORM\Entity(repositoryClass="Borrowers\IssueBundle\Entity\IssueRepository")
  */
 class Issue

@@ -12,8 +12,4 @@ _configurator:
 
 _main:
     resource: routing.yml
-    
-BorrowersGeneratorBundle:
-    resource: "@BorrowersGeneratorBundle/Controller/"
-    type:     annotation
-    prefix:   /
+
