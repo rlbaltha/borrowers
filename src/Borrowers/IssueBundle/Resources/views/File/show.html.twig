@@ -2,12 +2,16 @@
 
     {% block javascripts %}
         {{ parent() }}
-        <script src="{{ asset('bundles/borrowershome/js/jquery.jplayer.min.js') }}"></script>
-
+        <script src="{{ asset('bundles/borrowershome/js/jquery.oembed.js') }}"></script>
+        <script language="javascript">
+            $(document).ready(function () {
+                $("a.embed").oembed();
+            });
+        </script>
     {% endblock %}
     {% block stylesheets %}
         {{ parent() }}
-        <link type="text/css" href="{{ asset('bundles/borrowershome/skin/jplayer.blue.monday.css') }}" rel="stylesheet" />
+        <link type="text/css" href="{{ asset('bundles/borrowershome/css/jquery.oembed.css') }}" rel="stylesheet"/>
     {% endblock %}
 
 {% block body %}
