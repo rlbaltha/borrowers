@@ -1,9 +1,9 @@
 
-{% extends 'BorrowersHomeBundle::layout.html.twig' %}
+{% extends 'BorrowersIssueBundle::layout.html.twig' %}
 
 {% block content %}
 
-<div class="col-sm-10 well">
+<div class="col-sm-12 well">
     <form action="{{ path('section_create', { 'issue_id': issue_id }) }}" method="post" {{ form_enctype(form) }} novalidate="novalidate">
     {{ form_widget(form) }}
     <div>

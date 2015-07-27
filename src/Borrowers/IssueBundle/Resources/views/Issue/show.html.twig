@@ -1,4 +1,4 @@
-{% extends 'BorrowersHomeBundle::layout.html.twig' %}
+{% extends 'BorrowersIssueBundle::layout.html.twig' %}
 
 {% block content %}
 
@@ -8,30 +8,26 @@
         <h2>{{ issue.subtitle }}</h2>
         <h4>{{ issue.editors }}</h4>
         <h4>({% if issue.display == 0 %}Development{% elseif issue.display == 1 %}Archive{% elseif issue.display == 2 %}Previous{% else %}Current{% endif %})</h4>
-        <div class="row margintop">
-            <div class="col-sm-8">
-                <a class="btn btn-info" href="{{ path('issue_toc', { 'id': issue.id }) }}">TOC</a>
-                <a class="btn btn-primary" href="{{ path('issue_edit', { 'id': issue.id }) }}">Edit</a>
-                <a class="btn btn-primary" href="{{ path('section_new', { 'issue_id': issue.id }) }}">Add Section</a>
-            </div>
-            <div class="col-sm-1">
                 <form action="{{ path('issue_delete', { 'id': issue.id }) }}" method="post">
                     {{ form_widget(delete_form) }}
-                    <button class="btn btn-danger" type="submit">Delete</button>
+                    <button class="btn btn-danger pull-right" type="submit">Delete</button>
                 </form>
-            </div>
+
+                <a class="btn btn-default" href="{{ path('issue_toc', { 'id': issue.id }) }}">TOC</a>
+                <a class="btn btn-default" href="{{ path('issue_edit', { 'id': issue.id }) }}">Edit</a>
+                <a class="btn btn-default" href="{{ path('section_new', { 'issue_id': issue.id }) }}">Add Section</a>
         </div>
-    </div>
+
 
     {% for section in issue.sections %}
 
-        <div class="col-sm-10 well">
+        <div class="col-sm-12 well">
             <div class="c">
                 <a href='javascript:void(0);' onclick="$('#section{{section.id}}').toggle();"><h4>{{ section.title|raw }}</h4> </a>
                 <h5>{{ section.description }} </h5>
-                <a class="btn btn-primary pull-right" href="{{ path('section_edit', { 'id': section.id }) }}">Edit</a>
-                <a class="btn btn-primary pull-right" href="{{ path('file_upload_mm', { 'issueid':issue.id,'sectionid': section.id }) }}">Upload Media</a>
-                <a class="btn btn-primary pull-right" href="{{ path('file_upload', { 'issueid':issue.id,'sectionid': section.id }) }}">Upload XML</a>
+                <a class="btn btn-default pull-right" href="{{ path('section_edit', { 'id': section.id }) }}">Edit</a>
+                <a class="btn btn-default pull-right" href="{{ path('file_upload_mm', { 'issueid':issue.id,'sectionid': section.id }) }}">Upload Media</a>
+                <a class="btn btn-default pull-right" href="{{ path('file_upload', { 'issueid':issue.id,'sectionid': section.id }) }}">Upload XML</a>
 
 
                 <table id="section{{section.id}}" class="table col-sm-10">
@@ -41,9 +37,9 @@
                         <tr>
                             <td><a class="" href="{{ path('file_show', { 'id': file.id }) }}">{{ file.title |raw }}</a> ({% if file.display == 0 %}Development{% elseif file.display == 1 %}Production{% endif %})</td>
                             <td>{% for author in file.authors %}{{ author.firstname | raw }} {{ author.lastname | raw }}  {% endfor %}</td>
-                            <td><a class="btn btn-info" href="{{ path('file_pdf', { 'id': file.id }) }}">PDF</a>
-                                <a class="btn btn-primary" href="{{ path('file_edit', { 'id': file.id }) }}">Edit</a>
-                                <a class="btn btn-primary" href="{{ path('file_download', { 'id': file.id }) }}">Download</a>
+                            <td><a class="btn btn-default" href="{{ path('file_pdf', { 'id': file.id }) }}">PDF</a>
+                                <a class="btn btn-default" href="{{ path('file_edit', { 'id': file.id }) }}">Edit</a>
+                                <a class="btn btn-default" href="{{ path('file_download', { 'id': file.id }) }}">Download</a>
                             </td>
                         </tr>
                     {% endfor %}
@@ -53,7 +49,7 @@
                         <tr>
                             <td><a class="" href="{{ path('file_url', { 'id': file.id, 'filename': filename  }) }}">/media/{{file.id}}/{{ file.title |raw }}.{{ file.ext }}</a></td>
                             <td>/media/{{file.id}}/{{ file.title |raw }}.{{ file.ext }}</td>
-                            <td><a class="btn btn-primary" href="{{ path('file_edit', { 'id': file.id }) }}">Edit</a><a class="btn btn-primary" href="{{ path('file_download', { 'id': file.id }) }}">Download</a></td>
+                            <td><a class="btn btn-default" href="{{ path('file_edit', { 'id': file.id }) }}">Edit</a><a class="btn btn-default" href="{{ path('file_download', { 'id': file.id }) }}">Download</a></td>
                         </tr>
                     {% endfor %}
                     </tbody>

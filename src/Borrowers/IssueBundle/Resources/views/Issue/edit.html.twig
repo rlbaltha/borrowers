@@ -1,14 +1,12 @@
-
-{% extends 'BorrowersHomeBundle::layout.html.twig' %}
+{% extends 'BorrowersIssueBundle::layout.html.twig' %}
 
 {% block content %}
 
-<div class="row">   
-    <div class="col-sm-10 well">
+    <div class="col-sm-12 well">
         <form action="{{ path('issue_update', { 'id': issue.id }) }}" method="post" {{ form_enctype(edit_form) }} novalidate="novalidate">
             {{ form_widget(edit_form) }}
         <div>
-            <button class="btn btn-primary margintop" type="submit">Update</button>
+            <button class="btn btn-default margintop" type="submit">Update</button>
         </div>
         </form>
         <hr/>
@@ -17,5 +15,5 @@
             <button class="btn btn-danger" type="submit">Delete</button>
         </form>    
     </div>
-</div>
+
 {% endblock %}

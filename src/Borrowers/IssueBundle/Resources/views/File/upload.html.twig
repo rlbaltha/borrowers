@@ -1,13 +1,13 @@
 {# Borrowers/IssueBundle/Resources/views/File/upload.html.twig #}
 
-{% extends 'BorrowersHomeBundle::layout.html.twig' %}
+{% extends 'BorrowersIssueBundle::layout.html.twig' %}
 
 
 {% block content %}
 <div class="span12 well"> 
     <form action="#" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
-    <input class="btn btn-primary" type="submit" value="Upload Document" />
+    <input class="btn btn-default" type="submit" value="Upload Document" />
 </form>
 </div>
 {% endblock %}

@@ -315,7 +315,6 @@ class FileController extends Controller
         $em = $this->getDoctrine()->getManager();
         $issue = $em->getRepository('BorrowersIssueBundle:Issue')->find($issueid);
         $section = $em->getRepository('BorrowersIssueBundle:Section')->find($sectionid);
-        $subdir = $issue->getIssue();
         $options = array('issueid' => $issueid);
         $file = new File();
         $file->setIssue($issue);

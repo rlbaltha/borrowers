@@ -1,21 +1,20 @@
 
-{% extends 'BorrowersHomeBundle::layout.html.twig' %}
+{% extends 'BorrowersIssueBundle::layout.html.twig' %}
 
 {% block content %}
    <div class="col-sm-12 well">
-      <a class="btn btn-primary" href="{{ path('author_new') }}">New</a>
+      <a class="btn btn-default" href="{{ path('author_new') }}">New Author</a>
    </div>
 
 
-<div class="col-sm-10">
+<div class="col-sm-12">
 <table class="table">   
 <tbody>
     {% for entity in entities %}
     <tr>   
-        <td>{{ entity.lastname }}</td> 
-        <td>{{ entity.firstname }}</td>                      
+        <td><a class="" href="{{ path('author_show', { 'id': entity.id }) }}">{{ entity.lastname }}, {{ entity.firstname }}</a></td>
         <td>{{ entity.institution }}</td>                  
-        <td><a class="btn btn-info" href="{{ path('author_show', { 'id': entity.id }) }}">Show</a><a class="btn btn-primary" href="{{ path('author_edit', { 'id': entity.id }) }}">Edit</a>
+        <td><a class="btn btn-default" href="{{ path('author_edit', { 'id': entity.id }) }}">Edit</a>
 </td>       
     </tr>
     

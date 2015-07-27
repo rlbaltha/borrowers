@@ -362,10 +362,10 @@ class File
     /**
      * Set user
      *
-     * @param Borrowers\UserBundle\Entity\User $user
+     * @param Borrowers\IssueBundle\Entity\User $user
      * @return File
      */
-    public function setUser(\Borrowers\UserBundle\Entity\User $user = null)
+    public function setUser(\Borrowers\IssueBundle\Entity\User $user = null)
     {
         $this->user = $user;
         return $this;
@@ -374,7 +374,7 @@ class File
     /**
      * Get user
      *
-     * @return Borrowers\UserBundle\Entity\User 
+     * @return Borrowers\IssueBundle\Entity\User
      */
     public function getUser()
     {

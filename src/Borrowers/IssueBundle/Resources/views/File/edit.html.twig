@@ -1,5 +1,5 @@
 
-{% extends 'BorrowersHomeBundle::layout.html.twig' %}
+{% extends 'BorrowersIssueBundle::layout.html.twig' %}
 
 {% block content %}
     <script language="javascript">
@@ -11,7 +11,7 @@
         <form action="{{ path('file_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
             {{ form_widget(edit_form) }}
         <div>
-            <button class="btn btn-primary margintop" type="submit">Update</button>
+            <button class="btn btn-default margintop" type="submit">Update</button>
         </div>
         </form>
         <hr/>

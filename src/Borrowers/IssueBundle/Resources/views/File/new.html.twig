@@ -1,12 +1,12 @@
 
-{% extends 'BorrowersHomeBundle::layout.html.twig' %}
+{% extends 'BorrowersIssueBundle::layout.html.twig' %}
 
 {% block content %}
 <div class="col-sm-10 well">
 <form action="{{ path('file_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
     <div>
-        <button class="btn btn-primary" type="submit">Create</button>
+        <button class="btn btn-default" type="submit">Create</button>
     </div>
 </form>
 </div>
