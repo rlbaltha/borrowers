@@ -7,16 +7,6 @@ BorrowersIssueBundle:
     type:     annotation
     prefix:   /
 
-BorrowersHomeBundle:
-    resource: "@BorrowersHomeBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
-BorrowersUserBundle:
-    resource: "@BorrowersUserBundle/Controller/"
-    type:     annotation
-    prefix:   /
-    
-_user_bundle:
-    resource: "@BorrowersUserBundle/Resources/config/routing.yml"
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
     

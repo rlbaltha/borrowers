@@ -106,7 +106,7 @@ class File
     private $essayid;
     
     /**
-    * @ORM\ManyToOne(targetEntity="Borrowers\UserBundle\Entity\User")
+    * @ORM\ManyToOne(targetEntity="Borrowers\IssueBundle\Entity\User")
     */
     protected $user;    
     

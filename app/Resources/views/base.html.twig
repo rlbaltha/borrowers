@@ -1,64 +1,72 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Borrowers & Lenders{% endblock %}</title>
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}Borrowers & Lenders{% endblock %}</title>
 
-        {% block stylesheets %}
-            {% stylesheets '@bootstrap_less' combine=true  output='css/compiled/main.css' %}
-            <link href="{{ asset_url }}" type="text/css" rel="stylesheet"/>{% endstylesheets %}
-            <link type="text/css" rel="stylesheet" href="{{ asset('bundles/borrowershome/css/local.css') }}">
-        {% endblock %}
+    {% block stylesheets %}
+        {% stylesheets '@bootstrap_less' combine=true  output='css/compiled/main.css' %}
+        <link href="{{ asset_url }}" type="text/css" rel="stylesheet"/>{% endstylesheets %}
+        <link href='https://fonts.googleapis.com/css?family=Josefin+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <link type="text/css" rel="stylesheet" href="{{ asset('bundles/borrowersissue/css/local.css') }}">
+    {% endblock %}
 
-        {% block javascripts %}
-            {% javascripts '@jquery_js' '@jqueryui_js' '@bootstrap_js' combine=true output='js/compiled/main.js' %}
-            <script src="{{ asset_url }}"></script>
-            {% endjavascripts %}
-        {% endblock %}
+    {% block javascripts %}
+        {% javascripts '@jquery_js' '@jqueryui_js' '@bootstrap_js' combine=true output='js/compiled/main.js' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    {% endblock %}
 
-        <script language="javascript">
-            $(document).ready(function()
-            {
-                $("input:submit").addClass("btn btn-primary btn-lg btn-block");
-                $("input:text").addClass("form-control");
-                $("input:password").addClass("form-control");
+    <script language="javascript">
+        $(document).ready(function () {
+            $("input:submit").addClass("btn btn-primary btn-lg btn-block");
+            $("input:text").addClass("form-control");
+            $("input:password").addClass("form-control");
 
-            });
-        </script>
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-     <div class="navbar navbar-inverse navbar-fixed-top">
-         <div class="navbar-header col-sm-3">
-             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                 <span class="icon-bar"></span>
-                 <span class="icon-bar"></span>
-                 <span class="icon-bar"></span>
-             </button>
-             <a name="top"></a>
-             <a class="navbar-brand" href="#">Borrowers</a>
-         </div>
-
-         <div class="navbar-collapse collapse">
-             <ul class="nav navbar-nav">
-              <li class="active"><a title="Issues" href="{{ path('issue') }}" >Issues</a></li>
-              <li class="active"><a title="Authors" href="{{ path('author') }}" >Authors</a></li>
-              {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-              <li class=""><a class='last' title="Change Password" href="{{ path('fos_user_change_password') }}">Change PW</a></li>
-              <li class=""><a class='last' title="Logout" href="{{ path('fos_user_security_logout') }}">Logout</a></li>
-              {% else %}
-              <li class=""><a class='last' title="Login" href="{{ path('fos_user_security_login') }}">Login</a></li>
-              {% endif %}
-            </ul>
-          </div>
-        </div>
-      </div>
+        });
+    </script>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-header col-sm-3">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a name="top"></a>
+        <a class="navbar-brand" href="#">Borrowers</a>
     </div>
-            
-        <div class="container">
-            <div class="col-lg-12">
-            {% block body %}{% endblock %}
-            </div>
-        </div>
-    </body>
+
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                <li class="active"><a title="Issues" href="{{ path('issue') }}">Issues</a></li>
+                <li class="active"><a title="Authors" href="{{ path('author') }}">Authors</a></li>
+            {% endif %}
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right" style="padding-right: 20px;">
+            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                <li class=""><a class='last' title="Change Password" href="{{ path('fos_user_change_password') }}">Change PW</a></li>
+                <li>
+                    <a title="Logout" href="{{ path('fos_user_security_logout') }}">Logout</a>
+                </li>
+            {% else %}
+                <li>
+                    <a title="Login" href="{{ path('fos_user_security_login') }}">Login</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+
+<div class="container">
+    <div class="col-lg-12">
+        {% block body %}{% endblock %}
+    </div>
+</div>
+</body>
 </html>

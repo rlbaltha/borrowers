@@ -1,7 +1,6 @@
 <?php
-// src/Borrowers/UserBundle/Entity/User.php
 
-namespace Borrowers\UserBundle\Entity;
+namespace Borrowers\IssueBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
