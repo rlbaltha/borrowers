@@ -3,8 +3,10 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Borrowers & Lenders{% endblock %}</title>
+
         {% block stylesheets %}
-            <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+            {% stylesheets '@bootstrap_less' combine=true  output='css/compiled/main.css' %}
+            <link href="{{ asset_url }}" type="text/css" rel="stylesheet"/>{% endstylesheets %}
             <link type="text/css" rel="stylesheet" href="{{ asset('bundles/borrowershome/css/local.css') }}">
         {% endblock %}
 
@@ -13,6 +15,7 @@
             <script src="{{ asset_url }}"></script>
             {% endjavascripts %}
         {% endblock %}
+
         <script language="javascript">
             $(document).ready(function()
             {

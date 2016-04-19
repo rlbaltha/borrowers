@@ -6,24 +6,6 @@
     "autoload": {
         "psr-0": { "": "src/" }
     },
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "version": "3.0.0",
-                "name": "twbs/bootstrap",
-                "source": {
-                    "url": "https://github.com/twbs/bootstrap.git",
-                    "type": "git",
-                    "reference": "master"
-                },
-                "dist": {
-                    "url": "https://github.com/twbs/bootstrap/zipball/master",
-                    "type": "zip"
-                }
-            }
-        }
-    ],
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "2.3.*",
@@ -41,18 +23,20 @@
         "jms/security-extra-bundle": "1.5.*",
         "jms/di-extra-bundle": "1.4.*",
         "incenteev/composer-parameter-handler": "~2.0",
-        "leafo/lessphp": "*",
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "stof/doctrine-extensions-bundle": "dev-master",
         "vich/uploader-bundle": "0.9.0",
         "knplabs/knp-gaufrette-bundle": "0.2.*@dev",
         "knplabs/gaufrette": "0.2.*@dev",
-        "twbs/bootstrap": "3.0.*",
-        "components/jquery": "1.9.*",
-        "components/jqueryui": "1.10.*",
         "goetas/apache-fop": "dev-master",
         "knplabs/knp-paginator-bundle": "dev-master",
-        "daps/ldap-bundle": "*@dev"
+        "fr3d/ldap-bundle": "2.0.*@dev",
+        "egeloen/ckeditor-bundle": "2.*",
+        "components/jquery": "2.1.*",
+        "components/jqueryui": "1.11.*",
+        "twbs/bootstrap" : "*",
+        "oyejorge/less.php": "~1.5",
+        "packagist/yuicompressor-bin": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [

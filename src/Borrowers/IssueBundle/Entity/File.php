@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Borrowers\IssueBundle\Entity\File
  *
- * @ORM\Table()
+ * @ORM\Table(name="file")
  * @ORM\Entity(repositoryClass="Borrowers\IssueBundle\Entity\FileRepository")
  */
 class File

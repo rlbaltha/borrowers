@@ -8,7 +8,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * Borrowers\IssueBundle\Entity\Section
  *
- * @ORM\Table()
+ * @ORM\Table(name="section")
  * @ORM\Entity(repositoryClass="Borrowers\IssueBundle\Entity\SectionRepository")
  */
 class Section
