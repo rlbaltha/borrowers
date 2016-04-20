@@ -225,7 +225,6 @@
                 <xsl:for-each select='body/citation'>
                     <xsl:apply-templates/>
                 </xsl:for-each>
-                &#169; Borrowers and Lenders 2005-2016
                 <br/>
             </p>
 
