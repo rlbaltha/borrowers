@@ -95,11 +95,11 @@ p.toc4 {display: block; line-height: 1.0; margin-right: 20px; font-family: Garam
 	cursor: hand;
 }
 
-h3.about {font-family: Arial; color: #999966; display: block; text-align: left; font-size:14pt; font-weight: bold}
+h3.about {font-family: Arial; color: #999966; display: block; text-align: left; font-size:14pt; font-weight: bold; margin-top: 20px;margin-bottom: 20px;}
 
-h4.about {font-family: Arial; color: #999966; display: block; text-align: center; font-size:14pt;}
+h4.about {font-family: Arial; color: #999966; display: block; text-align: center; font-size:14pt;margin-top: 20px;margin-bottom: 20px;}
 
-h5.about {font-family: Arial; color: #FFFFFF; display: block; text-align: left; font-size:12pt;}
+h5.about {font-family: Arial; color: #FFFFFF; display: block; text-align: left; font-size:12pt;margin-top: 20px;margin-bottom: 20px;}
 
 td.author {width: 150px;}
 
@@ -125,4 +125,8 @@ td.author {width: 150px;}
   filter: alpha(opacity=0);
   position: absolute;
   top: 0px; left: 0px;
+}
+
+a.about {
+    font-family: Arial; color: #FFFFFF;  font-size:12pt;
 }

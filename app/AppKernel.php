@@ -25,8 +25,6 @@ class AppKernel extends Kernel
             new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
             new Vich\UploaderBundle\VichUploaderBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
-            new FR3D\LdapBundle\FR3DLdapBundle(),
-            new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new Borrowers\UserBundle\BorrowersUserBundle(),
             new Borrowers\HomeBundle\BorrowersHomeBundle(),
             new Borrowers\IssueBundle\BorrowersIssueBundle(),
