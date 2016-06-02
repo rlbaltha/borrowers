@@ -1,19 +1,91 @@
-/* 
-    Document   : local
-    Created on : Jul 26, 2012, 9:16:30 AM
-    Author     : rlbaltha
-    Description:
-        Purpose of the stylesheet follows.
-*/
+body {
+    font-family: 'Raleway', sans-serif;
 
-body { 
-    padding-top: 60px;
-    padding-bottom: 40px;
 }
 
-.formtext {
-    width:400px;
+.container-fluid {
+    padding: 0;
 }
 
-.margintop {margin-top: 10px;}
+.col-sm-10 {
+    padding: 3rem;
+}
 
+.col-sm-12 {
+    padding: 3rem;
+}
+
+.col-sm-4 {
+    padding: 3rem;
+}
+
+.navbar-brand, h1, h2, h3, h4 {
+    font-family: 'Nixie One', cursive;
+}
+
+.padding {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+/**********  Accessibility **********/
+#skip a, #skip a:hover, #skip a:visited
+{
+    position:absolute;
+    left:0;
+    top:-500px;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+}
+
+#skip a:active, #skip a:focus {
+    position: static;
+    display: inline-block;
+    width: auto;
+    height: auto;
+}
+
+/**********  Navbar **********/
+
+.navbar {
+    padding: .9rem;
+}
+.navbar-nav li a {
+    color: #fff;
+    font-size: 11pt;
+}
+
+
+.navbar-logo {
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-brand {
+    padding: 0;
+    margin: -.6rem;
+    margin-right: 0;
+}
+
+/**********  Forms **********/
+
+
+div.radio > label {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.radio input[type="radio"] {
+    position: inherit;
+    margin-left: 10px;
+}
+
+form div div {
+    margin-bottom: 20px;
+}
+
+input + label {
+    margin-right: 15px;
+}
