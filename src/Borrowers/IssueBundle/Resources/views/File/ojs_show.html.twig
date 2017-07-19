@@ -29,7 +29,15 @@
 
     <section class="main-content">
 
-        {% block body %}{{ html|raw }}{% endblock %}
+            <div class="row justify-content-md-center">
+                <div class="col col-sm-8">
+                    <img src="https://ojs01.galib.uga.edu/public/journals/4/pageHeaderLogoImage_en_US.jpg" class="img-fluid" alt="Responsive image">
+
+        {% block body %}
+            {{ html|raw }}
+        {% endblock %}
+                </div>
+            </div>
 
         {% block javascripts %}
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">

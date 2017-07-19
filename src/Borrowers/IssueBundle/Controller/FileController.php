@@ -104,14 +104,10 @@ class FileController extends Controller
         $wrap_html = $this->render('BorrowersIssueBundle:File:ojs_show.html.twig',
             array('html' => $html));
 
-        return new Response(
-            $wrap_html ,
-            200,
-            array(
-                'Content-Type'          => 'text/html',
-                'Content-Disposition'   => 'attachment; filename='.$name
-            )
-        );
+        $wrap_html->headers->set('Content-Type', 'text/html');
+        $wrap_html->headers->set('Content-Disposition', 'attachment; filename='.$name);
+
+        return $wrap_html;
     }
 
     /**
