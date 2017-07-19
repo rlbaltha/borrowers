@@ -70,6 +70,48 @@ class FileController extends Controller
     }
 
     /**
+     * Finds and displays a File entity.
+     *
+     * @Route("/{id}/transform", name="file_transform")
+     * @Template("BorrowersIssueBundle:File:ojs_show.html.twig")
+     */
+    public function transformAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $file = $em->getRepository('BorrowersIssueBundle:File')->find($id);
+        $path = __DIR__.'/../../../../borrowers_docs/'.$file->getPath();
+        $name = $file->getTitle().'.html';
+
+        if (!$file) {
+            throw $this->createNotFoundException('Unable to find File entity.');
+        }
+
+        $xp = new \XsltProcessor();
+
+        $xsl = new \DomDocument;
+        $xsl->load('bundles/borrowershome/xsl/main.xsl');
+        $xp->importStylesheet($xsl);
+
+        $xml_doc = new \DomDocument;
+        $xml_doc->load($path);
+
+        if ($html = $xp->transformToXML($xml_doc)) {
+        } else {
+            trigger_error('XSL transformation failed.', E_USER_ERROR);
+        }
+
+        return new Response(
+            $html ,
+            200,
+            array(
+                'Content-Type'          => 'text/html',
+                'Content-Disposition'   => 'attachment; filename='.$name
+            )
+        );
+    }
+
+    /**
      * Displays a form to create a new File entity.
      *
      * @Route("/file/new", name="file_new")

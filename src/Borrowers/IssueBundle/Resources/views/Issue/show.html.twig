@@ -43,7 +43,8 @@
                             <td>{% for author in file.authors %}{{ author.firstname | raw }} {{ author.lastname | raw }}  {% endfor %}</td>
                             <td><a class="btn btn-info" href="{{ path('file_pdf', { 'id': file.id }) }}">PDF</a>
                                 <a class="btn btn-primary" href="{{ path('file_edit', { 'id': file.id }) }}">Edit</a>
-                                <a class="btn btn-primary" href="{{ path('file_download', { 'id': file.id }) }}">Download</a>
+                                <a class="btn btn-primary" href="{{ path('file_download', { 'id': file.id }) }}">Download XML</a>
+                                <a class="btn btn-primary" href="{{ path('file_transform', { 'id': file.id }) }}">Download HTML</a>
                             </td>
                         </tr>
                     {% endfor %}
