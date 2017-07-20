@@ -90,7 +90,7 @@ class FileController extends Controller
         $xp = new \XsltProcessor();
 
         $xsl = new \DomDocument;
-        $xsl->load('bundles/borrowershome/xsl/main.xsl');
+        $xsl->load('bundles/borrowershome/xsl/ojs_main.xsl');
         $xp->importStylesheet($xsl);
 
         $xml_doc = new \DomDocument;
