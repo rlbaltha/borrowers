@@ -100,6 +100,9 @@ fos_user:
     user_class: Borrowers\UserBundle\Entity\User
     service:
         user_manager:   fos_user.user_manager.default
+    from_email:
+        address:        borrowers@uga.edu
+        sender_name:    "Borrowers and Lenders"
 
 goetas_apache_fop:
     executable: /usr/bin/fop
@@ -117,9 +120,7 @@ knp_paginator:
         
 vich_uploader:
     db_driver: orm # or mongodb
-    twig: true
-    gaufrette: false # set to true to enable gaufrette support
-    storage: vich_uploader.storage.file_system
+    storage: file_system
     mappings:
         property_file:
             uri_prefix: %kernel.root_dir%/../uploads/files # uri prefix to resource
@@ -128,3 +129,4 @@ vich_uploader:
             directory_namer: directory_namer.upload_file # specify a directory namer service id for this entity, null default
             delete_on_remove: true # determines whether to delete file upon removal of entity
             inject_on_load: true # determines whether to inject a File instance upon load       
+
