@@ -799,45 +799,15 @@
                     </td>
                 </tr>
                 </table>
-            </xsl:when>
+        </xsl:when>
             <xsl:when test="contains(@uri, '.mov') or contains(@uri, '.mp4')">
                 <table align="center" cellspacing='10'>
                     <tr>
-                        <td style="padding:20px">
-                            <script src="http://podcaster.gcsu.edu/AC_Quicktime/ac_quicktime.js" language="JavaScript" type="text/javascript"></script>
-                            <script src="http://podcaster.gcsu.edu/AC_Quicktime/qtp_library.js" language="JavaScript" type="text/javascript"></script>
+                        <td>
 
-                            <script type="text/javascript">
-                                QT_WritePoster_XHTML('Click to Play', '<xsl:value-of select="@poster"/>',
-                                '<xsl:value-of select="@uri"/>',
-                                '601', '364', '',
-                                'controller', 'true',
-                                'autoplay', 'false',
-                                'bgcolor', 'black',
-                                'scale', 'tofit');
-
-                            </script>
-                            <noscript>
-                                <object width="601" height="364" classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B"
-                                        codebase="http://www.apple.com/qtactivex/qtplugin.cab">
-                                    <param name="src" value="{@poster}"/>
-                                    <param name="href" value="{@uri}"/>
-                                    <param name="target" value="myself"/>
-                                    <param name="controller" value="false"/>
-                                    <param name="autoplay" value="true"/>
-                                    <param name="scale" value="tofit"/>
-                                    <embed width="601" height="364" type="video/quicktime" pluginspage="http://www.apple.com/quicktime/download/"
-                                           src=""
-                                           href="{@uri}"
-                                           target="myself"
-                                           controller="false"
-                                           autoplay="true"
-                                           scale="tofit">
-                                    </embed>
-                                </object>
-                            </noscript>
-
-
+                        <video width="480" height="320" controls="controls">
+                            <source src="{@uri}" type="video/mp4"></source>
+                        </video>
                         </td>
                     </tr>
                     <tr>
