@@ -20,7 +20,6 @@ class AppKernel extends Kernel
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Goetas\ApacheFopBundle\GoetasApacheFopBundle(),
             new Vich\UploaderBundle\VichUploaderBundle(),
-            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Borrowers\UserBundle\BorrowersUserBundle(),
             new Borrowers\HomeBundle\BorrowersHomeBundle(),
             new Borrowers\IssueBundle\BorrowersIssueBundle(),
