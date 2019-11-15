@@ -1,49 +1,52 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
-    - { resource: '@BorrowersIssueBundle/Resources/config/services.yml' }    
+    - { resource: '@AppBundle/Resources/config/services.yml' }
 
 framework:
     #esi:             ~
     translator: ~
-    secret:          %secret%
+    secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
-        strict_requirements: %kernel.debug%
+        strict_requirements: "%kernel.debug%"
     form:            true
     csrf_protection: true
     validation:      { enable_annotations: true }
     templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
-    default_locale:  %locale%
+    default_locale:  "%locale%"
     trusted_proxies: ~
-    session:         ~
+    session:
+        # http://symfony.com/doc/current/reference/configuration/framework.html#handler-id
+        handler_id:  session.handler.native_file
+        save_path:   "%kernel.root_dir%/../var/sessions/%kernel.environment%"
 
 # Twig Configuration
 twig:
-    debug:            %kernel.debug%
-    strict_variables: %kernel.debug%
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
 
 # Doctrine Configuration
 doctrine:
     dbal:
-        driver:   %database_driver%
-        host:     %database_host%
-        port:     %database_port%
-        dbname:   %database_name%
-        user:     %database_user%
-        password: %database_password%
+        driver:   "%database_driver%"
+        host:     "%database_host%"
+        port:     "%database_port%"
+        dbname:   "%database_name%"
+        user:     "%database_user%"
+        password: "%database_password%"
         charset:  UTF8
 
     orm:
-        auto_generate_proxy_classes: %kernel.debug%
+        auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: %mailer_transport%
-    host:      %mailer_host%
-    username:  %mailer_user%
-    password:  %mailer_password%
+    transport: "%mailer_transport%"
+    host:      "%mailer_host%"
+    username:  "%mailer_user%"
+    password:  "%mailer_password%"
     spool:     { type: memory }
 
 # Doctrine extensions    
@@ -58,7 +61,7 @@ stof_doctrine_extensions:
 fos_user:
     db_driver: orm
     firewall_name: main
-    user_class: Borrowers\UserBundle\Entity\User
+    user_class: AppBundle\Entity\User
     service:
         user_manager:   fos_user.user_manager.default
     from_email:
@@ -74,8 +77,8 @@ vich_uploader:
     storage: file_system
     mappings:
         property_file:
-            uri_prefix: %kernel.root_dir%/../uploads/files # uri prefix to resource
-            upload_destination: %kernel.root_dir%/../borrowers_docs/uploads/files # gaufrette storage fs id, required
+            uri_prefix: "%kernel.root_dir%/../uploads/files" # uri prefix to resource
+            upload_destination: "%kernel.root_dir%/../borrowers_docs/uploads/files" # gaufrette storage fs id, required
             namer: namer.upload_file # specify a file namer service id for this entity, null default
             directory_namer: directory_namer.upload_file # specify a directory namer service id for this entity, null default
             delete_on_remove: true # determines whether to delete file upon removal of entity

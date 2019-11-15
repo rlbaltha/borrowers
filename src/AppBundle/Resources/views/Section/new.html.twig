@@ -1,0 +1,14 @@
+
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block content %}
+
+<div class="col-sm-10 well">
+    <form action="{{ path('section_create', { 'issue_id': issue_id }) }}" method="post" novalidate="novalidate">
+    {{ form_widget(form) }}
+    <div>
+        <button class="btn" type="submit">Create</button>
+    </div>
+</form>
+</div>
+{% endblock %}

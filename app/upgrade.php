@@ -14,7 +14,7 @@ $output = new ConsoleOutput();
 $skeletonDir = __DIR__.'/../vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/skeleton';
 
 $files = array(
-    __DIR__.'/console' => $skeletonDir.'/app/console',
+    __DIR__ . '/console' => $skeletonDir.'/app/console',
     __DIR__.'/autoload.php' => $skeletonDir.'/app/autoload.php',
 );
 

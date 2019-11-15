@@ -1,0 +1,26 @@
+
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block content %}
+   <div class="col-sm-12 well">
+      <a class="btn btn-primary" href="{{ path('author_new') }}">New</a>
+   </div>
+
+
+<div class="col-sm-10">
+<table class="table">   
+<tbody>
+    {% for entity in entities %}
+    <tr>   
+        <td>{{ entity.lastname }}</td> 
+        <td>{{ entity.firstname }}</td>                      
+        <td>{{ entity.institution }}</td>                  
+        <td><a class="btn btn-info" href="{{ path('author_show', { 'id': entity.id }) }}">Show</a><a class="btn btn-primary" href="{{ path('author_edit', { 'id': entity.id }) }}">Edit</a>
+</td>       
+    </tr>
+    
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock %}

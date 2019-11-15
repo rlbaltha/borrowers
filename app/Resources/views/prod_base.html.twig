@@ -5,7 +5,7 @@
     <title>{% block title %}Borrowers and Lenders:  The Journal of Shakespeare and Appropriation{% endblock %}</title>
     {% block stylesheets %}
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-        <link type="text/css" rel="stylesheet" href="{{ asset('bundles/borrowershome/css/bandl5.css') }}">
+        <link type="text/css" rel="stylesheet" href="{{ asset('bundles/app/css/bandl5.css') }}">
     {% endblock %}
 
     {% block javascripts %}
@@ -29,7 +29,7 @@ $( document ).ready(function() {
 <table cellpadding="0">
     <tr>
         <td class='header' style="padding:0;border:0;margin: 0; border-spacing: 0;height:145px; width:800px;  background: url({{ asset
-        ('bundles/borrowershome/img/01-header-book-d2.jpg') }});background-repeat: no-repeat">
+        ('bundles/app/img/01-header-book-d2.jpg') }});background-repeat: no-repeat">
             <div style="position:absolute; width: 20%; top: 0px; right:15%;">
                 {# <gcse:search></gcse:search> #}
             </div>
@@ -42,27 +42,27 @@ $( document ).ready(function() {
             <!-- body table -->
             <table cellpadding="0">
                 <tr>
-                    <td class='leftside' style="vertical-align:top;background-image:url({{ asset('bundles/borrowershome/img/02-side-book-d2.jpg') }});background-repeat:repeat-y;">
+                    <td class='leftside' style="vertical-align:top;background-image:url({{ asset('bundles/app/img/02-side-book-d2.jpg') }});background-repeat:repeat-y;">
 
                         <!-- nav bar table-->
                         <table cellpadding="0">
                             <tr>
                                 <td class='nav01' style="width:150px;height:58px" >
-                                    <a href="{{ path('issue_current') }}" ><img src="{{ asset('bundles/borrowershome/img/current_issue_off.jpg') }}" style="border:0;width:150px;height:58px;"/></a>
+                                    <a href="{{ path('issue_current') }}" ><img src="{{ asset('bundles/app/img/current_issue_off.jpg') }}" style="border:0;width:150px;height:58px;"/></a>
                                 </td>
                             </tr>
                             <tr>
                                 <td class='nav02'  style="width:150px;height:54px">
 
-                                    <a href="{{ path('issue_previous') }}" ><img src="{{ asset('bundles/borrowershome/img/previous_issue_off.jpg') }}" border="0" width='150px' height="54px"/></a>
+                                    <a href="{{ path('issue_previous') }}" ><img src="{{ asset('bundles/app/img/previous_issue_off.jpg') }}" border="0" width='150px' height="54px"/></a>
 
-                                    <a href="{{ path('issue_about') }}" ><img src="{{ asset('bundles/borrowershome/img/b5-off-book-d2.jpg') }}" border="0" width='150px' height="36px"/></a>
+                                    <a href="{{ path('issue_about') }}" ><img src="{{ asset('bundles/app/img/b5-off-book-d2.jpg') }}" border="0" width='150px' height="36px"/></a>
                                 </td>
                             </tr>
                             <tr>
                                 <td class='nav03'  style="width:150px;height:36px">
 
-                                    <a href="{{ path('issue_archive') }}" ><img src="{{ asset('bundles/borrowershome/img/archive-off.jpg') }}" border="0" width='150px' height="36px"/></a>
+                                    <a href="{{ path('issue_archive') }}" ><img src="{{ asset('bundles/app/img/archive-off.jpg') }}" border="0" width='150px' height="36px"/></a>
 
                                 </td>
                             </tr>
@@ -78,11 +78,11 @@ $( document ).ready(function() {
 
                     </td>
 
-                    <td class='rightside' style="width:330px;background-image:url({{ asset('bundles/borrowershome/img/03-rside-book-d2.jpg') }});background-repeat:repeat-y;"></td>
+                    <td class='rightside' style="width:330px;background-image:url({{ asset('bundles/app/img/03-rside-book-d2.jpg') }});background-repeat:repeat-y;"></td>
                 </tr>
-                <tr><td class='leftside' style="vertical-align:top;background-image:url({{ asset('bundles/borrowershome/img/02-side-book-d2.jpg') }});background-repeat:repeat-y;">
+                <tr><td class='leftside' style="vertical-align:top;background-image:url({{ asset('bundles/app/img/02-side-book-d2.jpg') }});background-repeat:repeat-y;">
                     <td class='textarea' style="width: 800px;text-align: center">&#169; Borrowers and Lenders 2005-{{ "now"|date("Y") }}</td>
-                    <td class='rightside' style="width:330px;background-image:url({{ asset('bundles/borrowershome/img/03-rside-book-d2.jpg') }});background-repeat:repeat-y;"></td>
+                    <td class='rightside' style="width:330px;background-image:url({{ asset('bundles/app/img/03-rside-book-d2.jpg') }});background-repeat:repeat-y;"></td>
 
                 </tr>
             </table>
@@ -93,7 +93,7 @@ $( document ).ready(function() {
 
     <!--footer row-->
     <tr>
-        <td class='footer' style="height:180px;background-image:url({{ asset('bundles/borrowershome/img/06-footer-book-d2.jpg') }});background-repeat:no-repeat;"></td>
+        <td class='footer' style="height:180px;background-image:url({{ asset('bundles/app/img/06-footer-book-d2.jpg') }});background-repeat:no-repeat;"></td>
     </tr>
 </table>
 

@@ -1,0 +1,26 @@
+
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block content %}
+   <div class="col-sm-12 well">
+      <a class="btn btn-primary" href="{{ path('issue_new') }}">New</a>
+   </div>
+
+
+<div class="col-sm-10">
+<table class="table">  
+<tbody>
+    {% for issue in issues %}
+    <tr>              
+        <td>{{ issue.issue }}</td>        
+        <td>{{ issue.title |raw }}</td>    
+        <td>{% if issue.display == 0 %}Development{% elseif issue.display == 1 %}Archive{% elseif issue.display == 2 %}Previous{% else %}Current{% endif %}</td> 
+        <td><a class="btn btn-info" href="{{ path('issue_show', { 'id': issue.id }) }}">show</a><a class="btn btn-primary" href="{{ path('issue_edit', { 'id': issue.id }) }}">edit</a>
+</td>       
+    </tr>
+    
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock %}
