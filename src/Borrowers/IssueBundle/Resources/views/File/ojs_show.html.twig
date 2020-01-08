@@ -10,16 +10,88 @@
     <!-- Bootstrap CSS -->
     {% block stylesheets %}
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-        <link type="text/css" rel="stylesheet" href="https://ojs01.galib.uga.edu/public/journals/4/styleSheet.css">
+{#        <link type="text/css" rel="stylesheet" href="https://ojs01.galib.uga.edu/public/journals/4/styleSheet.css">#}
     {% endblock %}
     <style>
-        body {font-family: 'Roboto Slab', serif;}
-        p{margin-bottom: 2rem}
-        h1.essaytitle {text-align: center; font-weight: bold; margin-top: 5rem}
-        p.abstract {text-align: justify; }
-        p.epigraph {text-align: justify; }
-        p.title {text-align: center; font-weight: bold; font-variant: small-caps;}
-        p.nav a {color:black; padding:2rem;}
+        body {margin: 0px; background-color: #FFFFFF; display: block; text-align:justify }
+        .main-content {font-family: Garamond, Times New Roman, Serif; font-size:12pt; color: #333333; line-height: 1.3; }
+        h1 {display: block; text-align: center; margin-bottom: 2em; font-size:12pt;}
+        h3 {display: block; text-align: center; margin-bottom: 2em}
+        table {border-spacing: 0;}
+        span.header {font-weight:bold}
+        span.blockquote {display: block; margin: 0px 30px 0px 30px;  background-color: transparent; text-align: justify;}
+        p.essaytitle {line-height: 2; background-color: transparent; text-align: center; font-family: Garamond, Times New Roman, Serif ; font-size: 18pt; font-weight: bold }
+        p.abstract {display: block; margin: 0px 30px 0px 30px;  background-color: transparent; text-align: justify; font-size:11pt; }
+        p.epigraph {display: block; margin: 0px 30px 0px 30px;  background-color: transparent; text-align: justify; font-size:11pt; }
+        p.title { background-color: transparent; text-align: center; font-size:14pt; font-weight: bold; font-variant: small-caps;}
+        p.nav { background-color: transparent; text-align: center; font-variant: small-caps;}
+        .bodycell {
+            background-color: #CCCC99;
+            font-size: 10pt;
+            vertical-align: top;
+            padding: 10px;
+        }
+        pre {margin: 0px 00px 20px 30px;}
+        p.footer {display: block;  margin-right: 20px; text-align:center;}
+        p.header { background-color: transparent; font-size:12pt;}
+        p.notetext {display: block; margin: 0px 05px 0px 0px;  background-color: transparent; color: black;  text-decoration:none; text-align:justify}
+        emphasis {font-style: italic}
+        .italics {font-style: italic; }
+        .underline {text-decoration: underline}
+        em {font-style: italic}
+        p.wc {margin-left:15px; text-indent:-15px;  }
+        span.heading {font-weight: bold; color: black; font-size:12pt;}
+        table.quote {display: block; margin: 10px 0px 10px 30px;  background-color: transparent; color: black;  text-decoration:none; text-align:justify}
+        div.quote {display: block; margin: 10px 0px 10px 30px;  background-color: transparent; color: black;  text-decoration:none; text-align:justify}
+        table.verse {display: block; margin: 10px 0px 10px 60px;  background-color: transparent; color: black;  text-decoration:none; text-align:justify}
+        table.note {display: block; margin: 0px 0px 0px 0px;  background-color: transparent; font-size:11pt; color: black;  text-decoration:none; text-align:justify}
+        table.poem {margin: 0px 0px 0px 30px;  background-color: transparent; color: black}
+        p.line {display: block; margin: 0px 0px 0px 0px; background-color: transparent; color: black;  text-decoration:none; text-align:justify }
+        h4 {display: block; text-align: left; margin-bottom: 2em; text-transform: uppercase }
+        a:link {  text-decoration:none; }
+        a:visited {   text-decoration:none; }
+        a:hover { color: blue;  text-decoration:none; }
+        p.toc1 {display: block; line-height: 1.0; margin-right: 20px; font-size:20pt; text-align:center; font-weight:bold; letter-spacing:0.3em}
+        p.toc2 {display: block; line-height: 1.0; margin-right: 20px; text-align:center; letter-spacing:0.3em}
+        p.toc3 {display: block; line-height: 1.0; margin-right: 20px; text-align:center; font-variant: small-caps; letter-spacing:0.3em}
+        p.toc4 {display: block; line-height: 1.0; margin-right: 20px; font-size:16pt; text-align:center; font-weight:bold; letter-spacing:0.3em}
+        .submitLink {
+            font-size:12pt;
+            color: black;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            cursor: hand;
+        }
+        h3.about {font-family: Arial; color: #999966; display: block; text-align: left; font-size:14pt; font-weight: bold; margin-top: 20px;margin-bottom: 20px;}
+        h4.about {font-family: Arial; color: #999966; display: block; text-align: center; font-size:14pt;margin-top: 20px;margin-bottom: 20px;}
+        h5.about {font-family: Arial; color: #FFFFFF; display: block; text-align: left; font-size:12pt;margin-top: 20px;margin-bottom: 20px;}
+        td.author {width: 150px;}
+        .playButton {
+            background-color: rgb(20,20,20);
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.25em;
+            opacity: .8;
+            filter: alpha(opacity=80);
+            -moz-border-radius: 1em;
+            -webkit-border-radius: 1em;
+            position: relative;
+            top: 50%;
+            zoom: 100%;
+            padding: .5em 1em;
+            color: white;
+        }
+        .playBackground {
+            background-color: rgb(0,0,0);
+            opacity: 0.0;
+            filter: alpha(opacity=0);
+            position: absolute;
+            top: 0px; left: 0px;
+        }
+        a.about {
+            font-family: Arial; color: #FFFFFF;  font-size:12pt;
+        }
     </style>
 </head>
 <body>
