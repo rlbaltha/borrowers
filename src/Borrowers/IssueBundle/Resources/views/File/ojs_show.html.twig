@@ -9,8 +9,7 @@
 
     <!-- Bootstrap CSS -->
     {% block stylesheets %}
-        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-{#        <link type="text/css" rel="stylesheet" href="https://ojs01.galib.uga.edu/public/journals/4/styleSheet.css">#}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     {% endblock %}
     <style>
         body {margin: 0px; background-color: #FFFFFF; display: block; text-align:justify }
@@ -25,6 +24,7 @@
         p.epigraph {display: block; margin: 0px 30px 0px 30px;  background-color: transparent; text-align: justify; font-size:11pt; }
         p.title { background-color: transparent; text-align: center; font-size:14pt; font-weight: bold; font-variant: small-caps;}
         p.nav { background-color: transparent; text-align: center; font-variant: small-caps;}
+        p.nav a {margin-right: 1em}
         .bodycell {
             background-color: #CCCC99;
             font-size: 10pt;
@@ -89,8 +89,18 @@
             position: absolute;
             top: 0px; left: 0px;
         }
-        a.about {
-            font-family: Arial; color: #FFFFFF;  font-size:12pt;
+        a {
+            color: #000;
+        }
+        input {background-color: rgba(128, 128, 128, 0.2);
+            border-radius: 4px;
+            border: 1px solid #000;
+            color: black;
+            padding: 5px 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-family: Garamond, Times New Roman, Serif;
         }
     </style>
 </head>
@@ -111,7 +121,7 @@
             </div>
 
         {% block javascripts %}
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
             <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
