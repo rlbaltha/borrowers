@@ -3,7 +3,7 @@
 namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -77,7 +77,6 @@ class AuthorController extends Controller
      * Creates a new Author entity.
      *
      * @Route("/create", name="author_create")
-     * @Method("post")
      * @Template("AppBundle:Author:new.html.twig")
      */
     public function createAction(Request $request)
@@ -131,7 +130,6 @@ class AuthorController extends Controller
      * Edits an existing Author entity.
      *
      * @Route("/{id}/update", name="author_update")
-     * @Method("post")
      * @Template("AppBundle:Author:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
@@ -168,7 +166,6 @@ class AuthorController extends Controller
      * Deletes a Author entity.
      *
      * @Route("/{id}/delete", name="author_delete")
-     * @Method("post")
      */
     public function deleteAction(Request $request, $id)
     {
@@ -194,7 +191,7 @@ class AuthorController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder(array('id' => $id))
-            ->add('id', 'hidden')
+            ->add('id', HiddenType::class)
             ->getForm()
         ;
     }

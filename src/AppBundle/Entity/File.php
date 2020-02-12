@@ -5,12 +5,14 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * AppBundle\Entity\File
  *
  * @ORM\Table(name="file")
  * @ORM\Entity(repositoryClass="AppBundle\Entity\FileRepository")
+ * @Vich\Uploadable
  */
 class File
 {
@@ -20,6 +22,7 @@ class File
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Vich\UploadableField(mapping="property_file", fileNameProperty="path")
      */
     private $id;
     
@@ -362,10 +365,10 @@ class File
     /**
      * Set user
      *
-     * @param Borrowers\UserBundle\Entity\User $user
+     * @param AppBundle\Entity\User $user
      * @return File
      */
-    public function setUser(\Borrowers\UserBundle\Entity\User $user = null)
+    public function setUser(\AppBundle\Entity\User $user = null)
     {
         $this->user = $user;
         return $this;
@@ -374,7 +377,7 @@ class File
     /**
      * Get user
      *
-     * @return Borrowers\UserBundle\Entity\User 
+     * @return AppBundle\Entity\User
      */
     public function getUser()
     {

@@ -2,8 +2,9 @@
 
 namespace AppBundle\Controller;
 
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Response;
@@ -131,15 +132,13 @@ class FileController extends Controller
      * Creates a new File entity.
      *
      * @Route("/file/create", name="file_create")
-     * @Method("post")
      * @Template("AppBundle:File:new.html.twig")
      */
-    public function createAction()
+    public function createAction(Request $request)
     {
         $entity  = new File();
-        $request = $this->getRequest();
         $form    = $this->createForm(FileType::class, $entity);
-        $form->submit($request);
+        $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -186,10 +185,9 @@ class FileController extends Controller
      * Edits an existing File entity.
      *
      * @Route("/file/{id}/update", name="file_update")
-     * @Method("post")
      * @Template("AppBundle:File:edit.html.twig")
      */
-    public function updateAction($id)
+    public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -203,9 +201,7 @@ class FileController extends Controller
         $editForm   = $this->createForm(FileType::class, $entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        $request = $this->getRequest();
-
-        $editForm->submit($request);
+        $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
             $em->persist($entity);
@@ -225,12 +221,10 @@ class FileController extends Controller
      * Deletes a File entity.
      *
      * @Route("/file/{id}/delete", name="file_delete")
-     * @Method("post")
      */
-    public function deleteAction($id)
+    public function deleteAction(Request $request, $id)
     {
         $form = $this->createDeleteForm($id);
-        $request = $this->getRequest();
 
         $form->submit($request);
 
@@ -253,23 +247,11 @@ class FileController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder(array('id' => $id))
-            ->add('id', 'hidden')
+            ->add('id', HiddenType::class)
             ->getForm()
         ;
     }
-    
-    /**
-     * Displays a form to create a new File entity.
-     *
-     * @Route("/cocoon/borrowers/request ", name="reroute")
-     */
-    public function rerouteAction()
-    {
-       $request = $this->getRequest();
-       $id = $request->query->get('id');
-       return $this->redirect($this->generateUrl('file_display', array('id' => $id)));
-    }
-    
+
     
     /**
      * Finds and displays an XSL transformation of a File entity.
@@ -345,10 +327,9 @@ class FileController extends Controller
      *
      * @Route("/file/{issueid}/{sectionid}/upload", name="file_upload")
      */  
-    public function uploadAction($issueid, $sectionid)
+    public function uploadAction(Request $request, $issueid, $sectionid)
     {
-        $securityContext = $this->get('security.context');
-        $user = $securityContext->getToken()->getUser();
+        $user = $this->getUser();
         
         $em = $this->getDoctrine()->getManager();
         $issue = $em->getRepository('AppBundle:Issue')->find($issueid);
@@ -360,14 +341,12 @@ class FileController extends Controller
         $file->setUser($user);
         $file->setFileType(0); 
                 
-        $form = $this->createForm(new UploadType($options), $file);
+        $form = $this->createForm(UploadType::class, $file);
         $section->addFile($file);
 
-        if ($this->getRequest()->getMethod() === 'POST') {
-            $form->submit($this->getRequest());
+        if ($request->getMethod() === 'POST') {
+            $form->handleRequest($request);
             if ($form->isValid()) {
-                $em = $this->getDoctrine()->getManager();
-                $file->upload();
                 $em->persist($file);
                 $em->flush();
     
@@ -375,23 +354,24 @@ class FileController extends Controller
             }
         }
 
-    return array('form' => $form->createView());
+        return $this->render('@App/File/upload.html.twig', array(
+            'form' => $form->createView()
+        ));
 }
 
     /**
      * Uploads a file with a Document entity.
      *
      * @Route("/file/{issueid}/{sectionid}/upload_mm", name="file_upload_mm")
-     * @Template("AppBundle:File:upload.html.twig")
-     */  
-    public function uploadMmAction($issueid, $sectionid)
+     */
+    public function uploadMmAction(Request $request, $issueid, $sectionid)
     {
-        $securityContext = $this->get('security.context');
-        $user = $securityContext->getToken()->getUser();
+        $user = $this->getUser();
         
         $em = $this->getDoctrine()->getManager();
         $issue = $em->getRepository('AppBundle:Issue')->find($issueid);
         $section = $em->getRepository('AppBundle:Section')->find($sectionid);
+        $user = $em->getRepository('AppBundle:User')->findOneByUsername($user);
         $options = array('issueid' => $issueid);
         $file = new File();
         $file->setIssue($issue);
@@ -399,22 +379,22 @@ class FileController extends Controller
         $file->setUser($user);
         $file->setFileType(1);        
                 
-        $form = $this->createForm(new UploadMmType($options), $file);
+        $form = $this->createForm(UploadMmType::class, $file);
         $section->addFile($file);
 
-        if ($this->getRequest()->getMethod() === 'POST') {
-            $form->submit($this->getRequest());
+        if ($request->getMethod() === 'POST') {
+            $form->handleRequest($request);
             if ($form->isValid()) {
-                $em = $this->getDoctrine()->getManager();
-                $file->upload();
                 $em->persist($file);
                 $em->flush();
-    
+
                 return $this->redirect($this->generateUrl('issue_show', array('id' => $issueid)));
             }
         }
 
-    return array('form' => $form->createView());
+        return $this->render('@App/File/upload.html.twig', array(
+            'form' => $form->createView()
+        ));
 }
 
 

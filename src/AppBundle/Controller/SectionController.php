@@ -3,12 +3,12 @@
 namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use AppBundle\Entity\Section;
 use AppBundle\Form\SectionType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
 /**
  * Section controller.
@@ -21,7 +21,6 @@ class SectionController extends Controller
      * Lists all Section entities.
      *
      * @Route("/", name="section")
-     * @Template()
      */
     public function indexAction()
     {
@@ -29,14 +28,17 @@ class SectionController extends Controller
 
         $entities = $em->getRepository('AppBundle:Section')->findAll();
 
-        return array('entities' => $entities);
+        return $this->render('@App/Section/index.html.twig', array(
+            'entities' => $entities
+        ));
     }
+
+
 
     /**
      * Finds and displays a Section entity.
      *
      * @Route("/{id}/show", name="section_show")
-     * @Template()
      */
     public function showAction($id)
     {
@@ -50,37 +52,33 @@ class SectionController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return array(
+        return $this->render('@App/Section/show.html.twig', array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        );
+            'delete_form' => $deleteForm->createView(),
+        ));
+
     }
 
     /**
      * Displays a form to create a new Section entity.
      *
      * @Route("/{issue_id}/new", name="section_new")
-     * @Template()
      */
     public function newAction($issue_id)
     {
-
-        
         $entity = new Section();
         $form   = $this->createForm(SectionType::class, $entity);
-
-        return array(
+        return $this->render('@App/Section/new.html.twig', array(
             'issue_id' => $issue_id,
             'entity' => $entity,
             'form'   => $form->createView()
-        );
+        ));
     }
 
     /**
      * Creates a new Section entity.
      *
      * @Route("/{issue_id}/create", name="section_create")
-     * @Method("post")
-     * @Template("AppBundle:Section:new.html.twig")
      */
     public function createAction(Request $request, $issue_id)
     {
@@ -101,10 +99,10 @@ class SectionController extends Controller
             
         }
 
-        return array(
+        return $this->render('@App/Section/new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView()
-        );
+        ));
     }
 
     /**
@@ -126,19 +124,17 @@ class SectionController extends Controller
         $editForm = $this->createForm(SectionType::class, $entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return array(
+        return $this->render('@App/Section/edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        );
+        ));
     }
 
     /**
      * Edits an existing Section entity.
      *
      * @Route("/{id}/update", name="section_update")
-     * @Method("post")
-     * @Template("AppBundle:Section:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
     {
@@ -163,18 +159,17 @@ class SectionController extends Controller
             return $this->redirect($this->generateUrl('issue_show', array('id' => $issue)));
         }
 
-        return array(
+        return $this->render('@App/Section/edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        );
+        ));
     }
 
     /**
      * Deletes a Section entity.
      *
      * @Route("/{id}/delete", name="section_delete")
-     * @Method("post")
      */
     public function deleteAction(Request $request, $id)
     {
@@ -201,7 +196,7 @@ class SectionController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder(array('id' => $id))
-            ->add('id', 'hidden')
+            ->add('id', HiddenType::class)
             ->getForm()
         ;
     }

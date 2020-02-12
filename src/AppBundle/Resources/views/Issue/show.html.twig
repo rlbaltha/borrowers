@@ -37,17 +37,17 @@
                 <table id="section{{section.id}}" class="table col-sm-10">
                     <tbody>
                     <tr><td colspan="3"><h5>XML</h5></td></tr>
-                    {% for file in section.files if file.fileType==0 %}
-                        <tr>
-                            <td><a class="" href="{{ path('file_show', { 'id': file.id }) }}">{{ file.title |raw }}</a> ({% if file.display == 0 %}Development{% elseif file.display == 1 %}Production{% endif %})</td>
-                            <td>{% for author in file.authors %}{{ author.firstname | raw }} {{ author.lastname | raw }}  {% endfor %}</td>
-                            <td><a class="btn btn-info" href="{{ path('file_pdf', { 'id': file.id }) }}">PDF</a>
-                                <a class="btn btn-primary" href="{{ path('file_edit', { 'id': file.id }) }}">Edit</a>
-                                <a class="btn btn-primary" href="{{ path('file_download', { 'id': file.id }) }}">Download XML</a>
-                                <a class="btn btn-primary" href="{{ path('file_transform', { 'id': file.id }) }}">Download HTML</a>
-                            </td>
-                        </tr>
-                    {% endfor %}
+{#                    {% for file in section.files if file.fileType==0 %}#}
+{#                        <tr>#}
+{#                            <td><a class="" href="{{ path('file_show', { 'id': file.id }) }}">{{ file.title |raw }}</a> ({% if file.display == 0 %}Development{% elseif file.display == 1 %}Production{% endif %})</td>#}
+{#                            <td>{% for author in file.authors %}{{ author.firstname | raw }} {{ author.lastname | raw }}  {% endfor %}</td>#}
+{#                            <td><a class="btn btn-info" href="{{ path('file_pdf', { 'id': file.id }) }}">PDF</a>#}
+{#                                <a class="btn btn-primary" href="{{ path('file_edit', { 'id': file.id }) }}">Edit</a>#}
+{#                                <a class="btn btn-primary" href="{{ path('file_download', { 'id': file.id }) }}">Download XML</a>#}
+{#                                <a class="btn btn-primary" href="{{ path('file_transform', { 'id': file.id }) }}">Download HTML</a>#}
+{#                            </td>#}
+{#                        </tr>#}
+{#                    {% endfor %}#}
                     <tr><td colspan="3"><h5>Media</h5></td></tr>
                     {% for file in section.files if file.fileType==1 %}
                         {%  set filename = file.title ~'.'~ file.ext %}
