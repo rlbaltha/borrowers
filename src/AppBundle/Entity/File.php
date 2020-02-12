@@ -16,19 +16,19 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  */
 class File
 {
+
     /**
      * @var integer $id
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @Vich\UploadableField(mapping="property_file", fileNameProperty="path")
      */
     private $id;
     
      /**
      * @Assert\File(maxSize="100M")
-     *
+     * @Vich\UploadableField(mapping="property_file", fileNameProperty="path")
      * @var File $file
      */
      protected $file;   

@@ -13,24 +13,20 @@
         "files": [ "vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php" ]
     },
     "require": {
-        "php": ">=7.1",
-        "doctrine/doctrine-bundle": "^1.6",
-        "doctrine/orm": "^2.5",
-        "incenteev/composer-parameter-handler": "^2.0",
-        "sensio/distribution-bundle": "^5.0.19",
-        "sensio/framework-extra-bundle": "^5.0.0",
-        "symfony/monolog-bundle": "^3.1.0",
-        "symfony/polyfill-apcu": "^1.0",
-        "symfony/swiftmailer-bundle": "^2.6.4",
+        "php": ">=7.2",
         "symfony/symfony": "3.4.*",
-        "twig/twig": "^1.0||^2.0",
-        "friendsofsymfony/user-bundle": "~2.0@dev",
-        "stof/doctrine-extensions-bundle": "dev-master",
-        "besimple/sso-auth-bundle": "@dev",
+        "doctrine/orm": "^2.6.3",
+        "doctrine/doctrine-bundle": "~1.10.2",
+        "symfony/swiftmailer-bundle": "~3.2.5",
+        "symfony/monolog-bundle": "~3.3",
+        "sensio/framework-extra-bundle": "^5.2.4",
+        "incenteev/composer-parameter-handler": "~2.1",
+        "friendsofsymfony/user-bundle": "~2.1",
+        "stof/doctrine-extensions-bundle": "~1.3",
         "vich/uploader-bundle": "~1.9",
         "dompdf/dompdf": "^0.8.3",
         "friendsofsymfony/ckeditor-bundle": "^2.1",
-        "goetas/apache-fop": "dev-master"
+        "sensio/distribution-bundle": "^5.0"
     },
     "require-dev": {
     },
@@ -52,7 +48,7 @@
     },
     "config": {
         "platform": {
-            "php": "7.1"
+            "php": "7.2"
         },
         "sort-packages": true
     },

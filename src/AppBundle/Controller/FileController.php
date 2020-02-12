@@ -330,17 +330,17 @@ class FileController extends Controller
     public function uploadAction(Request $request, $issueid, $sectionid)
     {
         $user = $this->getUser();
-        
+
         $em = $this->getDoctrine()->getManager();
         $issue = $em->getRepository('AppBundle:Issue')->find($issueid);
         $section = $em->getRepository('AppBundle:Section')->find($sectionid);
-        $subdir = $issue->getIssue();
         $options = array('issueid' => $issueid);
         $file = new File();
         $file->setIssue($issue);
+        $file->setSortorder(1);
         $file->setUser($user);
-        $file->setFileType(0); 
-                
+        $file->setFileType(0);
+
         $form = $this->createForm(UploadType::class, $file);
         $section->addFile($file);
 
@@ -349,7 +349,7 @@ class FileController extends Controller
             if ($form->isValid()) {
                 $em->persist($file);
                 $em->flush();
-    
+
                 return $this->redirect($this->generateUrl('issue_show', array('id' => $issueid)));
             }
         }
@@ -371,7 +371,6 @@ class FileController extends Controller
         $em = $this->getDoctrine()->getManager();
         $issue = $em->getRepository('AppBundle:Issue')->find($issueid);
         $section = $em->getRepository('AppBundle:Section')->find($sectionid);
-        $user = $em->getRepository('AppBundle:User')->findOneByUsername($user);
         $options = array('issueid' => $issueid);
         $file = new File();
         $file->setIssue($issue);
