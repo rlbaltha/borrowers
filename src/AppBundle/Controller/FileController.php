@@ -122,10 +122,10 @@ class FileController extends Controller
         $entity = new File();
         $form   = $this->createForm(FileType::class, $entity);
 
-        return array(
+        return $this->render('@App/File/new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView()
-        );
+        ));
     }
 
     /**
@@ -149,10 +149,10 @@ class FileController extends Controller
             
         }
 
-        return array(
+        return $this->render('@App/File/new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView()
-        );
+        ));
     }
 
     /**
@@ -174,11 +174,11 @@ class FileController extends Controller
         $editForm = $this->createForm(FileType::class, $entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return array(
+        return $this->render('@App/File/edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        );
+        ));
     }
 
     /**
@@ -210,11 +210,12 @@ class FileController extends Controller
             return $this->redirect($this->generateUrl('issue_show', array('id' => $issue)));
         }
 
-        return array(
+        return $this->render('@App/File/edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        );
+        ));
+
     }
 
     /**

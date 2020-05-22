@@ -19,7 +19,7 @@ class FileType extends AbstractType
             ->add('path',HiddenType::class)
             ->add('title',TextType::class, array('attr' => array('class' => 'text form-control'),))
             ->add('sortorder',TextType::class, array('attr' => array('class' => 'text form-control'),))
-            ->add('display', ChoiceType::class, array('choices'   => array('0' => 'Development', '1' => 'Production'), 'required'  => true,'attr' => array('class' => 'form-control'),))
+            ->add('display', ChoiceType::class, array('choices'   => array('Development' => '0', 'Production' => '1'), 'required'  => true,'attr' => array('class' => 'form-control'),))
             ->add('authors',EntityType::class, array('class'=> 'AppBundle\Entity\Author', 'choice_label'=>'name', 'expanded'=>false,'multiple'=>true,'required' => false,
                  'query_builder' =>
                  function(\AppBundle\Entity\AuthorRepository $er) {

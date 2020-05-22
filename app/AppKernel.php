@@ -16,6 +16,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Vich\UploaderBundle\VichUploaderBundle(),
+            new Goetas\ApacheFopBundle\GoetasApacheFopBundle(),
             new AppBundle\AppBundle(),
         ];
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

@@ -21,7 +21,6 @@ class AuthorController extends Controller
      * Lists all Author entities.
      *
      * @Route("/", name="author")
-     * @Template("AppBundle:Author:index.html.twig")
      */
     public function indexAction()
     {       
@@ -30,14 +29,15 @@ class AuthorController extends Controller
 
         $entities = $em->getRepository('AppBundle:Author')->listAuthors();
 
-        return array('entities' => $entities);
+        return $this->render('@App/Author/index.html.twig', array(
+            'entities' => $entities
+        ));
     }
 
     /**
      * Finds and displays a Author entity.
      *
      * @Route("/{id}/show", name="author_show")
-     * @Template("AppBundle:Author:show.html.twig")
      */
     public function showAction($id)
     {
@@ -51,33 +51,34 @@ class AuthorController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return array(
+        return $this->render('@App/Author/show.html.twig', array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        );
+            'delete_form' => $deleteForm->createView(),
+        ));
     }
+
+
 
     /**
      * Displays a form to create a new Author entity.
      *
      * @Route("/new", name="author_new")
-     * @Template("AppBundle:Author:new.html.twig")
      */
     public function newAction()
     {
         $entity = new Author();
         $form   = $this->createForm(AuthorType::class, $entity);
 
-        return array(
+        return $this->render('@App/Author/new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView()
-        );
+        ));
     }
 
     /**
      * Creates a new Author entity.
      *
      * @Route("/create", name="author_create")
-     * @Template("AppBundle:Author:new.html.twig")
      */
     public function createAction(Request $request)
     {
@@ -94,17 +95,16 @@ class AuthorController extends Controller
             
         }
 
-        return array(
+        return $this->render('@App/Author/new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView()
-        );
+        ));
     }
 
     /**
      * Displays a form to edit an existing Author entity.
      *
      * @Route("/{id}/edit", name="author_edit")
-     * @Template("AppBundle:Author:edit.html.twig")
      */
     public function editAction($id)
     {
@@ -119,11 +119,11 @@ class AuthorController extends Controller
         $editForm = $this->createForm(AuthorType::class, $entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return array(
+        return $this->render('@App/Author/edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        );
+        ));
     }
 
     /**
@@ -155,11 +155,11 @@ class AuthorController extends Controller
             return $this->redirect($this->generateUrl('author_show', array('id' => $id)));
         }
 
-        return array(
+        return $this->render('@App/Author/edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        );
+        ));
     }
 
     /**
