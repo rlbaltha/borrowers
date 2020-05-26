@@ -31,7 +31,9 @@ class FileController extends Controller
 
         $entities = $em->getRepository('AppBundle:File')->findRecentFiles();
 
-        return array('entities' => $entities);
+        return $this->render('@App/File/index.html.twig', array(
+            'entities' => $entities
+        ));
     }
 
     /**
@@ -65,9 +67,10 @@ class FileController extends Controller
             trigger_error('XSL transformation failed.', E_USER_ERROR);
         }
 
-        return array(
+        return $this->render('@App/File/show.html.twig', array(
             'html'      => $html,
-      );
+        ));
+
     }
 
     /**
