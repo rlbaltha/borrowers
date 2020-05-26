@@ -47,7 +47,8 @@ class FileController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $file = $em->getRepository('AppBundle:File')->find($id);
-        $path = __DIR__.'/../../../../borrowers_docs/uploads/files/'.$file->getIssue()->getIssue().'/'.$file->getPath();
+        $path = __DIR__.'/../../../../borrowers_docs/'.$file->getPath();
+//        $path = __DIR__.'/../../../../borrowers_docs/uploads/files/'.$file->getIssue()->getIssue().'/'.$file->getPath();
 
         if (!$file) {
             throw $this->createNotFoundException('Unable to find File entity.');
@@ -84,7 +85,8 @@ class FileController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $file = $em->getRepository('AppBundle:File')->find($id);
-        $path = __DIR__.'/../../../../borrowers_docs/uploads/files/'.$file->getIssue()->getIssue().'/'.$file->getPath();
+        $path = __DIR__.'/../../../../borrowers_docs/'.$file->getPath();
+//        $path = __DIR__.'/../../../../borrowers_docs/uploads/files/'.$file->getIssue()->getIssue().'/'.$file->getPath();
         $name = $file->getId().'.html';
 
         if (!$file) {
@@ -267,7 +269,8 @@ class FileController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $file = $em->getRepository('AppBundle:File')->find($id);
-        $path = __DIR__.'/../../../../borrowers_docs/uploads/files/'.$file->getIssue()->getIssue().'/'.$file->getPath();
+        $path = __DIR__.'/../../../../borrowers_docs/'.$file->getPath();
+//        $path = __DIR__.'/../../../../borrowers_docs/uploads/files/'.$file->getIssue()->getIssue().'/'.$file->getPath();
 
         if (!$file) {
             throw $this->createNotFoundException('Unable to find File entity.');
@@ -306,7 +309,8 @@ class FileController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $file = $em->getRepository('AppBundle:File')->find($id);
-        $xmlpath = __DIR__.'/../../../../borrowers_docs/uploads/files/'.$file->getIssue()->getIssue().'/'.$file->getPath();
+//        $xmlpath = __DIR__.'/../../../../borrowers_docs/uploads/files/'.$file->getIssue()->getIssue().'/'.$file->getPath();
+        $xmlpath = __DIR__.'/../../../../borrowers_docs/'.$file->getPath();
         $xslpath = __DIR__.'/../../../../src/Borrowers/App/Resources/public/xsl/pdf.xsl';
         $pdfpath = __DIR__.'/../../../../borrowers_docs/pdftemp.pdf';
         
@@ -413,7 +417,8 @@ class FileController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $file = $em->getRepository('AppBundle:File')->find($id);
-        $path = __DIR__.'/../../../borrowers_docs/uploads/files/'.$file->getIssue()->getIssue().'/'.$file->getPath();
+        $path = __DIR__.'/../../../../borrowers_docs/'.$file->getPath();
+//        $path = __DIR__.'/../../../borrowers_docs/uploads/files/'.$file->getIssue()->getIssue().'/'.$file->getPath();
         $ext = $file->getExt();
         $filename = $filename = 'attachment; filename="'.$id.'.'.$ext.'"';;
              
