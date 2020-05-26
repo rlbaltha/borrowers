@@ -276,7 +276,7 @@ class FileController extends Controller
                 $xp = new \XsltProcessor();
                 
                 $xsl = new \DomDocument;
-                $xsl->load('bundles/borrowershome/xsl/main.xsl');             
+                $xsl->load('bundles/app/xsl/main.xsl');
                 $xp->importStylesheet($xsl);
                 
                 $xml_doc = new \DomDocument;
@@ -307,7 +307,7 @@ class FileController extends Controller
 
         $file = $em->getRepository('AppBundle:File')->find($id);
         $xmlpath = __DIR__.'/../../../../borrowers_docs/uploads/files/'.$file->getIssue()->getIssue().'/'.$file->getPath();
-        $xslpath = __DIR__.'/../../../../src/Borrowers/HomeBundle/Resources/public/xsl/pdf.xsl';
+        $xslpath = __DIR__.'/../../../../src/Borrowers/App/Resources/public/xsl/pdf.xsl';
         $pdfpath = __DIR__.'/../../../../borrowers_docs/pdftemp.pdf';
         
         $result = $this->get("goetas.fop")->convertToPdf($xmlpath, $pdfpath, $xslpath);
