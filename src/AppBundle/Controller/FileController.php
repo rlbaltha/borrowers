@@ -227,7 +227,7 @@ class FileController extends Controller
     {
         $form = $this->createDeleteForm($id);
 
-        $form->submit($request);
+        $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -410,7 +410,7 @@ class FileController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $file = $em->getRepository('AppBundle:File')->find($id);
-        $path = __DIR__.'/../../../../borrowers_docs/'.$file->getPath();
+        $path = __DIR__.'/../../../borrowers_docs/uploads/files/'.$file->getIssue()->getIssue().'/'.$file->getPath();
         $ext = $file->getExt();
         $filename = $filename = 'attachment; filename="'.$id.'.'.$ext.'"';;
              
