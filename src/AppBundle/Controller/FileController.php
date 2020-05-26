@@ -39,7 +39,7 @@ class FileController extends Controller
     /**
      * Finds and displays a File entity.
      *
-     * @Route("/{id}/show", name="file_show", schemes="http")
+     * @Route("/{id}/show", name="file_show")
      * @Template("AppBundle:File:show.html.twig")
      */
     public function showAction($id)
@@ -47,7 +47,7 @@ class FileController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $file = $em->getRepository('AppBundle:File')->find($id);
-        $path = __DIR__.'/../../../borrowers_docs/uploads/files/'.$file->getIssue()->getIssue().'/'.$file->getPath();
+        $path = __DIR__.'/../../../../borrowers_docs/uploads/files/'.$file->getIssue()->getIssue().'/'.$file->getPath();
 
         if (!$file) {
             throw $this->createNotFoundException('Unable to find File entity.');
@@ -84,7 +84,7 @@ class FileController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $file = $em->getRepository('AppBundle:File')->find($id);
-        $path = __DIR__.'/../../../borrowers_docs/uploads/files/'.$file->getIssue()->getIssue().'/'.$file->getPath();
+        $path = __DIR__.'/../../../../borrowers_docs/uploads/files/'.$file->getIssue()->getIssue().'/'.$file->getPath();
         $name = $file->getId().'.html';
 
         if (!$file) {
@@ -267,7 +267,7 @@ class FileController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $file = $em->getRepository('AppBundle:File')->find($id);
-        $path = __DIR__.'/../../../borrowers_docs/uploads/files/'.$file->getIssue()->getIssue().'/'.$file->getPath();
+        $path = __DIR__.'/../../../../borrowers_docs/uploads/files/'.$file->getIssue()->getIssue().'/'.$file->getPath();
 
         if (!$file) {
             throw $this->createNotFoundException('Unable to find File entity.');
@@ -306,7 +306,7 @@ class FileController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $file = $em->getRepository('AppBundle:File')->find($id);
-        $xmlpath = __DIR__.'/../../../borrowers_docs/uploads/files/'.$file->getIssue()->getIssue().'/'.$file->getPath();
+        $xmlpath = __DIR__.'/../../../../borrowers_docs/uploads/files/'.$file->getIssue()->getIssue().'/'.$file->getPath();
         $xslpath = __DIR__.'/../../../../src/Borrowers/HomeBundle/Resources/public/xsl/pdf.xsl';
         $pdfpath = __DIR__.'/../../../../borrowers_docs/pdftemp.pdf';
         
