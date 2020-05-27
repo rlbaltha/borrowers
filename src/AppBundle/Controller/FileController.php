@@ -40,7 +40,6 @@ class FileController extends Controller
      * Finds and displays a File entity.
      *
      * @Route("/{id}/show", name="file_show")
-     * @Template("AppBundle:File:show.html.twig")
      */
     public function showAction($id)
     {
@@ -48,7 +47,7 @@ class FileController extends Controller
 
         $file = $em->getRepository('AppBundle:File')->find($id);
         $path = __DIR__.'/../../../../borrowers_docs/'.$file->getPath();
-//        $path = __DIR__.'/../../../../borrowers_docs/uploads/files/'.$file->getIssue()->getIssue().'/'.$file->getPath();
+        $path = __DIR__.'/../../../borrowers_docs/uploads/files/'.$file->getIssue()->getIssue().'/'.$file->getPath();
 
         if (!$file) {
             throw $this->createNotFoundException('Unable to find File entity.');
@@ -69,7 +68,8 @@ class FileController extends Controller
         }
 
         return $this->render('@App/File/show.html.twig', array(
-            'html'      => $html,
+            'html'  => $html,
+            'path' => $path
         ));
 
     }
