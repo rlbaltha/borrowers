@@ -64,7 +64,7 @@ class FileController extends Controller
 
         if ($html = $xp->transformToXML($xml_doc)) {
         } else {
-            trigger_error('XSL transformation failed.', E_USER_ERROR);
+            $html = 'XSL transformation failed.';
         }
 
         return $this->render('@App/File/show.html.twig', array(
