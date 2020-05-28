@@ -89,8 +89,12 @@ class FileController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $file = $em->getRepository('AppBundle:File')->find($id);
-        $path = __DIR__.'/../../../borrowers_docs/'.$file->getPath();
-//        $path = __DIR__.'/../../../../borrowers_docs/uploads/files/'.$file->getIssue()->getIssue().'/'.$file->getPath();
+        if (substr( $file->getPath(), 0, 7 ) === "uploads") {
+            $path = __DIR__.'/../../../borrowers_docs/'.$file->getPath();
+        }
+        else {
+            $path = __DIR__.'/../../../borrowers_docs/uploads/files/'.$file->getIssue()->getIssue().'/'.$file->getPath();
+        }
         $name = $file->getId().'.html';
 
         if (!$file) {
@@ -318,7 +322,13 @@ class FileController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $file = $em->getRepository('AppBundle:File')->find($id);
-        $xmlpath = __DIR__.'/../../../borrowers_docs/'.$file->getPath();
+        if (substr( $file->getPath(), 0, 7 ) === "uploads") {
+            $xmlpath = __DIR__.'/../../../borrowers_docs/'.$file->getPath();
+        }
+        else {
+            $xmlpath = __DIR__.'/../../../borrowers_docs/uploads/files/'.$file->getIssue()->getIssue().'/'.$file->getPath();
+        }
+
         $xslpath = __DIR__.'/../../../src/AppBundle/Resources/public/xsl/pdf.xsl';
         $pdfpath = __DIR__.'/../../../borrowers_docs/pdftemp.pdf';
         
@@ -425,8 +435,12 @@ class FileController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $file = $em->getRepository('AppBundle:File')->find($id);
-        $path = __DIR__.'/../../../borrowers_docs/'.$file->getPath();
-//        $path = __DIR__.'/../../../borrowers_docs/uploads/files/'.$file->getIssue()->getIssue().'/'.$file->getPath();
+        if (substr( $file->getPath(), 0, 7 ) === "uploads") {
+            $path = __DIR__.'/../../../borrowers_docs/'.$file->getPath();
+        }
+        else {
+            $path = __DIR__.'/../../../borrowers_docs/uploads/files/'.$file->getIssue()->getIssue().'/'.$file->getPath();
+        }
         $ext = $file->getExt();
         $filename = $filename = 'attachment; filename="'.$id.'.'.$ext.'"';;
              
@@ -455,7 +469,12 @@ class FileController extends Controller
 
         $file = $em->getRepository('AppBundle:File')->find($id);
         $name = $file->getTitle();
-        $path = __DIR__.'/../../../borrowers_docs/'.$file->getPath();
+        if (substr( $file->getPath(), 0, 7 ) === "uploads") {
+            $path = __DIR__.'/../../../borrowers_docs/'.$file->getPath();
+        }
+        else {
+            $path = __DIR__.'/../../../borrowers_docs/uploads/files/'.$file->getIssue()->getIssue().'/'.$file->getPath();
+        }
         $ext = $file->getExt();
         $filename = $name.'.'.$ext;
 		
