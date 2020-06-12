@@ -46,7 +46,7 @@ class FileController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $file = $em->getRepository('AppBundle:File')->find($id);
-        if (substr( $file->getPath(), 0, 7 ) === "uploads") {
+        if (strpos($file->getPath(), '/') !== false) {
             $path = __DIR__.'/../../../borrowers_docs/'.$file->getPath();
         }
         else {
